@@ -2,13 +2,13 @@
 
 Read these guides to get started with configuring your navigation:
 
-* Navigation elements 
-* First steps
-* Basic navigation parameters
-* Path parameters 
-* Node parameters
-* Dynamic viewUrl 
-* Navigation example
+* [Navigation elements](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#navigation-elements) 
+* [First steps](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#first-steps)
+* [Basic navigation parameters](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#basic-navigation-parameters)
+* [Path parameters](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#path-parameters)
+* [Node parameters](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#node-parameters)
+* [Dynamic viewUrl](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#dynamic-viewurl)
+* [View groups](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#view-groups)
 
 If you are already familiar with the basics, take a look at these guides:
 * Full reference list of navigation parameters 
@@ -30,7 +30,7 @@ There are three main elements to Luigi:
 
 Find the `basicConfiguration.js` file in your luigi-config folder. You can configure the navigation by editing this file. 
 
-You will notice that the file consists of a tree-like structure of **navigation nodes**. The outer elements represent the top navigation, while their children represent the side navigation. The children of the side navigation will take you one level further, to yourwebsite.com/TopNav1/SideNav1, and so on. 
+You will notice that the file consists of a tree-like structure of **navigation nodes**. The outer elements represent the top navigation, while their children represent the side navigation. 
 
 ````javascript 
 navigation: {
@@ -38,17 +38,17 @@ navigation: {
       {
         pathSegment: 'TopNav1',
         label: 'Top Navigation Element One',
-        viewUrl: 'https://my.microfronted.com',
+        viewUrl: 'https://microfronted.com',
         children: [
           {
             pathSegment: 'SideNav1',
             label: 'Side Navigation Element One',
-            viewUrl: 'https://my.microfrontend.com/projects/list.html',
+            viewUrl: 'https://microfrontend.com/projects/list.html',
             children: [
               {
                 category: 'Links'
-                link: '/projects',
-                label: 'This takes you to yourwebsite.com/home/projects',
+                link: '/internalLink',
+                label: 'This takes you to yourwebsite.com/TopNav1/internalLink',
               },
               {
                 category: {label:'Links', icon:'myIcon'},
@@ -65,88 +65,96 @@ navigation: {
       {
         pathSegment: 'TopNav2',
         label: 'Top Navigation Element Two',
-        viewUrl: 'https://my.2ndmicrofronted.com',
+        viewUrl: 'https://2ndmicrofronted.com',
         children: [
           ...
 ````
 
 ## Basic navigation parameters
 
->**NOTE:** This document is only an introduction. For a full list of available parameters, see the [parameter reference](navigation-parameters-reference.md) document.
+>**NOTE:** For a full list of available parameters, see the [parameter reference](navigation-parameters-reference.md) document.
 
 In the "First steps" example, you saw some basic navigation parameters:
 
 ### pathSegment
-The path in the browser URL. If the value of this parameter is 'home', that node will represent the path `yourwebsite.com/home`. The main application path is built from values in the navigation path, joined with the **/** character. You can override this setting by using these parameters instead: 
-* **link** - define a specific path, for example `/projects` and you will be taken to `yourwebsite.com/home/projects`. Note that a valid path must always start from the root node, hence `yourwebsite.com/projects` would return an error. 
-* **externalLink** - takes you to an external webpage. 
+This is the path in the browser URL. The main application path is built from values in the navigation path, joined with the **/** character. For example, if the value of this parameter is `home`, the path will be `yourwebsite.com/home`. You can override this setting by using one of the following instead of **pathSegment**: 
+* **link** - define a specific internal path, for example `/projects`, and you will be taken to `yourwebsite.com/home/projects`. Note that a valid path must always start from the **root node**, hence this will result in an error unless `projects` is the root node. 
+* **externalLink** - takes you to an external website. You need to define the **url** of the website and whether it should be opened in a new window (`sameWindow: false`) or the same window (`sameWindow: true`).
 ### label
-The text label of the node that renders on your page.
+The node's text label that will be visible on your page.
 ### viewUrl
-The URL of the micro frontend that will be displayed in the middle of your page. 
+The URL of the micro frontend that will be displayed in the main content window of your page. 
 ### category 
 If you want to group some navigation nodes into a separate parent node, you can use the **category** property. The grouped navigation nodes are rendered in a dropdown. The **category** property needs a **label** and, optionally, an **icon**.  
 
 ## Path parameters
+You can use path parameter values to make a path dynamically changeable according to your needs. 
 
-Use path parameter values to define the **pathSegment** in your configuration. You can either use a static value for your **pathSegment**, or add a colon to this value to make it act as a parameter, for example `:projectId`. This tells Luigi to accept any value for this **pathSegment** of the main application URL. The value replaces the parameter when it is further processed by the application. In the example below, if your projectId is `projectX`, the URL will become `'https://my.microfrontend.com/projects/details.html#id=:projectX;`
+In this example, a `userId`path parameter is defined: 
 
-```javascript
+````javascript
 {
   navigation: {
     nodes: [
       {
         pathSegment: 'home',
         label: 'Home',
-        viewUrl: 'https://my.microfrontend.com/',
+        viewUrl: 'https://microfrontend.com/',
         children: [
           {
-            pathSegment: 'projects',
-            label: 'Projects',
-            viewUrl: 'https://my.microfrontend.com/projects/list.html',
+            pathSegment: 'users',
+            label: 'User List',
+            viewUrl: 'https://microfrontend.com/users/list.html',
             children: [
               {
-                pathSegment: ':projectId',
-                label: 'Project Details',
-                viewUrl: 'https://my.microfrontend.com/projects/details.html#id=:projectId;'
+                pathSegment: ':userId',
+                label: 'User Profile',
+                viewUrl: 'https://microfrontend.com/users/details.html#id=:userId;'
+                // E.g. if userId is 'JohnSmith'
+                // the main application URL will be https://yourwebsite.com/users/:JohnSmith
+                // the micro frontend URL will be https://microfrontend.com/users/details.html#id=:JohnSmith;
               }            
-			]
+			      ]
           }
         ]
       }
     ]
   }
 }
+````
 
-```
+### pathSegment parameters
+Instead of a static value for your **pathSegment**, you can add a colon to this value to make it act as a parameter, for example `:userId`. This tells Luigi to accept any value for this **pathSegment**. 
 
- Use the following options to work with path parameters:
+### viewUrl parameters
 
-- Add the parameter to the **viewUrl** by placing them anywhere in the **viewUrl** value. For example, if the main application URL is `https://luigiexample.com/home/projects/pr23`, then the **viewUrl** of the micro frontend in the content area is `https://my.microfrontend.com/projects/details.html#id=pr23`. 
+You have three options to add a parameter to **viewUrl**: 
+- Place the parameter anywhere in the **viewUrl** value. For example, if the main application URL is `https://yourwebsite.com/home/users/JohnSmith`, then the **viewUrl** of the micro frontend in the content area can be `https://microfrontend.com/users/details.html#id=JohnSmith`. 
 - Use the [Luigi Client API](luigi-client-api.md) to access the node parameter values from the micro frontend. Use the `LuigiClient.getPathParams()` function. 
-For example, to get the value of the sample project parameter, use `LuigiClient.getPathParams().projectId`. 
+For example, to get the value of the `userId` parameter, use `LuigiClient.getPathParams().userId`. 
 - Add a parameter to the context part of your configuration:
+
   ```
   {
-    pathSegment: ':projectId',
-    label: 'Project Details',
-    viewUrl: 'https://my.microfrontend.com/projects/details.html#id=:projectId;',
+    pathSegment: ':userId',
+    label: 'User Profile',
+    viewUrl: 'https://microfrontend.com/users/details.html#id=:userId;',
     context: {
     	project: ':projectId'
     }
   } 
   ```
-In all cases, the parameter is automatically replaced by the real value.
-
+In all three cases, the parameter is automatically replaced by the real value.
 
 ## Node parameters
 
 You can use node parameters to build the **viewUrl** and pass them to the micro frontend specified in the navigation node selected in the navigation path. 
+
 You can specify them in the main application URL, similarly to URL query parameters with a specific prefix. The prefix is `~` by default, but you can reconfigure it using the global **nodeParamPrefix** setting. 
 
 All parameters without the prefix are not passed to the micro frontend and are consumed by the main application. 
 
-A sample **viewUrl** `https://luigiexample.com/home/projects/pr23?~sorting=asc&~page=2` supports sorting and paging by introducing the **sort** and **page** node parameters.
+A sample **viewUrl** `https://yourwebsite.com/home/users/allUsers?~sorting=asc&~page=2` supports sorting and paging by introducing the **sort** and **page** node parameters.
 
 Using node parameters in the previous example looks as follows:
 
@@ -157,18 +165,17 @@ Using node parameters in the previous example looks as follows:
       {
         pathSegment: 'home',
         label: 'Home',
-        viewUrl: 'https://my.microfrontend.com/',
+        viewUrl: 'https://microfrontend.com/',
         children: [
           {
-            pathSegment: 'projects',
-            label: 'Projects',
-            viewGroup: 'projectsGroup',
-            viewUrl: 'https://my.microfrontend.com/projects/list.html#pagenr={nodeParams.page};sort={nodeParams.sorting}',
+            pathSegment: 'users',
+            label: 'User List',
+            viewUrl: 'https://microfrontend.com/users/list.html#pagenr={nodeParams.page};sort={nodeParams.sorting}',
             children: [
               {
-                pathSegment: ':projectId',
-                label: 'Project Details',
-                viewUrl: 'https://my.microfrontend.com/projects/details.html#id=:projectId;'
+                pathSegment: ':userId',
+                label: 'User Profile',
+                viewUrl: 'https://microfrontend.com/projects/details.html#id=:userId;'
               }            
 			]
           }
@@ -182,17 +189,15 @@ Using node parameters in the previous example looks as follows:
 
  Use the following options to work with node parameters:
 
-- Build the **viewUrl** by placing them anywhere in the **viewUrl** value using the following syntax: `nodeParams.{node param name}`. For example, if the main application URL is `https://luigiexample.com/home/projects/?~sorting=asc&~page=2` then the **viewUrl** of a micro frontend is `https://my.microfrontend.com/projects/list.html#pagenr=2;sort=asc`.
+Build the **viewUrl** by placing parameters anywhere in the **viewUrl** value using the following syntax: `nodeParams.{node param name}`. For example, if the main application URL is `https://yourwebsite.com/home/projects/?~sorting=asc&~page=2` then the **viewUrl** of a micro frontend is `https://microfrontend.com/projects/list.html#pagenr=2;sort=asc`.
 
-- Use the [Luigi Client API](luigi-client-api.md) to access the node parameter values from within the micro frontend. Use the `LuigiClient.getNodeParams()` function. 
-For example, to get the value of the sorting parameter, use `LuigiClient.getNodeParams().sorting`. 
 
 
 ## Dynamic viewUrl
 
-Use both node parameters and path parameters to build a dynamic **viewUrl**.
+You can use both node parameters and path parameters to build a dynamic **viewUrl**.
 
-For example, if the web application URL is `https://Luigi.corp/something/sample_1/products?~sort=asc`, the micro frontend will load using a different URL, such as `https://admin.my.test/project/sample_1/products?sort=asc`.
+For example, if the web application URL is `https://luigi.corp/something/sample_1/products?~sort=asc`, the micro frontend will load using a different URL, such as `https://admin.my.test/project/sample_1/products?sort=asc`.
 
 When loading, the **viewUrl** uses the following dynamic URL parameters:
 
@@ -245,4 +250,4 @@ You can also preload view groups. You just need to define which URL you want to 
 For more information on setting caching with view refreshing and preloading for view groups, read [this document](navigation-parameters-reference.md#node-parameters).
 
 
->**NOTE:** For a full list of available parameters, as well as a more comprehensive example which uses view groups and other features, see the [parameter reference](navigation-parameters-reference.md) document.
+>**NOTE:** For a full list of available parameters, as well as a more comprehensive example illustrating view groups and other features, see the [parameter reference](navigation-parameters-reference.md) document.
