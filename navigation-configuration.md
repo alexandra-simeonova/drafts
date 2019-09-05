@@ -11,7 +11,7 @@ Read these guides to get started with configuring your navigation:
 * [View groups](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#view-groups)
 
 If you are already familiar with the basics, take a look at these guides:
-* Full reference list of navigation parameters 
+* [Full reference list of navigation parameters](navigation-parameters-reference.md)
 * Connect micro frontends with navigation 
 
 ## Navigation elements
