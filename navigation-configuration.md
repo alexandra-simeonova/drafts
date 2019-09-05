@@ -247,5 +247,5 @@ The view groups feature also offers out-of-the-box caching. Each time you naviga
 
 You can also preload view groups. You just need to define which URL you want to preload, and Luigi will preload the view after some user interactions when the browser is most likely to be idle. This option is active by default, but you can deactivate it with a [configuration flag](navigation-parameters-reference.md#node-parameters).
 
-For more information on setting caching with view refreshing and preloading for view groups, read [this document](navigation-parameters-reference.md#node-parameters). You may also find an example using view groups [here](navigation-parameters-referece.md).
+For more information on setting caching with view refreshing and preloading for view groups, read [this document](navigation-parameters-reference.md#node-parameters). You may also find an example using view groups [here](navigation-parameters-referece#navigation-configuration-example.md).
 
