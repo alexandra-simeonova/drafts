@@ -114,7 +114,7 @@ In this example, a `userId`path parameter is defined:
                 // the main application URL will be https://yourwebsite.com/users/:JohnSmith
                 // the micro frontend URL will be https://microfrontend.com/users/details.html#id=:JohnSmith;
               }            
-			      ]
+	    ]
           }
         ]
       }
