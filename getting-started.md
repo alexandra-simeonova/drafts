@@ -37,7 +37,7 @@ Open the `basicConfiguration.js` file in your luigi-config folder.
 
 What are micro frontends? 
 
-How are they implemented in Luigi? (iframes)
+How are they implemented in Luigi? (**post message API**)
 
 Example of including one 
 
