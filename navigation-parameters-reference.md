@@ -291,7 +291,7 @@ productSwitcher: {
 
 ## Navigation configuration example
 
-This example demonstrates a full sample navigation structure with many of the parameters you may use when configuring navigation for Luigi. 
+This example demonstrates a full sample navigation structure with many of the parameters you may use when configuring navigation for Luigi. You may copy and paste this sample in the `basicConfiguration.js` file of your luigi-config folder and test the different functions. 
 
 ```javascript 
 Luigi.setConfig({
