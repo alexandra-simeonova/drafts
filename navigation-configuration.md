@@ -2,17 +2,16 @@
 
 Read these guides to get started with configuring your navigation:
 
-* [Navigation elements](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#navigation-elements) 
-* [First steps](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#first-steps)
-* [Basic navigation parameters](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#basic-navigation-parameters)
-* [Path parameters](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#path-parameters)
-* [Node parameters](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#node-parameters)
-* [Dynamic viewUrl](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#dynamic-viewurl)
-* [View groups](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#view-groups)
+* [Navigation elements](#navigation-elements) 
+* [First steps](#first-steps)
+* [Basic navigation parameters](#basic-navigation-parameters)
+* [Path parameters](#path-parameters)
+* [Node parameters](#node-parameters)
+* [Dynamic viewUrl](#dynamic-viewurl)
 
 If you are already familiar with the basics, take a look at these guides:
 * [Full reference list of navigation parameters](navigation-parameters-reference.md)
-* Connect micro frontends with navigation 
+* Connect micro frontends with navigation (more info about API, view groups)
 
 ## Navigation elements
 
@@ -114,7 +113,7 @@ In this example, a `userId`path parameter is defined:
                 // the main application URL will be https://yourwebsite.com/users/:JohnSmith
                 // the micro frontend URL will be https://microfrontend.com/users/details.html#id=:JohnSmith;
               }            
-	    ]
+			      ]
           }
         ]
       }
@@ -140,7 +139,7 @@ For example, to get the value of the `userId` parameter, use `LuigiClient.getPat
     label: 'User Profile',
     viewUrl: 'https://microfrontend.com/users/details.html#id=:userId;',
     context: {
-    	project: ':projectId'
+    	user: ':userId'
     }
   } 
   ```
@@ -236,16 +235,3 @@ Luigi.setConfig({
   }
 });
 ```
-
-## View groups
-
-The view groups feature allows you to override the default iframes management policy. Imagine your application hosts two micro frontend views: `http://mysite.com/a#e` and  `http://mysite.com/b#f`. Due to hash routing and a different path up to `#`, they are, by default, rendered in different iframes. However, as they both have the **same origin**, such as`mysite.com`, and belong to the **same micro frontend** you want to render them in the same iframe. To achieve that, use the view groups feature. Define the **viewGroup** parameter for top navigation nodes. The children nodes will automatically be considered as part of the same view group. 
-
-Nodes belonging to the same view group are always rendered in their own view group iframe. Nodes not belonging to any view group follow the same-origin iframe rendering policy. 
-
-The view groups feature also offers out-of-the-box caching. Each time you navigate to another view group, either a new iframe is created or it is reused if it exists. In both cases, the iframe you are navigating from becomes hidden and is available for you to use again. If you navigate back to the first iframe and it should be updated with new data, such when a new entry was added in the second iframe and you want to display it in a table in the first iframe, you must define a **preloadUrl** parameter for a given view in the view group to ensure that the view is refreshed when you navigate back to it. 
-
-You can also preload view groups. You just need to define which URL you want to preload, and Luigi will preload the view after some user interactions when the browser is most likely to be idle. This option is active by default, but you can deactivate it with a [configuration flag](navigation-parameters-reference.md#node-parameters).
-
-For more information on setting caching with view refreshing and preloading for view groups, read [this document](navigation-parameters-reference.md#node-parameters). You may also find an example using view groups [here](navigation-parameters-referece#navigation-configuration-example.md).
-
