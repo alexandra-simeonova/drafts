@@ -2,17 +2,17 @@
 
 You can use parameters and functions listed below to configure your Luigi navigation structure. 
 
-* [Routing](navigation-parameters-referece.md#navigation-parameters-referece#routing)
-* [Global navigation parameters](navigation-parameters-referece.md#global-navigation-parameters)
-* [Path parameters](navigation-parameters-referece.md#path-parameters)
-* [Node parameters](navigation-parameters-referece.md#node-parameters)
-* [Profile](navigation-parameters-referece.md#profile) 
-* [Micro frontend parameters](navigation-parameters-referece.md#micro-frontend-parameters)
-   * [View Groups](navigation-parameters-referece.md#view-groups)
-* [Context switcher](navigation-parameters-referece.md#context-switcher)
-* [Product switcher](navigation-parameters-referece.md#product-switcher)
-* [App switcher](navigation-parameters-referece.md#app-switcher)
-* [Navigation configuration example](navigation-parameters-referece.md#navigation-configuration-example)
+* [Routing](#routing)
+* [Global navigation parameters](#global-navigation-parameters)
+* [Path parameters](#path-parameters)
+* [Node parameters](#node-parameters)
+* [Profile](#profile) 
+* [Micro frontend parameters](#micro-frontend-parameters)
+   * [View Groups](#view-groups)
+* [Context switcher](#context-switcher)
+* [Product switcher](#product-switcher)
+* [App switcher](#app-switcher)
+* [Navigation configuration example](#navigation-configuration-example)
 
 
 ## Routing
@@ -26,7 +26,7 @@ You can configure the way Luigi tackles routing in your application in the **Rou
   - **wrongPath**(string): the path that user tried to navigate to
   - **wasAnyPathFitted**(bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false.
 
-Here is an example of how the routing parameters are used (see full example [here](navigation-parameters-referece.md#navigation-configuration-example)).
+Here is an example of how the routing parameters are used (see full example [here](#navigation-configuration-example)).
 
 ```javascript
 Luigi.setConfig({
@@ -50,7 +50,7 @@ See [angular navigation.js](../core/examples/luigi-sample-angular/src/luigi-conf
 - **viewGroupsSettings** is an object containing key-object pairs, where the key is the view group name as specified in the node parameters, and the object contains key-value pairs. In each key-value pair, the key is the feature name and the value is the actual setting. The following options are supported:
   - **preloadUrl**(string): needs to be an absolute URL for a node from the view group. It is recommended that you use a dedicated small, visually empty view, which imports Luigi Client and is fine with getting an empty context, for example, without an access token. The **preloadUrl** parameter is also required for view group caching in case you need a view group iframe to refresh whenever you navigate back to it.
 
-Here is an example of how the navigation parameters are used (see full example [here](navigation-parameters-referece.md#navigation-configuration-example)).
+Here is an example of how the navigation parameters are used (see full example [here](#navigation-configuration-example)).
 
   ```javascript
    // navigation structure and settings
@@ -111,7 +111,7 @@ Node parameters can be used to customize the individual nodes within the navigat
 - **onNodeActivation** is an optional function executed when a request to navigate to the node occurs. As an input parameter, the function receives the node object as described in the configuration. This function can return results synchronously or asynchronously. If the function returns boolean `false`, the navigation is not triggered, otherwise, navigation renders as usual.
 - **clientPermissions.changeCurrentLocale** current locale can be changed from client using the corresponding API if this is set to `true`.
 
-Here is an example of how some of these parameters are used (see full example [here](navigation-parameters-referece.md#navigation-configuration-example)).
+Here is an example of how some of these parameters are used (see full example [here](#navigation-configuration-example)).
 
 ## Loading indicator parameters
 
@@ -128,7 +128,7 @@ These parameters help you configure a loading indicator or disable it.
 
 - **viewGroup** is a parameter that defines a group of views in the same domain sharing a common security context. This improves performance through reusing the frame. Use viewGroup only for the views that use path routing internally.
 
-Here is an example of how view groups are used (see full example [here](navigation-parameters-referece.md#navigation-configuration-example)).
+Here is an example of how view groups are used (see full example [here](#navigation-configuration-example)).
 
 ```javascript
 // View groups nodes
@@ -200,7 +200,7 @@ The profile section is a configurable drop-down list available in the top naviga
     - **sameWindow** defines if the external URL is opened in the current tab or in a new one. The default value for this parameter is `false`.
     - **url** is the external URL that the link leads to.
 
-Here is an example of how a profile is configured (see full example [here](navigation-parameters-referece.md#navigation-configuration-example)).
+Here is an example of how a profile is configured (see full example [here](#navigation-configuration-example)).
 
 ```javascript
 profile: {
@@ -230,7 +230,7 @@ The context switcher is a drop-down list available in the top navigation bar. It
   - **clickHandler** specifies a function and is executed on click and should return a boolean. If it returns `true`, **link** is opened afterwards.
 - **fallbackLabelResolver** specifies a function used to fetch the **label** for **options** with no **label** defined. Additionally, it fetches the drop-down label for non-existing **options**.
 
-Here is an example of how a context switcher is configured (see full example [here](navigation-parameters-referece.md#navigation-configuration-example)).
+Here is an example of how a context switcher is configured (see full example [here](navigation-configuration-example)).
 
 ```javascript
 contextSwitcher: {
@@ -261,7 +261,7 @@ The product switcher is a pop-up window available in the top navigation bar. It 
     - **sameWindow** defines if the external URL is opened in the current tab or in a new one. The default value for this parameter is `false`.
     - **url** is the external URL that the link leads to.
 
-Here is an example of how a product switcher is configured (see full example [here](navigation-parameters-referece.md#navigation-configuration-example)).
+Here is an example of how a product switcher is configured (see full example [here](#navigation-configuration-example)).
 
 ```javascript
 productSwitcher: {
