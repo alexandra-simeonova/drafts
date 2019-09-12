@@ -2,13 +2,14 @@
 
 You can use parameters and functions listed below to configure your Luigi navigation structure. 
 
-* [Routing](#routing)
+* [Routing](#navigation-parameters-referece#routing)
 * [Global navigation parameters](#global-navigation-parameters)
 * [Path parameters](#path-parameters)
 * [Node parameters](#node-parameters)
+  * [Path parameters](#path-parameters)
+  * [Loading indicator parameters](#loading-indicator-parameters)
+  * [View parameters](#view-parameters)
 * [Profile](#profile) 
-* [Micro frontend parameters](#micro-frontend-parameters)
-   * [View Groups](#view-groups)
 * [Context switcher](#context-switcher)
 * [Product switcher](#product-switcher)
 * [App switcher](#app-switcher)
@@ -70,21 +71,9 @@ Here is an example of how the navigation parameters are used (see full example [
   ...
   ```
 
-## Path parameters 
-
-These parameters can be used to configure the URL path according to your needs. 
-
-- **pathSegment** specifies the partial URL of the current segment. **pathSegment** must not contain slashes.
-  - A static settings example reflects `luigidomain.test/settings`.
-  - A dynamic settings example, prefixed with a colon, loads on any other value. 
-- **link** is a string which refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored.
- - **externalLink** is an object which indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. It has the following properties:
-   - **sameWindow** defines if the external URL is opened in a new or current tab. The default value for this parameter is `false`.
-   - **url** is the external URL that the node leads to.
-
 ## Node parameters
 
-Node parameters can be used to customize the individual nodes within the navigation. 
+Node parameters can be used to customize the individual nodes within the navigation. See an example of how these parameters are used [here](#navigation-configuration-example)).
 
 - **label** contains the display name of the navigation node.
 - **testId** is a string where you can define your own custom `testId`. If there is nothing specified, it is a combination of the node's pathsegment followed by a dash (if pathsegment exists) and the label written as one word and lower case (e.g. `pathsegment_label` or `label`).
@@ -92,7 +81,6 @@ Node parameters can be used to customize the individual nodes within the navigat
 - **navigationContext** contains a named node that is mainly for use in combination with a dynamic **pathSegment** to start navigation from a dynamic node using ` LuigiClient.linkManager().fromContext('contextname')`.
 - **context** sends the specified object as context to the view. Use this parameter in combination with the dynamic **pathSegment** to receive the context through the context listeners of **Luigi Client**. This is an alternative to using the dynamic value in the **viewUrl**.
 - **defaultChildNode** sets the child node that Luigi activates automatically if the current node has no **viewUrl** defined. Provide **pathSegment** of the child node you want to activate as a string.
-- **isolateView** renders the view in a new frame when you enter and leave the node. This setting overrides the same-domain frame re-usage. The **isolateView** is disabled by default.
 - **keepSelectedForChildren** focuses the navigation on its current hierarchy, omitting the display of children.
 - **icon** is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation.
 - **hideSideNav** if set to `true`, the left navigation disappears when you click the affected node. It is set to `false` by default.
@@ -111,22 +99,33 @@ Node parameters can be used to customize the individual nodes within the navigat
 - **onNodeActivation** is an optional function executed when a request to navigate to the node occurs. As an input parameter, the function receives the node object as described in the configuration. This function can return results synchronously or asynchronously. If the function returns boolean `false`, the navigation is not triggered, otherwise, navigation renders as usual.
 - **clientPermissions.changeCurrentLocale** current locale can be changed from client using the corresponding API if this is set to `true`.
 
-Here is an example of how some of these parameters are used (see full example [here](#navigation-configuration-example)).
 
-## Loading indicator parameters
+### Path parameters 
+
+These parameters can be used to configure the URL path according to your needs. 
+
+- **pathSegment** specifies the partial URL of the current segment. **pathSegment** must not contain slashes.
+  - A static settings example reflects `luigidomain.test/settings`.
+  - A dynamic settings example, prefixed with a colon, loads on any other value. 
+- **link** is a string which refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored.
+ - **externalLink** is an object which indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. It has the following properties:
+   - **sameWindow** defines if the external URL is opened in a new or current tab. The default value for this parameter is `false`.
+   - **url** is the external URL that the node leads to.
+
+### Loading indicator parameters
 
 These parameters help you configure a loading indicator or disable it. 
 
 - **loadingIndicator.enabled** shows a loading indicator when switching between micro frontends. If you have a fast micro frontend, you can disable this feature to prevent flickering of the loading indicator. This parameter is enabled by default.
 - **loadingIndicator.hideAutomatically** disables the automatic hiding of the loading indicator once the micro frontend is loaded. It is only considered if the loading indicator is enabled. It does not apply if the loading indicator is activated manually with the `LuigiClient.uxManager().showLoadingIndicator()` function. If the loading indicator is enabled and automatic hiding is disabled, use `LuigiClient.uxManager().hideLoadingIndicator()` to hide it manually in your micro frontend during the startup. This parameter is enabled by default.
 
-## Micro frontend parameters 
+### View parameters
+
+These parameters help you configure the view/micro frontend that appears in the main area of the application. 
 
 - **viewUrl** contains the URL or path to a view which renders when you click the navigation node. Use either a full URL or a relative path. This value may consist of variables if you have specified a **navigationContext** with a dynamic **pathSegment**. If **viewUrl** is undefined, Luigi activates the child node specified in **defaultChildNode**. When both **viewUrl** and **defaultChildNode** are undefined, Luigi opens the first child of the current node.
-
-### View Groups
-
 - **viewGroup** is a parameter that defines a group of views in the same domain sharing a common security context. This improves performance through reusing the frame. Use viewGroup only for the views that use path routing internally.
+- **isolateView** renders the view in a new frame when you enter and leave the node. This setting overrides the same-domain frame re-usage. The **isolateView** is disabled by default.
 
 Here is an example of how view groups are used (see full example [here](#navigation-configuration-example)).
 
@@ -155,33 +154,8 @@ Here is an example of how view groups are used (see full example [here](#navigat
         }
       ]
     },
-    {
-      viewGroup: 'envs',
-      pathSegment: 'create-environment',
-      viewUrl: 'https://my-site.com/environments.html#/create',
-      context: {
-        label: 'Create Environment'
-      }
-    },
-    {
-      viewGroup: 'envs',
-      pathSegment: 'environments',
-      viewUrl: 'https://my-site.com/environments-details.html#/list',
-      children: [
-        {
-          pathSegment: 'preload',
-          viewUrl: 'https://my-site.com/environments-details.html#/preload-view'
-        },
-        {
-          pathSegment: 'env1',
-          viewUrl: 'https://my-site.com/environments-details.html#/details/env1'
-        }
-      ]
-    }
-    ],
 ...
 ```
-
 
 ## Profile
 
@@ -291,7 +265,7 @@ productSwitcher: {
 
 ## Navigation configuration example
 
-This example demonstrates a full sample navigation structure with many of the parameters you may use when configuring navigation for Luigi. You may copy and paste this sample in the `basicConfiguration.js` file of your luigi-config folder and test the different functions. 
+This example demonstrates a full sample navigation structure with many of the parameters you may use when configuring navigation for Luigi. 
 
 ```javascript 
 Luigi.setConfig({
