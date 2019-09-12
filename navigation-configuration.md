@@ -5,8 +5,10 @@ Read these guides to get started with configuring your navigation:
 * [Navigation elements](#navigation-elements) 
 * [First steps](#first-steps)
 * [Basic navigation parameters](#basic-navigation-parameters)
-* [Path parameters](#path-parameters)
-* [Node parameters](#node-parameters)
+* [Creating dynamic variables](#creating-dynamic-variables)
+  * [Path segment variables](#pathsegment-variables)
+  * [viewUrl variables](#viewurl-variables)
+  * [Node variables](#node-variables)
 * [Dynamic viewUrl](#dynamic-viewurl)
 
 If you are already familiar with the basics, take a look at these guides:
@@ -66,7 +68,7 @@ navigation: {
         label: 'Top Navigation Element Two',
         viewUrl: 'https://2ndmicrofronted.com',
         children: [
-          ...
+...
 ````
 
 ## Basic navigation parameters
@@ -86,10 +88,13 @@ The URL of the micro frontend that will be displayed in the main content window 
 ### category 
 If you want to group some navigation nodes into a separate parent node, you can use the **category** property. The grouped navigation nodes are rendered in a dropdown. The **category** property needs a **label** and, optionally, an **icon**.  
 
-## Path parameters
-You can use path parameter values to make a path dynamically changeable according to your needs. 
+## Creating dynamic path variables 
+You can use path parameter values to make a path dynamically changeable according to your needs. This is accomplished by defining variables. 
 
-In this example, a `userId`path parameter is defined: 
+### pathSegment variables
+Instead of a static value for your **pathSegment**, you can add a colon to this value to make it act as a variable, for example `:userId`. This tells Luigi to accept any value for this **pathSegment**. 
+
+In this example, a `userId`path variable is defined: 
 
 ````javascript
 {
@@ -108,10 +113,8 @@ In this example, a `userId`path parameter is defined:
               {
                 pathSegment: ':userId',
                 label: 'User Profile',
-                viewUrl: 'https://microfrontend.com/users/details.html#id=:userId;'
                 // E.g. if userId is 'JohnSmith'
                 // the main application URL will be https://yourwebsite.com/users/:JohnSmith
-                // the micro frontend URL will be https://microfrontend.com/users/details.html#id=:JohnSmith;
               }            
 			      ]
           }
@@ -120,20 +123,18 @@ In this example, a `userId`path parameter is defined:
     ]
   }
 }
+...
 ````
 
-### pathSegment parameters
-Instead of a static value for your **pathSegment**, you can add a colon to this value to make it act as a parameter, for example `:userId`. This tells Luigi to accept any value for this **pathSegment**. 
+### viewUrl variables
 
-### viewUrl parameters
-
-You have three options to add a parameter to **viewUrl**: 
+You have three options to add a variable to **viewUrl**: 
 - Place the parameter anywhere in the **viewUrl** value. For example, if the main application URL is `https://yourwebsite.com/home/users/JohnSmith`, then the **viewUrl** of the micro frontend in the content area can be `https://microfrontend.com/users/details.html#id=JohnSmith`. 
 - Use the [Luigi Client API](luigi-client-api.md) to access the node parameter values from the micro frontend. Use the `LuigiClient.getPathParams()` function. 
 For example, to get the value of the `userId` parameter, use `LuigiClient.getPathParams().userId`. 
 - Add a parameter to the context part of your configuration:
 
-  ```
+  ```javascript
   {
     pathSegment: ':userId',
     label: 'User Profile',
@@ -142,12 +143,14 @@ For example, to get the value of the `userId` parameter, use `LuigiClient.getPat
     	user: ':userId'
     }
   } 
+  ...
   ```
+
 In all three cases, the parameter is automatically replaced by the real value.
 
-## Node parameters
+### Node variables
 
-You can use node parameters to build the **viewUrl** and pass them to the micro frontend specified in the navigation node selected in the navigation path. 
+You can use node variables to build the **viewUrl** and pass them to the micro frontend specified in the navigation node selected in the navigation path. 
 
 You can specify them in the main application URL, similarly to URL query parameters with a specific prefix. The prefix is `~` by default, but you can reconfigure it using the global **nodeParamPrefix** setting. 
 
@@ -155,7 +158,7 @@ All parameters without the prefix are not passed to the micro frontend and are c
 
 A sample **viewUrl** `https://yourwebsite.com/home/users/allUsers?~sorting=asc&~page=2` supports sorting and paging by introducing the **sort** and **page** node parameters.
 
-Using node parameters in the previous example looks as follows:
+Using node variables in the previous example results in:
 
 ````javascript
 {
@@ -183,7 +186,7 @@ Using node parameters in the previous example looks as follows:
     ]
   }
 } 
-
+...
 ````
 
  Use the following options to work with node parameters:
@@ -191,8 +194,7 @@ Using node parameters in the previous example looks as follows:
 Build the **viewUrl** by placing parameters anywhere in the **viewUrl** value using the following syntax: `nodeParams.{node param name}`. For example, if the main application URL is `https://yourwebsite.com/home/projects/?~sorting=asc&~page=2` then the **viewUrl** of a micro frontend is `https://microfrontend.com/projects/list.html#pagenr=2;sort=asc`.
 
 
-
-## Dynamic viewUrl
+### Dynamic viewUrl
 
 You can use both node parameters and path parameters to build a dynamic **viewUrl**.
 
@@ -235,3 +237,4 @@ Luigi.setConfig({
   }
 });
 ```
+
