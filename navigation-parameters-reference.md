@@ -4,7 +4,6 @@ You can use parameters and functions listed below to configure your Luigi naviga
 
 * [Routing](#navigation-parameters-referece#routing)
 * [Global navigation parameters](#global-navigation-parameters)
-* [Path parameters](#path-parameters)
 * [Node parameters](#node-parameters)
   * [Path parameters](#path-parameters)
   * [Loading indicator parameters](#loading-indicator-parameters)
