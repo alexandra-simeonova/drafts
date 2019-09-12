@@ -24,7 +24,7 @@ There are three main elements to Luigi:
 3. Main content window which renders the micro frontend.
  
 
-![Navigation layout](assets/navigation-structure.png)
+![Navigation layout](https://github.com/SAP/luigi/blob/master/docs/assets/navigation-structure.png)
 
 
 ## First steps
