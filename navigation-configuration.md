@@ -5,11 +5,14 @@ Read these guides to get started with configuring your navigation:
 * [Navigation elements](#navigation-elements) 
 * [First steps](#first-steps)
 * [Basic navigation parameters](#basic-navigation-parameters)
-* [Creating dynamic variables](#creating-dynamic-variables)
-  * [Path segment variables](#pathsegment-variables)
+* [Grouping navigation nodes](#grouping-navigation-nodes)
+  * [category](#category)
+  * [viewGroup](#viewGroup)
+* [Creating a dynamic path](#creating-a-dynamic-path)
+  * [pathSegment variables](#pathsegment-variables)
   * [viewUrl variables](#viewurl-variables)
   * [Node variables](#node-variables)
-* [Dynamic viewUrl](#dynamic-viewurl)
+  * [Dynamic viewUrl](#dynamic-viewurl)
 
 If you are already familiar with the basics, take a look at:
 * [Full reference list of navigation parameters](navigation-parameters-reference.md)
@@ -265,4 +268,3 @@ Luigi.setConfig({
   }
 });
 ```
-
