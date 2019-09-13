@@ -11,9 +11,8 @@ Read these guides to get started with configuring your navigation:
   * [Node variables](#node-variables)
 * [Dynamic viewUrl](#dynamic-viewurl)
 
-If you are already familiar with the basics, take a look at these guides:
+If you are already familiar with the basics, take a look at:
 * [Full reference list of navigation parameters](navigation-parameters-reference.md)
-* Connect micro frontends with navigation (more info about API, view groups)
 
 ## Navigation elements
 
