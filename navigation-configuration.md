@@ -36,37 +36,37 @@ Here is an example of a simple navigation structure:
 
 ````javascript 
 navigation: {
-    nodes: [
+  nodes: [
+    {
+      pathSegment: 'TopNav1',
+      label: 'Top Navigation Element One',
+      viewUrl: 'https://microfronted.com',
+      children: [
         {
-            pathSegment: 'TopNav1',
-            label: 'Top Navigation Element One',
-            viewUrl: 'https://microfronted.com',
-            children: [
-                {
-                    pathSegment: 'SideNav1',
-                    label: 'Side Navigation Element One',
-                    viewUrl: 'https://microfrontend.com/projects/list.html',
-                    children: [
-                        {
-                            link: '/TopNav1/internalLink',
-                            label: 'This takes you to yourwebsite.com/TopNav1/internalLink',
-                        },
-                        {
-                            externalLink: {
-                                url: 'http://www.google.com',
-                                sameWindow: false
-                            },
-                            label: 'This takes you to an external page',
-                        },
-                    ]
-                },
-            ]
+          pathSegment: 'SideNav1',
+          label: 'Side Navigation Element One',
+          viewUrl: 'https://microfrontend.com/projects/list.html',
+          children: [
+            {
+              link: '/TopNav1/internalLink',
+              label: 'This takes you to yourwebsite.com/TopNav1/internalLink',
+            },
+            {
+              externalLink: {
+                url: 'http://www.google.com',
+                sameWindow: false
+              },
+              label: 'This takes you to an external page',
+            },
+          ]
         },
-        {
-            pathSegment: 'TopNav2',
-            label: 'Top Navigation Element Two',
-            viewUrl: 'https://2ndmicrofronted.com',
-            children: [
+      ]
+    },
+    {
+      pathSegment: 'TopNav2',
+      label: 'Top Navigation Element Two',
+      viewUrl: 'https://2ndmicrofronted.com',
+      children: [
 ...
 ````
 
@@ -96,12 +96,12 @@ Simply add the **category** property to the navigation nodes you want to group, 
 
 ```javascript
 {
-    category: { label: 'Links', icon: 'myIcon', collapsible: true },
-    externalLink: {
-        url: 'http://www.google.com',
-        sameWindow: false
-    },
-    label: 'Click here to visit Google.com',
+  category: { label: 'Links', icon: 'myIcon', collapsible: true },
+  externalLink: {
+    url: 'http://www.google.com',
+    sameWindow: false
+  },
+  label: 'Click here to visit Google.com',
 }, 
 ...
  ```
@@ -128,30 +128,30 @@ In this example, a `userId`path variable is defined:
 
 ````javascript
 {
-    navigation: {
-        nodes: [
-            {
-                pathSegment: 'home',
-                label: 'Home',
-                viewUrl: 'https://microfrontend.com/',
-                children: [
-                    {
-                        pathSegment: 'users',
-                        label: 'User List',
-                        viewUrl: 'https://microfrontend.com/users/list.html',
-                        children: [
-                            {
-                                pathSegment: ':userId',
-                                label: 'User Profile',
-                                // E.g. if userId is 'JohnSmith'
-                                // the main application URL will be https://yourwebsite.com/users/:JohnSmith
-                            }
-                        ]
-                    }
-                ]
-            }
+  navigation: {
+    nodes: [
+      {
+        pathSegment: 'home',
+        label: 'Home',
+        viewUrl: 'https://microfrontend.com/',
+        children: [
+          {
+            pathSegment: 'users',
+            label: 'User List',
+            viewUrl: 'https://microfrontend.com/users/list.html',
+            children: [
+              {
+                pathSegment: ':userId',
+                label: 'User Profile',
+                // E.g. if userId is 'JohnSmith'
+                // the main application URL will be https://yourwebsite.com/users/:JohnSmith
+              }
+            ]
+          }
         ]
-    }
+      }
+    ]
+  }
 }
 ...
 ````
@@ -166,12 +166,12 @@ For example, to get the value of the `userId` parameter, use `LuigiClient.getPat
 
 ```javascript
 {
-    pathSegment: ':userId',
-    label: 'User Profile',
-    viewUrl: 'https://microfrontend.com/users/details.html#id=:userId;',
-    context: {
-        user: ':userId'
-    }
+  pathSegment: ':userId',
+  label: 'User Profile',
+  viewUrl: 'https://microfrontend.com/users/details.html#id=:userId;',
+  context: {
+    user: ':userId'
+  }
 } 
   ...
 ```
@@ -192,29 +192,29 @@ Using node variables in the previous example results in:
 
 ````javascript
 {
-    navigation: {
-        nodes: [
-            {
-                pathSegment: 'home',
-                label: 'Home',
-                viewUrl: 'https://microfrontend.com/',
-                children: [
-                    {
-                        pathSegment: 'users',
-                        label: 'User List',
-                        viewUrl: 'https://microfrontend.com/users/list.html#pagenr={nodeParams.page};sort={nodeParams.sorting}',
-                        children: [
-                            {
-                                pathSegment: ':userId',
-                                label: 'User Profile',
-                                viewUrl: 'https://microfrontend.com/projects/details.html#id=:userId;'
-                            }
-                        ]
-                    }
-                ]
-            }
+  navigation: {
+    nodes: [
+      {
+        pathSegment: 'home',
+        label: 'Home',
+        viewUrl: 'https://microfrontend.com/',
+        children: [
+          {
+            pathSegment: 'users',
+            label: 'User List',
+            viewUrl: 'https://microfrontend.com/users/list.html#pagenr={nodeParams.page};sort={nodeParams.sorting}',
+            children: [
+              {
+                pathSegment: ':userId',
+                label: 'User Profile',
+                viewUrl: 'https://microfrontend.com/projects/details.html#id=:userId;'
+              }
+            ]
+          }
         ]
-    }
+      }
+    ]
+  }
 } 
 ...
 ````
@@ -237,34 +237,34 @@ When loading, the **viewUrl** uses the following dynamic URL variables:
 
 ```javascript 
 Luigi.setConfig({
-    routing: {
-        nodeParamPrefix: '~'
-    },
-    navigation: {
-        nodes: [
+  routing: {
+    nodeParamPrefix: '~'
+  },
+  navigation: {
+    nodes: [
+      {
+        pathSegment: 'something',
+        label: 'Something',
+        viewUrl: 'https://admin.my.test/project',
+        children: [{
+          navigationContext: 'project',
+          pathSegment: ':projectId',
+          viewUrl: 'https://admin.my.test/project/:projectId',
+          // Optionally, you can always call LuigiClient.getPathParams() to get the parameters
+          // context: {
+          //  currentProject: ':projectId'
+          // },
+          children: [
             {
-                pathSegment: 'something',
-                label: 'Something',
-                viewUrl: 'https://admin.my.test/project',
-                children: [{
-                    navigationContext: 'project',
-                    pathSegment: ':projectId',
-                    viewUrl: 'https://admin.my.test/project/:projectId',
-                    // Optionally, you can always call LuigiClient.getPathParams() to get the parameters
-                    // context: {
-                    //  currentProject: ':projectId'
-                    // },
-                    children: [
-                        {
-                            pathSegment: 'products',
-                            label: 'Products',
-                            viewUrl: 'https://admin.my.test/project/:projectId/products'
-                        }
-                    ]
-                }]
+              pathSegment: 'products',
+              label: 'Products',
+              viewUrl: 'https://admin.my.test/project/:projectId/products'
             }
-        ]
-    }
+          ]
+        }]
+      }
+    ]
+  }
 });
 ```
 
