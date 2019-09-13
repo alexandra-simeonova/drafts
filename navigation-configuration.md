@@ -92,11 +92,11 @@ The URL of the micro frontend which will be displayed in the main content area o
 You may use these parameters if you want to group related navigation nodes:
 
 ### category 
-Simply add the **category** property to your navigation nodes you want to group, and they will be rendered in a dropdown. The **category** property needs a **label** and, optionally, an **icon**. This is how an external link node might look with the category property included: 
+Simply add the **category** property to the navigation nodes you want to group, and they will be rendered in a dropdown. You should define at least one node in a group with **label** and **icon** properties. For all other nodes, you can set category as a string with the label value. The **collapsible** property is optional and defines whether the dropdown is expanded by default or not. 
 
 ```javascript
 {
-    category: { label: 'Links', icon: 'myIcon' },
+    category: { label: 'Links', icon: 'myIcon', collapsible: true },
     externalLink: {
         url: 'http://www.google.com',
         sameWindow: false
@@ -108,6 +108,15 @@ Simply add the **category** property to your navigation nodes you want to group,
 
 ### viewGroup
 
+Imagine your application hosts two micro frontend views: `http://mysite.com/a#e` and  `http://mysite.com/b#f`. Due to hash routing and a different path up to `#`, they are, by default, rendered in different iframes. However, as they both have the **same origin**, such as`mysite.com`, and belong to the **same micro frontend** you want to render them in the same iframe. To achieve that, use the view groups feature. Define the **viewGroup** parameter for top navigation nodes. The children nodes will automatically be considered as part of the same view group. 
+
+Nodes belonging to the same view group are always rendered in their own view group iframe. Nodes not belonging to any view group follow the same-origin iframe rendering policy. 
+
+The view groups feature also offers out-of-the-box caching. Each time you navigate to another view group, either a new iframe is created or it is reused if already exists. In both cases, the iframe you are navigating from becomes hidden and is available for you to use again. If you navigate back to the first iframe and it should be updated with new data, such when a new entry was added in the second iframe and you want to display it in a table in the first iframe, you must define a **preloadUrl** parameter for a given view in the view group to ensure that the view is refreshed when you navigate back to it. 
+
+You can also preload view groups. You just need to define which URL you want to preload, and Luigi will preload the view after some user interactions when the browser is most likely to be idle. This option is active by default, but you can deactivate it with a [configuration flag](navigation-parameters-reference.md#node-parameters).
+
+For more information on setting caching with view refreshing and preloading for view groups, read [this document](navigation-parameters-reference.md#node-parameters).
 
 ## Creating a dynamic path
 In Luigi, you can make a navigation path dynamically changeable according to your needs. This is accomplished by defining variables within the **pathSegement** or **viewUrl** navigation paths. 
