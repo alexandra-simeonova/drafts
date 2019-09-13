@@ -127,8 +127,7 @@ Instead of a static value for your **pathSegment**, you can add a colon to this 
 In this example, a `userId`path variable is defined: 
 
 ````javascript
-{
-  navigation: {
+navigation: {
     nodes: [
       {
         pathSegment: 'home',
@@ -191,8 +190,7 @@ A sample **viewUrl** `https://yourwebsite.com/home/users/allUsers?~sorting=asc&~
 Using node variables in the previous example results in:
 
 ````javascript
-{
-  navigation: {
+navigation: {
     nodes: [
       {
         pathSegment: 'home',
