@@ -8,9 +8,19 @@ By following this guide, you will create your own small user interface. This wil
 
 ## What are micro frontends? 
 
-Micro frontends are a great tool for breaking up big, monolithic UIs. They enable each team to develop their own application (micro frontend) end-to-end without relying on other teams. This improves scalability, makes updates easier, and results in a website that is more resilient and easier to manage. 
+Micro frontends are a great tool for **breaking up big, monolithic UIs**. 
 
-Micro frontend support is one of Luigi's main features, enabling you and your team to take advantage of all their benefits. **[Luigi Client]** provides you with the tools to connect your micro frontend to the main Luigi application. **[Luigi Core]** enables you to create this main application and configure it according to your needs.
+Instead of relying on one UI team, every team in your project can develop their own end-to-end application (micro frontend) which connects to the same framework. 
+
+This improves scalability, makes updates easier, and results in a website that is more resilient and easier to manage. 
+
+The Luigi framework makes the process of implementing micro frontends fast and simple. Only a basic knowledge of JavaScript and HTML is required to get started with Luigi. 
+
+## Luigi structure
+
+**[Luigi Core]** enables you to create a main UI application and configure it according to your needs.
+
+**[Luigi Client]** provides you with the tools to connect your micro frontend to the main Luigi Core application. 
 
 In the following sections, you will learn how to set up a small sample application in Luigi. 
 
@@ -51,7 +61,6 @@ If you are interested in developing a main application using Luigi Core, read th
 If you are interested in connecting your micro frontend to Luigi, see: 
 
 [Luigi Client Documentation](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
-
 
 
 
