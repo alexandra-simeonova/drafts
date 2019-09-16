@@ -22,8 +22,6 @@ The Luigi framework makes the process of implementing micro frontends fast and s
 
 [**Luigi Client**](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core) provides you with the tools to connect your micro frontend to the main Luigi Core application. 
 
-In the following sections, you will learn how to set up a small sample application in Luigi. 
-
 ## Prerequisites 
 
 - Live Server
