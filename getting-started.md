@@ -31,12 +31,15 @@ To install Live Server, use this command in the terminal:
 
 ## Setup 
 
-Add Luigi to your project dependencies. 
+1. Add Luigi to your project dependencies. 
 
 ```
 npm install --save @kyma-project/luigi-core
 npm install --save @kyma-project/luigi-client
 ```
+
+2. Give Luigi exclusive control over the entry index.html file. If you have a single page application, transfer it to a two-page application. Your app should run to make sure the existing router doesn't interfere.
+
 ## Installation
 
 How to install Luigi depends on which framework you want to use for your project.
