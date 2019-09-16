@@ -2,7 +2,7 @@
 
 ## What is Luigi?
 
-Luigi is a JavaScript framework for micro frontends. It enables you to create user interface driven by local and distributed views. 
+Luigi is a JavaScript framework for micro frontends. It enables you to create user interface which is driven by local and distributed micro frontend views. 
 
 By following this guide, you will create your own small user interface. This will give you more insight into Luigi's main components and benefits. 
 
