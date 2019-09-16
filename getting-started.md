@@ -16,7 +16,7 @@ This improves scalability, makes updates easier, and results in a website that i
 
 The Luigi framework makes the process of implementing micro frontends fast and simple. Only a basic knowledge of JavaScript and HTML is required to get started with Luigi. 
 
-## Luigi structure
+## Luigi components
 
 [**Luigi Core**](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core) enables you to create a global user interface from scratch and configure it according to your needs.
 
