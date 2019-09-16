@@ -10,13 +10,9 @@ By following this guide, you will create your own small user interface. This wil
 
 Micro frontends are a great tool for breaking up big, monolithic UIs. They enable each team to develop their own application (micro frontend) end-to-end without relying on other teams. This improves scalability, makes updates easier, and results in a website that is more resilient and easier to manage. 
 
-Micro frontend support is one of the main features of Luigi. [Luigi Client] provides you with the tools you need to develop your own micro frontend and connect it with the main application. 
+Micro frontend support is one of Luigi's main features, enabling you and your team to take advantage of all their benefits. **[Luigi Client]** provides you with the tools to connect your micro frontend to the main Luigi application. **[Luigi Core]** enables you to create this main application and configure it according to your needs.
 
-The 
-
-How are they implemented in Luigi? (**post message API**)
-
-Example of including one 
+In the following sections, you will learn how to set up a small sample application in Luigi. 
 
 ## Prerequisites 
 
@@ -27,7 +23,7 @@ To install Live Server, use this command in the terminal:
 
 ## Setup 
 
-1. Add Luigi to your project dependencies. 
+Add Luigi to your project dependencies. 
 
 ```
 npm install --save @kyma-project/luigi-core
@@ -40,11 +36,21 @@ How to install Luigi depends on which framework you want to use for your project
 For this small test example, we recommend starting with the [No Framework](https://github.com/SAP/luigi/blob/master/docs/application-setup.md#application-setup-for-an-application-not-using-a-framework) installation.
 
 
-## Basic Config
+## Basic Configuration
 
-Open the `basicConfiguration.js` file in your luigi-config folder.
+1. Open the `basicConfiguration.js` file in your luigi-config folder. This file will enable you to configure your Luigi Core app. 
 
+2. You will notice the file already contains some Luigi test features by default. Open your application. The sample settings will be rendered on your page. You are ready to start with Luigi. 
 
+## Next steps
+
+If you are interested in developing a main application using Luigi Core, read these guides:
+
+[Luigi Core Documentation](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
+
+If you are interested in connecting your micro frontend to Luigi, see: 
+
+[Luigi Client Documentation](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
 
 
 
