@@ -18,9 +18,9 @@ The Luigi framework makes the process of implementing micro frontends fast and s
 
 ## Luigi structure
 
-**[Luigi Core]** enables you to create a main UI application and configure it according to your needs.
+**[Luigi Core]**(https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core) enables you to create this main application and configure it according to your needs.) enables you to create a main UI application and configure it according to your needs.
 
-**[Luigi Client]** provides you with the tools to connect your micro frontend to the main Luigi Core application. 
+**[Luigi Client]**(https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core) provides you with the tools to connect your micro frontend to the main Luigi Core application. 
 
 In the following sections, you will learn how to set up a small sample application in Luigi. 
 
