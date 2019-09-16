@@ -10,7 +10,7 @@ By following this guide, you will create your own small user interface. This wil
 
 Micro frontends are a great tool for **breaking up big, monolithic UIs**. 
 
-Instead of relying on one UI team, every team in your project can develop their own end-to-end application (micro frontend) which connects to the same framework. 
+Instead of relying on one UI team, every team in your project can develop their own end-to-end application (micro frontend) which connects to the same Luigi framework. 
 
 This improves scalability, makes updates easier, and results in a website that is more resilient and easier to manage. 
 
