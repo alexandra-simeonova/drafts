@@ -48,9 +48,9 @@ For this small test example, we recommend starting with the [No Framework](https
 
 ## Basic Configuration
 
-1. Open the `basicConfiguration.js` file in your luigi-config folder. This file will enable you to configure your Luigi Core app. 
+1. Open the `basicConfiguration.js` file in your luigi-config folder. This file will enable you to configure your Luigi Core app. There are aleady some sample features included in the file. 
 
-2. You will notice the file already contains some Luigi test features by default. Open your application. The sample settings will be rendered on your page. You are ready to start with Luigi. 
+2. Open your application. The sample settings will be rendered on your page. You are ready to start with Luigi. 
 
 ## Next steps
 
