@@ -2,66 +2,41 @@
 
 ## What is Luigi?
 
-Luigi is a JavaScript framework for micro frontends. It enables you to create user interface which is driven by local and distributed micro frontend views. 
+Luigi is a JavaScript framework for **micro frontends**. It enables you to create user interface which is driven by local and distributed micro frontend views. 
 
-By following this guide, you will create your own small user interface. This will give you more insight into Luigi's main components and benefits. 
+To get started with Luigi, you only need basic knowledge of HTML and JavaScript. 
+
+You may install Luigi on an already existing application or website, or you can create a new application from scartch using different frameworks such as:
+* Angular 6
+* SAPI5/OpenUI5
+* VUE.JS
+
+Once a main user interface is set up with Luigi, you can create micro frontends which seamlessly connect with it. 
 
 ## What are micro frontends? 
 
-Micro frontends are a great tool for **breaking up big, monolithic UIs**. 
+Micro frontends are small independent web applications that are implemented within the same global user interface. They are a great tool for **breaking up big, monolithic UIs**.
 
-Instead of relying on one UI team, every team in your project can develop their own end-to-end application (micro frontend) which connects to the same Luigi framework. 
+Instead of relying on a single UI team, every team in your project can develop their own end-to-end application (micro frontend) which connects to the same Luigi framework. This gives individual teams autonomy over release dates and updates. 
 
-This improves scalability, makes updates easier, and results in a website that is more resilient and easier to manage. 
+You can also integrate micro frontends from external systems and extend your application with additional functionality from a 3rd party.
 
-The Luigi framework makes the process of implementing micro frontends fast and simple. Only a basic knowledge of JavaScript and HTML is required to get started with Luigi. 
+The micro fontend modules in Luigi are **technology agnostic**, which means they can be developed using different frameworks, yet still integrate in the same main application. This saves time and enables quick adoption of new technologies. 
+
+Lastly, Luigi can make your website faster and more resilient, because even if a micro frontend underperforms, the main user interface is not affected. 
 
 ## Luigi components
 
-[**Luigi Core**](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core) enables you to create a global user interface from scratch and configure it according to your needs.
+**Luigi Core** enables you to create a global user interface from scratch and configure it according to your needs.
 
-[**Luigi Client**](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core) provides you with the tools to connect your micro frontend to the main Luigi Core application. 
-
-## Prerequisites 
-
-- Live Server
-
-To install Live Server, use this command in the terminal:
-`npm install -g live-server`
-
-## Setup 
-
-1. Add Luigi to your project dependencies. 
-
-```
-npm install --save @kyma-project/luigi-core
-npm install --save @kyma-project/luigi-client
-```
-
-2. Give Luigi exclusive control over the entry index.html file. If you have a single page application, transfer it to a two-page application. Your app should run to make sure the existing router doesn't interfere.
-
-## Installation
-
-How to install Luigi depends on which framework you want to use for your project.
-
-For this small test example, we recommend starting with the [No Framework](https://github.com/SAP/luigi/blob/master/docs/application-setup.md#application-setup-for-an-application-not-using-a-framework) installation.
+* [Luigi Core Installation] (https://github.com/SAP/luigi/blob/master/docs/application-setup.md)
+* [Luigi Core Documentation](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
 
 
-## Basic Configuration
+**Luigi Client** provides you with the tools to connect your micro frontend to the main Luigi Core application. 
 
-1. Open the `basicConfiguration.js` file in your luigi-config folder. This file will enable you to configure your Luigi Core app. There are aleady some sample features included in the file. 
-
-2. Open your application. The sample settings will be rendered on your page. You are ready to start with Luigi. 
-
-## Next steps
-
-If you are interested in developing a main application using Luigi Core, read these guides:
-
-[Luigi Core Documentation](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
-
-If you are interested in connecting your micro frontend to Luigi, see: 
-
-[Luigi Client Documentation](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
+* [Luigi Client Installation](https://github.com/SAP/luigi/tree/master/client#luigi-client) 
+* [Luigi Client API](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
 
 
 
