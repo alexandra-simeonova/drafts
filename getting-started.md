@@ -41,5 +41,4 @@ To create a global user interface and host a full web application in Luigi:
 To develop micro frontends and connect them to an already existing Luigi Core app:
 
 1. [Install Luigi Client](https://github.com/SAP/luigi/tree/master/client).
-
-2. Use the functions and parameters in the [Luigi Client API](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core).
+2. Use the functions and parameters provided by the [Luigi Client API](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core).
