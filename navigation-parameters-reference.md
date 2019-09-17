@@ -1,6 +1,6 @@
 # Navigation parameters reference
 
-You can use parameters and functions listed below to configure your Luigi navigation structure. 
+You can use parameters and functions listed below to configure your Luigi navigation structure. To see how they are used, check out the [navigation configuration example](https://). 
 
 * [Routing](#navigation-parameters-referece#routing)
 * [Global navigation parameters](#global-navigation-parameters)
@@ -12,7 +12,6 @@ You can use parameters and functions listed below to configure your Luigi naviga
 * [Context switcher](#context-switcher)
 * [Product switcher](#product-switcher)
 * [App switcher](#app-switcher)
-* [Navigation configuration example](#navigation-configuration-example)
 
 
 ## Routing
@@ -26,18 +25,6 @@ You can configure the way Luigi tackles routing in your application in the **Rou
 | **skipRoutingForUrlPatterns** |        | defines regex patterns to be skipped by the router when listening for path changes. This parameter is used for excluding **redirect_uri** parameters. Default patterns are `[/access_token=/, '/id_token=/]`.|
 | **pageNotFoundHandler** |        | a function defining custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. This function takes the following parameters:  1. **wrongPath**(string): the path that user tried to navigate to 2. **wasAnyPathFitted**(bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false. |
 
-Here is an example of how the routing parameters are used (see full example [here](#navigation-configuration-example)).
-
-```javascript
-Luigi.setConfig({
-  routing: {
-    // uses hash-based navigation if set to true
-    useHashRouting: true,
-    nodeParamPrefix: '~',
-    skipRoutingForUrlPatterns: [/access_token=/, /id_token=/]
-  },
-  ...
-  ```
 
 ## Global navigation parameters
 
@@ -50,25 +37,6 @@ See [angular navigation.js](../core/examples/luigi-sample-angular/src/luigi-conf
 - **viewGroupsSettings** is an object containing key-object pairs, where the key is the view group name as specified in the node parameters, and the object contains key-value pairs. In each key-value pair, the key is the feature name and the value is the actual setting. The following options are supported:
   - **preloadUrl**(string): needs to be an absolute URL for a node from the view group. It is recommended that you use a dedicated small, visually empty view, which imports Luigi Client and is fine with getting an empty context, for example, without an access token. The **preloadUrl** parameter is also required for view group caching in case you need a view group iframe to refresh whenever you navigate back to it.
 
-Here is an example of how the navigation parameters are used (see full example [here](#navigation-configuration-example)).
-
-  ```javascript
-   // navigation structure and settings
-  navigation: {
-    nodeAccessibilityResolver: function (nodeToCheckPermissionFor, parentNode, currentContext) {},
-  viewGroupSettings: {
-    main: {
-      preloadUrl: 'https://my-site.com/index.html#/preload',
-    },
-    projects: {
-      preloadUrl: 'https://my-site.com/projects.html#/preloading',
-    },
-    envs: {
-      preloadUrl: 'https://my-site.com/environments-details.html#/preload-view',
-    }
-  },
-  ...
-  ```
 
 ## Node parameters
 
@@ -126,36 +94,6 @@ These parameters help you configure the view/micro frontend that appears in the 
 - **viewGroup** is a parameter that defines a group of views in the same domain sharing a common security context. This improves performance through reusing the frame. Use viewGroup only for the views that use path routing internally.
 - **isolateView** renders the view in a new frame when you enter and leave the node. This setting overrides the same-domain frame re-usage. The **isolateView** is disabled by default.
 
-Here is an example of how view groups are used (see full example [here](#navigation-configuration-example)).
-
-```javascript
-// View groups nodes
-    {
-      viewGroup: 'main',
-      pathSegment: 'overview',
-      label: 'Overview',
-      viewUrl: 'https://my-site.com/index.html#/overview'
-    },
-    {
-      viewGroup: 'main',
-      pathSegment: 'preload',
-      viewUrl: 'https://my-site.com/index.html#/preload'
-    },
-    {
-      viewGroup: 'projects',
-      pathSegment: 'projects',
-      label: 'Projects',
-      viewUrl: 'https://my-site.com/projects.html#/list',
-      children: [
-        {
-          pathSegment: 'preloading',
-          viewUrl: 'https://my-site.com/projects.html#/preloading'
-        }
-      ]
-    },
-...
-```
-
 ## Profile
 
 The profile section is a configurable drop-down list available in the top navigation bar. Within the configuration, you can override the logout item content and/or add links to Luigi navigation nodes. To do so, add the **profile** property to the **navigation** object using the following optional properties:
@@ -173,17 +111,6 @@ The profile section is a configurable drop-down list available in the top naviga
     - **sameWindow** defines if the external URL is opened in the current tab or in a new one. The default value for this parameter is `false`.
     - **url** is the external URL that the link leads to.
 
-Here is an example of how a profile is configured (see full example [here](#navigation-configuration-example)).
-
-```javascript
-profile: {
-   logout: {
-      label: 'End session'
-      // icon: "sys-cancel",
-      testId: 'myTestId',
-    },
-...
-```
 
 ## Context switcher
 
@@ -203,21 +130,6 @@ The context switcher is a drop-down list available in the top navigation bar. It
   - **clickHandler** specifies a function and is executed on click and should return a boolean. If it returns `true`, **link** is opened afterwards.
 - **fallbackLabelResolver** specifies a function used to fetch the **label** for **options** with no **label** defined. Additionally, it fetches the drop-down label for non-existing **options**.
 
-Here is an example of how a context switcher is configured (see full example [here](#navigation-configuration-example)).
-
-```javascript
-contextSwitcher: {
-      defaultLabel: 'Select Environment ...',
-      testId: 'myTestId',
-      parentNodePath: '/environments',
-      lazyloadOptions: false,
-      fallbackLabelResolver: (id) => (id.toUpperCase()),
-      options: [{label,pathValue}, {label,pathValue}],
-      actions: [{label,link,position,clickHandler?}]
-    },
-...
-```
-
 ## Product switcher
 
 The product switcher is a pop-up window available in the top navigation bar. It allows you to switch between the navigation elements displayed in the pop-up. To do so, add the **productSwitcher** property to the **navigation** object using the following optional properties:
@@ -234,193 +146,4 @@ The product switcher is a pop-up window available in the top navigation bar. It 
     - **sameWindow** defines if the external URL is opened in the current tab or in a new one. The default value for this parameter is `false`.
     - **url** is the external URL that the link leads to.
 
-Here is an example of how a product switcher is configured (see full example [here](#navigation-configuration-example)).
 
-```javascript
-productSwitcher: {
-      label: 'My Products',
-      testId: 'myTestId',
-      icon: 'grid',
-      items: [
-        {
-          icon: '',
-          label: 'Luigi in Github',
-          testId: 'myTestId',
-          externalLink: {
-            url: 'https://github.com/SAP/luigi',
-            sameWindow: false
-          }
-        },
-        {
-          icon: '',
-          label: 'Project 1',
-          testId: 'myTestId',
-          link: '/projects/pr1'
-        }
-      ]
-    },
-...
-```
-
-## Navigation configuration example
-
-This example demonstrates a full sample navigation structure with many of the parameters you may use when configuring navigation for Luigi. 
-
-```javascript 
-Luigi.setConfig({
-  routing: {
-    // uses hash-based navigation if set to true
-    useHashRouting: true,
-    nodeParamPrefix: '~',
-    skipRoutingForUrlPatterns: [/access_token=/, /id_token=/]
-  },
-  // navigation structure and settings
-  navigation: {
-    nodeAccessibilityResolver: function (nodeToCheckPermissionFor, parentNode, currentContext) {},
-  viewGroupSettings: {
-    main: {
-      preloadUrl: 'https://my-site.com/index.html#/preload',
-    },
-    projects: {
-      preloadUrl: 'https://my-site.com/projects.html#/preloading',
-    },
-    envs: {
-      preloadUrl: 'https://my-site.com/environments-details.html#/preload-view',
-    }
-  },
-  nodes: [
-    // STATIC navigation node
-    {
-      pathSegment: 'settings',
-      label: 'Settings',
-      viewUrl: 'https://admin.mydomain.com/settings',
-      viewGroup: 'settingsGroup',
-      // optional
-      children: [node, node, node],
-      hideFromNav: false,
-      isolateView: false,
-      icon: 'settings',
-      testId: 'myTestId'
-      category: {
-        label: 'General',
-        testId: 'myTestId',
-        icon: 'general'
-      }, // OR
-      category: 'General'
-    },
-    // DYNAMIC navigation node
-    {
-      navigationContext: 'contextName',
-      pathSegment: ':projectId',
-      testId: 'myTestId',
-      viewUrl: '/some/path/:projectId',
-      context: {
-        projectId: ':projectId'
-      },
-      children: [node, node, node]
-    },
-    // View groups nodes
-    {
-      viewGroup: 'main',
-      pathSegment: 'overview',
-      label: 'Overview',
-      viewUrl: 'https://my-site.com/index.html#/overview'
-    },
-    {
-      viewGroup: 'main',
-      pathSegment: 'preload',
-      viewUrl: 'https://my-site.com/index.html#/preload'
-    },
-    {
-      viewGroup: 'projects',
-      pathSegment: 'projects',
-      label: 'Projects',
-      viewUrl: 'https://my-site.com/projects.html#/list',
-      children: [
-        {
-          pathSegment: 'preloading',
-          viewUrl: 'https://my-site.com/projects.html#/preloading'
-        }
-      ]
-    },
-    {
-      viewGroup: 'envs',
-      pathSegment: 'create-environment',
-      viewUrl: 'https://my-site.com/environments.html#/create',
-      context: {
-        label: 'Create Environment'
-      }
-    },
-    {
-      viewGroup: 'envs',
-      pathSegment: 'environments',
-      viewUrl: 'https://my-site.com/environments-details.html#/list',
-      children: [
-        {
-          pathSegment: 'preload',
-          viewUrl: 'https://my-site.com/environments-details.html#/preload-view'
-        },
-        {
-          pathSegment: 'env1',
-          viewUrl: 'https://my-site.com/environments-details.html#/details/env1'
-        }
-      ]
-    }
-    ],
-    contextSwitcher: {
-      defaultLabel: 'Select Environment ...',
-      testId: 'myTestId',
-      parentNodePath: '/environments',
-      lazyloadOptions: false,
-      fallbackLabelResolver: (id) => (id.toUpperCase()),
-      options: [{label,pathValue}, {label,pathValue}],
-      actions: [{label,link,position,clickHandler?}]
-    },
-    profile: {
-      logout: {
-        label: 'End session'
-        // icon: "sys-cancel",
-        testId: 'myTestId',
-      },
-      items: [
-        {
-          icon: '',
-          testId: 'myTestId',
-          label: 'Luigi in Github',
-          externalLink: {
-            url: 'https://github.com/SAP/luigi',
-            sameWindow: false
-          }
-        },
-        {
-          icon: '',
-          label: 'Project 1',
-          link: '/projects/pr1'
-        }
-      ]
-    },
-    productSwitcher: {
-      label: 'My Products',
-      testId: 'myTestId',
-      icon: 'grid',
-      items: [
-        {
-          icon: '',
-          label: 'Luigi in Github',
-          testId: 'myTestId',
-          externalLink: {
-            url: 'https://github.com/SAP/luigi',
-            sameWindow: false
-          }
-        },
-        {
-          icon: '',
-          label: 'Project 1',
-          testId: 'myTestId',
-          link: '/projects/pr1'
-        }
-      ]
-    },
-  }
-});
-```
