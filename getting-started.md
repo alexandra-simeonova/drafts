@@ -15,7 +15,7 @@ Micro frontends are small frontend web applications that are implemented on one 
 * **making your website fast and resilient**: even if a micro frontend underperforms, the main user interface is not affected.
 * **extensibility**: integrate external micro frontends to utilize functions from a 3rd party.
 * **scalability**: add new features with ease without having to rely on only one UI team.
-* **technology agnostic**: each micro frontend can be developed using a different framework without having to synchronize everything with the main application. This enables you to quickly react to new trends and adopt new technologies. 
+* **technology agnosticism**: each micro frontend can be developed using a different framework without having to synchronize everything with the main application. This enables you to quickly react to new trends and adopt new technologies. 
 
 ## Prerequisites 
 
