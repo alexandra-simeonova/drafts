@@ -2,18 +2,18 @@
 
 ## What is Luigi?
 
-Luigi is an open source JavaScript framework for **micro frontends**. It enables you to:
-* create a unified user interface or web application using **Luigi Core** 
-* create micro frontends and connect them to the Luigi Core app using **Luigi Client**
+Luigi is an open source JavaScript framework for micro frontends. It enables you to:
+* create a **unified user interface** or web application using **Luigi Core**. 
+* create **micro frontends** and connect them to the Luigi Core app using **Luigi Client**.
 
 ## What are micro frontends? 
 
 Micro frontends are small frontend web applications that are implemented on one global user interface. Some of their main benefits are:
 
 * **breaking up big, monolithic UIs**: decompose your frontend into smaller chucks and make it more manageable, all while maintaining a unified user experience.
-* **giving individual teams autonomy**: every team in your project can develop their own end-to-end application (micro frontend) which connects to the same Luigi framework. This gives teams full autonomy over release dates and updates, while also reducing code dependencies. 
+* **giving individual teams autonomy**: every team in your project can develop their own end-to-end application which exists on the same core app. This gives teams full autonomy over release dates and updates, while also reducing code dependencies. 
 * **making your website fast and resilient**: even if a micro frontend underperforms, the main user interface is not affected.
-* **extensibility**: integrate external micro frontends and extend your application with functionality from a 3rd party.
+* **extensibility**: integrate external micro frontends to utilize functions from a 3rd party.
 * **scalability**: add new features with ease without having to rely on only one UI team.
 * **technology agnostic**: each micro frontend can be developed using a different framework without having to synchronize everything with the main application. This enables you to quickly react to new trends and adopt new technologies. 
 
@@ -26,15 +26,19 @@ You can build an application in Luigi without a framework, or use different fram
 * SAPI5/OpenUI5
 * VUE.JS 
 
-## Luigi components
+## Next steps
 
-**Luigi Core** enables you to create a main application/global user interface and configure it according to your needs.
+### Luigi Core
+
+To set up a main application using Luigi Core, see these guides:
 
 * [Luigi Core Installation](https://github.com/SAP/luigi/blob/master/docs/application-setup.md)
 * [Luigi Core Documentation](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
 
 
-**Luigi Client** provides you with the tools to create a micro frontend and connect it to the main Luigi Core application. 
+### Luigi Client
+
+To develop micro frontends and connect them to a Luigi Core app, see these guides:
 
 * [Luigi Client Installation](https://github.com/SAP/luigi/tree/master/client#luigi-client) 
 * [Luigi Client API](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
