@@ -1,6 +1,8 @@
 # Navigation parameters reference
 
-You can use parameters and functions listed below to configure your Luigi navigation structure. To see how they are used, check out the [navigation configuration example](https://). 
+> NOTE: To see how the navigation parameters are used, check out the [navigation configuration example](https://). 
+
+You can use parameters and functions listed below to configure your Luigi navigation structure:
 
 * [Routing](#navigation-parameters-referece#routing)
 * [Global navigation parameters](#global-navigation-parameters)
