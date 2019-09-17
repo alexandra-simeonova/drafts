@@ -8,14 +8,15 @@ Luigi is an open source JavaScript framework for micro frontends. It enables you
 
 ## What are micro frontends? 
 
-Micro frontends are small frontend web applications that are implemented on one global user interface. Some of their main benefits are:
+Micro frontends are small frontend web applications that are implemented on one global user interface. They enable you to:
 
-* **breaking up big, monolithic UIs**: decompose your frontend into smaller chucks and make it more manageable, all while maintaining a consistent user experience.
-* **giving individual teams autonomy**: every team in your project can develop their own end-to-end application which exists on the same core app. This gives teams full autonomy over release dates and updates, while also reducing code dependencies. 
-* **making your website fast and resilient**: even if a micro frontend underperforms, the main user interface is not affected.
-* **extensibility**: integrate external micro frontends to utilize functions from a 3rd party.
-* **scalability**: add new features with ease without having to rely on only one UI team.
-* **technology agnosticism**: each micro frontend can be developed using a different framework without having to synchronize everything with the main application. This enables you to quickly react to new trends and adopt new technologies. 
+* **break up big, monolithic UIs**: decompose your frontend into smaller chucks and make it more manageable, all while maintaining a consistent user experience.
+* **give individual teams autonomy**: every team in your project can develop their own end-to-end application which exists on the same core app. This gives teams full autonomy over release dates and updates, while also reducing code dependencies. 
+* Micro frontends make your website:
+  * **fast and resilient**: even if a micro frontend underperforms, the main user interface is not affected. 
+  * **extensible**: integrate external micro frontends to utilize functions from a 3rd party.
+  * **scalable*: add new features with ease without having to rely on only one UI team.
+  * **technology agnostic**: each micro frontend can be developed using a different framework without having to synchronize everything with the main application. This enables you to quickly react to new trends and adopt new technologies.
 
 ## Prerequisites 
 
