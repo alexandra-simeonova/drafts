@@ -4,8 +4,8 @@
 
 Luigi is an open source JavaScript framework for **micro frontends**. It enables you to:
 
-* create a user interface which is driven by local and distributed micro frontend views using **Luigi Core** 
-* create micro frontends and connect them to the main app using **Luigi Client**
+* create a user interface driven by local and distributed micro frontend views using **Luigi Core** 
+* create micro frontends and connect them to the main application using **Luigi Client**
 
 To get started with Luigi, you only need basic knowledge of HTML and JavaScript. 
 
