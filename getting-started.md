@@ -27,13 +27,13 @@ Lastly, Luigi can **make your website faster** and more resilient, because even 
 
 ## Luigi components
 
-**Luigi Core** enables you to create a global user interface from scratch and configure it according to your needs.
+**Luigi Core** enables you to create a main application (global user interface) from scratch and configure it according to your needs.
 
-* [Luigi Core Installation] (https://github.com/SAP/luigi/blob/master/docs/application-setup.md)
+* [Luigi Core Installation](https://github.com/SAP/luigi/blob/master/docs/application-setup.md)
 * [Luigi Core Documentation](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
 
 
-**Luigi Client** provides you with the tools to connect your micro frontend to the main Luigi Core application. 
+**Luigi Client** provides you with the tools to create a micro frontend and connect it to the main Luigi Core application. 
 
 * [Luigi Client Installation](https://github.com/SAP/luigi/tree/master/client#luigi-client) 
 * [Luigi Client API](https://github.com/SAP/luigi/blob/master/docs/README.md#luigi-core)
