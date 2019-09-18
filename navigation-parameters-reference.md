@@ -68,7 +68,7 @@ Node parameters are parameters that can be added to an individual [navigation no
 |**title**|  | modal title. By default, it is the node label. If there is no label, it is left empty|
 |**size** |  | optional size of the modal. Possible values: **(`"l"` \| `"m"` \| `"s"`)** (default `"l"`) | 
 |**onNodeActivation**|   |an optional function executed when a request to navigate to the node occurs. As an input parameter, the function receives the node object as described in the configuration. This function can return results synchronously or asynchronously. If the function returns boolean `false`, the navigation is not triggered, otherwise, navigation renders as usual.|
-|**clientPermissions.changeCurrentLocale**|  |current locale can be changed from client using the corresponding API if this is set to `true`.|
+|**clientPermissions**{**changeCurrentLocale**:true/false}  |current locale can be changed from client using the corresponding API if this is set to `true`.|
 
 
 ### Path parameters 
