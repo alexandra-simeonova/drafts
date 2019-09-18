@@ -43,8 +43,9 @@ See [angular navigation.js](../core/examples/luigi-sample-angular/src/luigi-conf
 Node parameters are all the parameters that can be added to an individual [navigation node](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#navigation-structure) in the `nodes:` section of the Luigi configuration file. 
 
 ### pathSegment
-| type | string |   
+|||   
 |:---------:|-------|
+| **type** | string |
 | **required** | no | 
 |**description**|specifies the partial URL of the current segment. **pathSegment** must not contain slashes.|
 |**example**| A static `pathSegment: 'settings'` will create the path `luigidomain.test/settings`. A dynamic pathSegment is prefixed with a colon and loads any value. Find more info on dynamic paths [here](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md)|
