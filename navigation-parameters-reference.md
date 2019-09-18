@@ -23,14 +23,8 @@ You can configure the way Luigi tackles routing in your application in the **Rou
 | Field  |     Mandatory     |   Description |
 |----------|:-------------:|------|
 | **useHashRouting** |  **YES**  |  defines either hash-based (`url.com/#/yourpath`) or path-based (`url.com/yourpath`) routing. |
-| Field  |     Mandatory     |   Description |
-|----------|:-------------:|------|
 | **nodeParamPrefix** |        |  sets the prefix character when using the `LuigiClient.linkManager().withParam()` function, which provides a way to simply attach query parameters to the view URL for activities such as sorting and filtering. The URL contains the parameters to allow deep linking. If you want to use a different character prefix, define yours here. The default character is `~`. | 
-| Field  |     Mandatory     |   Description |
-|----------|:-------------:|------|
 | **skipRoutingForUrlPatterns** |        | defines regex patterns to be skipped by the router when listening for path changes. This parameter is used for excluding **redirect_uri** parameters. Default patterns are `[/access_token=/, '/id_token=/]`.|
-| Field  |     Mandatory     |   Description |
-|----------|:-------------:|------|
 | **pageNotFoundHandler** |        | a function defining custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. This function takes the following parameters:  1. **wrongPath**(string): the path that user tried to navigate to 2. **wasAnyPathFitted**(bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false. |
 
 
@@ -62,9 +56,9 @@ Node parameters are parameters that can be added to an individual [navigation no
 | **keepSelectedForChildren** |   | focuses the navigation on its current hierarchy, omitting the display of children.|
 | **icon** |   | is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. | 
 | **hideSideNav** |   | if set to `true`, the left navigation disappears when you click the affected node. It is set to `false` by default.|
-| **badgeCounter** |  | adds a badge with a number and a label to a node. Nodes that are part of a category show a cumulated number of all badges in this category. **badgeCounter** is only available for top navigation items.|
-| **label** |Property of **badgeCounter**| is the label of the badge.|
-| **count** |Property of **badgeCounter**|is a function or asynchronous function that returns a number. Gets updated when you click the navigation. Use `Luigi.navigation().updateTopNavigation()` in Luigi Core or trigger it in Luigi Client by using the custom message feature.| 
+| **badgeCounter**:{label, count}|  | adds a badge with a number and a label to a node. Nodes that are part of a category show a cumulated number of all badges in this category. **badgeCounter** is only available for top navigation items.|
+| **label** | |is the label of the badge.|
+| **count** | |is a function or asynchronous function that returns a number. Gets updated when you click the navigation. Use `Luigi.navigation().updateTopNavigation()` in Luigi Core or trigger it in Luigi Client by using the custom message feature.| 
 | **category** (parameters: **label, icon, collapsible, testId**)|   |defines a group of views separated with a headline and an icon. You should define at least one node in a group should as an Object with **label** and **icon** properties. For all other nodes, you can set **category** as a string with the `label` value.|
 |**label**| | is a string that represents the title of the category |
 |**icon** |  |is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. In case you accidentally define different icons in a category group, only the first one is used.|
