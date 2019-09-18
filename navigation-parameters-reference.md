@@ -18,7 +18,7 @@ You can use parameters and functions listed below to configure your Luigi naviga
 
 ## Routing
 
-|[]()  | |
+|[]()  | []()|
 |------|------|
 Row 1 | row 2
 
