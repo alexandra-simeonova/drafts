@@ -63,10 +63,10 @@ Node parameters are parameters that can be added to an individual [navigation no
 |**label**| | is a string that represents the title of the category |
 |**icon** |  |is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. In case you accidentally define different icons in a category group, only the first one is used.|
 |**collapsible** | | if set to `true`, category items are hidden at first. To expand them, click the main category node.|
-|**testId** | P |is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).|
+|**testId** |  |is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).|
 |**openNodeInModal** |  | configures the settings of the view which opens in a modal. You can specify the modal's title and size. If you don't specify the title, the node label is used. If there is no node label, the title remains empty. The default size of the modal is `l`, which means 80%. You can also use `m` (60%) and `s` (40%) to set the modal size.<br/> Optionally you can set the **openNodeInModal** property to `true` to use default title and size. | 
-|**title**| Property of **openNodeInModal** | modal title. By default, it is the node label. If there is no label, it is left empty|
-|**size** | Property of **openNodeInModal**| optional size of the modal. Possible values: **(`"l"` \| `"m"` \| `"s"`)** (default `"l"`) | 
+|**title**|  | modal title. By default, it is the node label. If there is no label, it is left empty|
+|**size** |  | optional size of the modal. Possible values: **(`"l"` \| `"m"` \| `"s"`)** (default `"l"`) | 
 |**onNodeActivation**|   |an optional function executed when a request to navigate to the node occurs. As an input parameter, the function receives the node object as described in the configuration. This function can return results synchronously or asynchronously. If the function returns boolean `false`, the navigation is not triggered, otherwise, navigation renders as usual.|
 |**clientPermissions.changeCurrentLocale**|  |current locale can be changed from client using the corresponding API if this is set to `true`.|
 
