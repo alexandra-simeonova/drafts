@@ -75,6 +75,8 @@ Node parameters are parameters that can be added to an individual [navigation no
 
 These parameters can be used to configure the URL path according to your needs. 
 
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
 | **pathSegment** |   |specifies the partial URL of the current segment. **pathSegment** must not contain slashes. - A static settings example reflects `luigidomain.test/settings`. - A dynamic settings example, prefixed with a colon, loads on any other value. |
 | **link** |   | is a string which refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored. | 
 | **externalLink** |   | is an object which indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. It has the following properties:
@@ -85,16 +87,20 @@ These parameters can be used to configure the URL path according to your needs.
 
 These parameters help you configure a loading indicator or disable it. 
 
-- **loadingIndicator.enabled** shows a loading indicator when switching between micro frontends. If you have a fast micro frontend, you can disable this feature to prevent flickering of the loading indicator. This parameter is enabled by default.
-- **loadingIndicator.hideAutomatically** disables the automatic hiding of the loading indicator once the micro frontend is loaded. It is only considered if the loading indicator is enabled. It does not apply if the loading indicator is activated manually with the `LuigiClient.uxManager().showLoadingIndicator()` function. If the loading indicator is enabled and automatic hiding is disabled, use `LuigiClient.uxManager().hideLoadingIndicator()` to hide it manually in your micro frontend during the startup. This parameter is enabled by default.
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
+|**loadingIndicator.enabled**|  | shows a loading indicator when switching between micro frontends. If you have a fast micro frontend, you can disable this feature to prevent flickering of the loading indicator. This parameter is enabled by default.|
+|**loadingIndicator.hideAutomatically**|  | disables the automatic hiding of the loading indicator once the micro frontend is loaded. It is only considered if the loading indicator is enabled. It does not apply if the loading indicator is activated manually with the `LuigiClient.uxManager().showLoadingIndicator()` function. If the loading indicator is enabled and automatic hiding is disabled, use `LuigiClient.uxManager().hideLoadingIndicator()` to hide it manually in your micro frontend during the startup. This parameter is enabled by default.|
 
 ### View parameters
 
 These parameters help you configure the view/micro frontend that appears in the main area of the application. 
 
-- **viewUrl** contains the URL or path to a view which renders when you click the navigation node. Use either a full URL or a relative path. This value may consist of variables if you have specified a **navigationContext** with a dynamic **pathSegment**. If **viewUrl** is undefined, Luigi activates the child node specified in **defaultChildNode**. When both **viewUrl** and **defaultChildNode** are undefined, Luigi opens the first child of the current node.
-- **viewGroup** is a parameter that defines a group of views in the same domain sharing a common security context. This improves performance through reusing the frame. Use viewGroup only for the views that use path routing internally.
-- **isolateView** renders the view in a new frame when you enter and leave the node. This setting overrides the same-domain frame re-usage. The **isolateView** is disabled by default.
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
+|**viewUrl**| contains the URL or path to a view which renders when you click the navigation node. Use either a full URL or a relative path. This value may consist of variables if you have specified a **navigationContext** with a dynamic **pathSegment**. If **viewUrl** is undefined, Luigi activates the child node specified in **defaultChildNode**. When both **viewUrl** and **defaultChildNode** are undefined, Luigi opens the first child of the current node.|
+|**viewGroup**|  |is a parameter that defines a group of views in the same domain sharing a common security context. This improves performance through reusing the frame. Use viewGroup only for the views that use path routing internally.|
+|**isolateView**|  | renders the view in a new frame when you enter and leave the node. This setting overrides the same-domain frame re-usage. The **isolateView** is disabled by default.|
 
 ## Profile
 
