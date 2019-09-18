@@ -48,7 +48,7 @@ Node parameters are all the parameters that can be added to an individual [navig
 
 ### pathSegment
 |||   
-|:---------:|-------|
+|:---------:|:-------|
 | **type** | string |
 | **required** | no | 
 |**description**|specifies the partial URL of the current segment. **pathSegment** must not contain slashes.|
@@ -56,7 +56,7 @@ Node parameters are all the parameters that can be added to an individual [navig
 
 ### link
 | type | string |   
-|:---------:|-------|
+|:---------:|:-------|
 | **required** | **no** | 
 |**description**| refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored.|
 
