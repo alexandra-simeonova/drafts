@@ -59,7 +59,7 @@ Node parameters are parameters that can be added to an individual [navigation no
 | **badgeCounter**:{label, count}|  | adds a badge with a number and a label to a node. Nodes that are part of a category show a cumulated number of all badges in this category. **badgeCounter** is only available for top navigation items.|
 | **label** | |is the label of the badge.|
 | **count** | |is a function or asynchronous function that returns a number. Gets updated when you click the navigation. Use `Luigi.navigation().updateTopNavigation()` in Luigi Core or trigger it in Luigi Client by using the custom message feature.| 
-| **category** (parameters: **label, icon, collapsible, testId**)|   |defines a group of views separated with a headline and an icon. You should define at least one node in a group should as an Object with **label** and **icon** properties. For all other nodes, you can set **category** as a string with the `label` value.|
+| **category**:{label, icon, collapsible, testId}|   |defines a group of views separated with a headline and an icon. You should define at least one node in a group should as an Object with **label** and **icon** properties. For all other nodes, you can set **category** as a string with the `label` value.|
 |**label**| | is a string that represents the title of the category |
 |**icon** |  |is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. In case you accidentally define different icons in a category group, only the first one is used.|
 |**collapsible** | | if set to `true`, category items are hidden at first. To expand them, click the main category node.|
@@ -68,7 +68,7 @@ Node parameters are parameters that can be added to an individual [navigation no
 |**title**|  | modal title. By default, it is the node label. If there is no label, it is left empty|
 |**size** |  | optional size of the modal. Possible values: **(`"l"` \| `"m"` \| `"s"`)** (default `"l"`) | 
 |**onNodeActivation**|   |an optional function executed when a request to navigate to the node occurs. As an input parameter, the function receives the node object as described in the configuration. This function can return results synchronously or asynchronously. If the function returns boolean `false`, the navigation is not triggered, otherwise, navigation renders as usual.|
-|**clientPermissions**{**changeCurrentLocale**:true/false}  |current locale can be changed from client using the corresponding API if this is set to `true`.|
+|**clientPermissions**{changeCurrentLocale:true/false}  |current locale can be changed from client using the corresponding API if this is set to `true`.|
 
 
 ### Path parameters 
@@ -106,10 +106,13 @@ These parameters help you configure the view/micro frontend that appears in the 
 
 The profile section is a configurable drop-down list available in the top navigation bar. Within the configuration, you can override the logout item content and/or add links to Luigi navigation nodes. To do so, add the **profile** property to the **navigation** object using the following optional properties:
 
+------
 - **logout** overrides the content of the logout item.
   - **label** overrides the text for the logout item. The default value is "Sign Out".
   - **testId** is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).
   - **icon** overrides the icon for the logout item. The default value is [SAP UI5 log icon](https://sapui5.hana.ondemand.com/test-resources/sap/m/demokit/iconExplorer/webapp/index.html#/overview/SAP-icons/?tag=logout).
+  
+------
 - **items** is an array of objects, each one being a link to a Luigi navigation node or an external URL. An item can have the following parameters:
   - **label** defines the text for the link.
   - **testId** is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).
@@ -124,12 +127,17 @@ The profile section is a configurable drop-down list available in the top naviga
 
 The context switcher is a drop-down list available in the top navigation bar. It allows you to switch between a curated list of navigation elements such as Environments. To do so, add the **contextSwitcher** property to the **navigation** object using the following optional properties:
 
+-----
 - **defaultLabel** specifies the default label that is shown if no context is selected.
+-----
 - **parentNodePath** specifies the base path, that is prepended to **options[].pathValue**. It must be an absolute path.
+-----
 - **lazyloadOptions** defines when to fetch **options**. When set to `true`, loads **options** when you click the context switcher. It doesn't involve any caching. When set to `false`, loads **options** once the page loads. The default value is `true`.
+-----
 - **options** defines the list of context element. Context element properties are:
   - **label** defines the context element label. If not defined, the **pathValue** is passed to **fallbackLabelResolver** to set its value. The default value is **pathValue**, if **fallbackLabelResolver** is not defined.
   - **pathValue** defines the context element path that is appended to **parentNodePath** and reflects a **pathSegment**.
+-----
 - **actions** defines a list of additional elements that are shown on above or below the context switcher **options**. Each action contains the following parameters:
   - **label** defines the action element label.
   - **testId** is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).
