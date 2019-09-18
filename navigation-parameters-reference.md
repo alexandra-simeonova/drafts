@@ -65,11 +65,11 @@ You can configure the way Luigi tackles routing in your application in the `rout
 You can configure the way Luigi tackles routing in your application in the `routing:` section of the configuration file. For example, you can choose the routing strategy to apply in your application as either hash or path location routing.
 
 | field | required |  description | 
-|-------|-------||-------|
-|useHashRouting| yes | boolean that defines either hash-based (`url.com/#/yourpath`) or path-based (`url.com/yourpath`) routing.|           
+|-------|-------|-------|
+|useHashRouting| YES | boolean that defines either hash-based (`url.com/#/yourpath`) or path-based (`url.com/yourpath`) routing.|           
 
 | field | required |  description | parameters
 |-------|-------|-------|-------|
-|pageNotFoundHandler| no | function that defines custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. You can return an Object with `redirectTo` property if you want Luigi to redirect to a specific navigation path after execution.| 1. **wrongPath** (string): the path that user tried navigating to 2. **wasAnyPathFitted** (bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false.|
+|pageNotFoundHandler| NO | function that defines custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. You can return an Object with `redirectTo` property if you want Luigi to redirect to a specific navigation path after execution.| 1. **wrongPath** (string): the path that user tried navigating to 2. **wasAnyPathFitted** (bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false.|
 
 
