@@ -18,18 +18,33 @@ You can use parameters and functions listed below to configure your Luigi naviga
 
 ## Routing
 
-| <!-- -->    | <!-- -->    |
-|-------------|-------------|
-| Foo         | Bar         |
-
 You can configure the way Luigi tackles routing in your application in the `routing:` section of the configuration file. For example, you can choose the routing strategy to apply in your application as either hash or path location routing.
 
-- **useHashRouting** defines either hash-based (`url.com/#/yourpath`) or path-based (`url.com/yourpath`) routing.
-- **nodeParamPrefix** sets the prefix character when using the `LuigiClient.linkManager().withParam()` function, which provides a way to simply attach query parameters to the view URL for activities such as sorting and filtering. The URL contains the parameters to allow deep linking. If you want to use a different character prefix, define yours here. The default character is `~`.
-- **skipRoutingForUrlPatterns** defines regex patterns to be skipped by the router when listening for path changes. This parameter is used for excluding **redirect_uri** parameters. Default patterns are `[/access_token=/, '/id_token=/]`.
-- **pageNotFoundHandler** is a function defining custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. You can return an Object with `redirectTo` property if you want Luigi to redirect to a specific navigation path after execution. This function takes the following parameters: 
-  - **wrongPath**(string): the path that user tried to navigate to
-  - **wasAnyPathFitted**(bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false.
+### useHashRouting
+| type | boolean |   
+|:-------|:-------|
+| **required** | **?** | 
+|**description**|defines either hash-based (`url.com/#/yourpath`) or path-based (`url.com/yourpath`) routing.|
+
+### nodeParamPrefix
+| type | string |   
+|:-------|:-------|
+| **required** | **?** | 
+|**description**|sets the prefix character when using the `LuigiClient.linkManager().withParam()` function, which provides a way to simply attach query parameters to the view URL for activities such as sorting and filtering. The URL contains the parameters to allow deep linking. If you want to use a different character prefix, define yours here. The default character is `~`.|
+
+### skipRoutingForUrlPatterns
+| type | boolean |   
+|:-------|:-------|
+| **required** | **?** | 
+|**description**|defines regex patterns to be skipped by the router when listening for path changes. This parameter is used for excluding **redirect_uri** parameters. Default patterns are `[/access_token=/, '/id_token=/]`.|
+
+### pageNotFoundHandler
+| type | function |   
+|:-------|:-------|
+| **required** | **?** | 
+|**description**|
+is a function defining custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. You can return an Object with `redirectTo` property if you want Luigi to redirect to a specific navigation path after execution.|
+|**parameters**| **wrongPath**(string): the path that user tried to navigate to. **wasAnyPathFitted**(bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false.|
 
 ## Node navigation parameters
 
@@ -47,16 +62,15 @@ See [angular navigation.js](../core/examples/luigi-sample-angular/src/luigi-conf
 Node parameters are all the parameters that can be added to an individual [navigation node](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#navigation-structure) in the `nodes:` section of the Luigi configuration file. 
 
 ### pathSegment
-|||   
-|:---------:|:-------|
-| **type** | string |
+| type | string |   
+|:-------|:-------|
 | **required** | no | 
 |**description**|specifies the partial URL of the current segment. **pathSegment** must not contain slashes.|
 |**example**| A static `pathSegment: 'settings'` will create the path `luigidomain.test/settings`. A dynamic pathSegment is prefixed with a colon and loads any value. Find more info on dynamic paths [here](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md)|
 
 ### link
 | type | string |   
-|:---------:|:-------|
+|:-------|:-------|
 | **required** | **no** | 
 |**description**| refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored.|
 
