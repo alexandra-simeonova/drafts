@@ -58,9 +58,8 @@ Node parameters are parameters that can be added to an individual [navigation no
 | **icon** |   | is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. | 
 | **hideSideNav** |   | if set to `true`, the left navigation disappears when you click the affected node. It is set to `false` by default.|
 | **badgeCounter** |  | adds a badge with a number and a label to a node. Nodes that are part of a category show a cumulated number of all badges in this category. **badgeCounter** is only available for top navigation items.|
-  | **label** |Property of **badgeCounter**| is the label of the badge.|
-  | **count** |Property of **badgeCounter**|is a function or asynchronous function that returns a number.
-  Gets updated when you click the navigation. Use `Luigi.navigation().updateTopNavigation()` in Luigi Core or trigger it in Luigi Client by using the custom message feature.| 
+| **label** |Property of **badgeCounter**| is the label of the badge.|
+| **count** |Property of **badgeCounter**|is a function or asynchronous function that returns a number. Gets updated when you click the navigation. Use `Luigi.navigation().updateTopNavigation()` in Luigi Core or trigger it in Luigi Client by using the custom message feature.| 
 | **category** |   |defines a group of views separated with a headline and an icon. You should define at least one node in a group should as an Object with **label** and **icon** properties. For all other nodes, you can set **category** as a string with the `label` value.|
 |**label**| Property of **category**| is a string that represents the title of the category |
 |**icon** | Property of **category** |is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. In case you accidentally define different icons in a category group, only the first one is used.|
