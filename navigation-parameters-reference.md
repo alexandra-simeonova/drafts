@@ -80,20 +80,22 @@ These parameters can be used to configure the URL path according to your needs.
 **pathSegement** 
 
 | Type  | Mandatory |   Description | Parameters |
-|----------|:-------------:|------|
-| string | YES | specifies the partial URL of the current segment. **pathSegment** must not contain slashes. A static settings example reflects `luigidomain.test/settings`. - A dynamic settings example, prefixed with a colon, loads on any other value. |  | 
+|----------|:-------:|-------|--------|
+| string | no | specifies the partial URL of the current segment. **pathSegment** must not contain slashes. A static settings example reflects `luigidomain.test/settings`. - A dynamic settings example, prefixed with a colon, loads on any other value. |  | 
+
+**link**
+
+| Type  | Mandatory |   Description | Parameters |
+|----------|:-------:|-------|--------|
+|  string |  no | refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored. |   | 
+
+**externalLink**
+| Type  | Mandatory |   Description | Parameters |
+|----------|:-------:|-------|--------|
+| object | no | indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. | **sameWindow**: defines if the external URL is opened in a new or current tab. The default value for this parameter is `false`. **url** is the external URL that the node leads to. |
 
 
-| Field  |     Mandatory     |   Description |
-|----------|:-------------:|------|
-| **link** |   | is a string which refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored. | 
--------
-| Field  |     Mandatory     |   Description |
-|----------|:-------------:|------|
-| **externalLink**: |   | is an object which indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. It has the following properties:
-|{**sameWindow**} |   YES | defines if the external URL is opened in a new or current tab. The default value for this parameter is `false`.
-| **url** | YES | is the external URL that the node leads to. |
-----
+
 
 ### Loading indicator parameters
 
