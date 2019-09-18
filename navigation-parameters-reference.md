@@ -23,8 +23,14 @@ You can configure the way Luigi tackles routing in your application in the **Rou
 | Field  |     Mandatory     |   Description |
 |----------|:-------------:|------|
 | **useHashRouting** |  **YES**  |  defines either hash-based (`url.com/#/yourpath`) or path-based (`url.com/yourpath`) routing. |
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
 | **nodeParamPrefix** |        |  sets the prefix character when using the `LuigiClient.linkManager().withParam()` function, which provides a way to simply attach query parameters to the view URL for activities such as sorting and filtering. The URL contains the parameters to allow deep linking. If you want to use a different character prefix, define yours here. The default character is `~`. | 
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
 | **skipRoutingForUrlPatterns** |        | defines regex patterns to be skipped by the router when listening for path changes. This parameter is used for excluding **redirect_uri** parameters. Default patterns are `[/access_token=/, '/id_token=/]`.|
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
 | **pageNotFoundHandler** |        | a function defining custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. This function takes the following parameters:  1. **wrongPath**(string): the path that user tried to navigate to 2. **wasAnyPathFitted**(bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false. |
 
 
