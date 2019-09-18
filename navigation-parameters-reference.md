@@ -77,13 +77,21 @@ Node parameters are parameters that can be added to an individual [navigation no
 
 These parameters can be used to configure the URL path according to your needs. 
 
+-----
 | Field  |     Mandatory     |   Description |
 |----------|:-------------:|------|
 | **pathSegment** |   |specifies the partial URL of the current segment. **pathSegment** must not contain slashes. - A static settings example reflects `luigidomain.test/settings`. - A dynamic settings example, prefixed with a colon, loads on any other value. |
+-----
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
 | **link** |   | is a string which refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored. | 
-| **externalLink** |   | is an object which indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. It has the following properties:
-   - **sameWindow** defines if the external URL is opened in a new or current tab. The default value for this parameter is `false`.
-   - **url** is the external URL that the node leads to. |
+-------
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
+| **externalLink**: |   | is an object which indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. It has the following properties:
+|{**sameWindow**} |   YES | defines if the external URL is opened in a new or current tab. The default value for this parameter is `false`.
+| **url** | YES | is the external URL that the node leads to. |
+----
 
 ### Loading indicator parameters
 
