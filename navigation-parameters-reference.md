@@ -42,8 +42,7 @@ You can configure the way Luigi tackles routing in your application in the `rout
 | type | function |   
 |:-------|:-------|
 | **required** | **?** | 
-|**description**|
-is a function defining custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. You can return an Object with `redirectTo` property if you want Luigi to redirect to a specific navigation path after execution.|
+|**description**|defines custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. You can return an Object with `redirectTo` property if you want Luigi to redirect to a specific navigation path after execution.|
 |**parameters**| **wrongPath**(string): the path that user tried to navigate to. **wasAnyPathFitted**(bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false.|
 
 ## Node navigation parameters
