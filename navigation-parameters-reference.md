@@ -18,9 +18,9 @@ You can use parameters and functions listed below to configure your Luigi naviga
 
 ## Routing
 
-|[]()  | []()|
-|------|------|
-Row 1 | row 2
+| <!-- -->    | <!-- -->    |
+|-------------|-------------|
+| Foo         | Bar         |
 
 You can configure the way Luigi tackles routing in your application in the `routing:` section of the configuration file. For example, you can choose the routing strategy to apply in your application as either hash or path location routing.
 
