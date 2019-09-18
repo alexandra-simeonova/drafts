@@ -77,11 +77,13 @@ Node parameters are parameters that can be added to an individual [navigation no
 
 These parameters can be used to configure the URL path according to your needs. 
 
------
-| Field  |     Mandatory     |   Description |
+**pathSegement** 
+
+| Type  | Mandatory |   Description | Parameters |
 |----------|:-------------:|------|
-| **pathSegment** |   |specifies the partial URL of the current segment. **pathSegment** must not contain slashes. - A static settings example reflects `luigidomain.test/settings`. - A dynamic settings example, prefixed with a colon, loads on any other value. |
------
+| string | YES | specifies the partial URL of the current segment. **pathSegment** must not contain slashes. A static settings example reflects `luigidomain.test/settings`. - A dynamic settings example, prefixed with a colon, loads on any other value. |  | 
+
+
 | Field  |     Mandatory     |   Description |
 |----------|:-------------:|------|
 | **link** |   | is a string which refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored. | 
