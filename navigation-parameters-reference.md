@@ -20,9 +20,9 @@ You can use parameters and functions listed below to configure your Luigi naviga
 
 You can configure the way Luigi tackles routing in your application in the **Routing** section of the configuration file. For example, you can choose the routing strategy to apply in your application as either hash or path location routing.
 
-| Field  |     Mandatory     |   Description |
-|----------|:-------------:|------|
+
 | **useHashRouting** |  **YES**  |  defines either hash-based (`url.com/#/yourpath`) or path-based (`url.com/yourpath`) routing. |
+
 | **nodeParamPrefix** |        |  sets the prefix character when using the `LuigiClient.linkManager().withParam()` function, which provides a way to simply attach query parameters to the view URL for activities such as sorting and filtering. The URL contains the parameters to allow deep linking. If you want to use a different character prefix, define yours here. The default character is `~`. | 
 | **skipRoutingForUrlPatterns** |        | defines regex patterns to be skipped by the router when listening for path changes. This parameter is used for excluding **redirect_uri** parameters. Default patterns are `[/access_token=/, '/id_token=/]`.|
 | **pageNotFoundHandler** |        | a function defining custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. This function takes the following parameters:  1. **wrongPath**(string): the path that user tried to navigate to 2. **wasAnyPathFitted**(bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false. |
@@ -77,11 +77,13 @@ Node parameters are parameters that can be added to an individual [navigation no
 
 These parameters can be used to configure the URL path according to your needs. 
 
-**pathSegement** 
 
-| Type  | Mandatory |   Description | Parameters |
-|----------|:-------:|-------|--------|
-| string | no | specifies the partial URL of the current segment. **pathSegment** must not contain slashes. A static settings example reflects `luigidomain.test/settings`. - A dynamic settings example, prefixed with a colon, loads on any other value. |  | 
+| field | pathSegment |   
+|:---------:|:-------:|
+| **type** | string | 
+| **required** |no | 
+|**description**|specifies the partial URL of the current segment. **pathSegment** must not contain slashes.|
+|**example**| A static settings example reflects `luigidomain.test/settings`. - A dynamic settings example, prefixed with a colon, loads on any other value. |
 
 **link**
 
@@ -89,10 +91,13 @@ These parameters can be used to configure the URL path according to your needs.
 |----------|:-------:|-------|--------|
 |  string |  no | refers to an absolute path in the navigation structure or a relative path to a grandchild of the current path. If this parameter is defined, **pathSegment** is ignored. |   | 
 
-**externalLink**
-| Type  | Mandatory |   Description | Parameters |
-|----------|:-------:|-------|--------|
-| object | no | indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. | **sameWindow**: defines if the external URL is opened in a new or current tab. The default value for this parameter is `false`. **url** is the external URL that the node leads to. |
+* **externalLink**
+  * **Type**: object 
+  * **Mandatory**: no 
+  * **Description**: indicates that the node links to an external URL. If this parameter is defined, **pathSegment** and **link** parameters are ignored. 
+  * **Parameters**: 
+      * **sameWindow**: defines if the external URL is opened in a new or current tab. The default value for this parameter is `false`.
+      * **url** is the external URL that the node leads to. |
 
 
 
