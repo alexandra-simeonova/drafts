@@ -39,36 +39,38 @@ See [angular navigation.js](../core/examples/luigi-sample-angular/src/luigi-conf
 | **defaults.isolateView** |    |renders all views in new frames. This setting overrides the same-domain frame reuse. The **defaults.isolateView** is disabled by default, and you can overwrite it using the **isolateView** value on a single node level.|
 | **preloadViewGroups**(bool)|   | allows deactivating the default preloading of [view groups](navigation-configuration#view-groups) iframes.| 
 | **viewGroupsSettings** |   |is an object containing key-object pairs, where the key is the view group name as specified in the node parameters, and the object contains key-value pairs. In each key-value pair, the key is the feature name and the value is the actual setting. | 
-| **preloadUrl**(string) |  Option in **viewGroupsSettings** | needs to be an absolute URL for a node from the view group. It is recommended that you use a dedicated small, visually empty view, which imports Luigi Client and is fine with getting an empty context, for example, without an access token. The **preloadUrl** parameter is also required for view group caching in case you need a view group iframe to refresh whenever you navigate back to it.|
+| **preloadUrl**(string) |Property of **viewGroupsSettings** | needs to be an absolute URL for a node from the view group. It is recommended that you use a dedicated small, visually empty view, which imports Luigi Client and is fine with getting an empty context, for example, without an access token. The **preloadUrl** parameter is also required for view group caching in case you need a view group iframe to refresh whenever you navigate back to it.|
 
 
 ## Node parameters
 
-Node parameters can be used to customize the individual nodes within the navigation. See an example of how these parameters are used [here](#navigation-configuration-example)).
+Node parameters are parameters that can be added to an individual [navigation node](https://github.com/SAP/luigi/blob/master/docs/navigation-configuration.md#navigation-structure).
 
-- **label** contains the display name of the navigation node.
-- **testId** is a string where you can define your own custom `testId`. If there is nothing specified, it is a combination of the node's pathsegment followed by a dash (if pathsegment exists) and the label written as one word and lower case (e.g. `pathsegment_label` or `label`).
-- **hideFromNav** shows or hides a navigation node. You can still navigate to the node but it does not show up in the top or left pane.
-- **navigationContext** contains a named node that is mainly for use in combination with a dynamic **pathSegment** to start navigation from a dynamic node using ` LuigiClient.linkManager().fromContext('contextname')`.
-- **context** sends the specified object as context to the view. Use this parameter in combination with the dynamic **pathSegment** to receive the context through the context listeners of **Luigi Client**. This is an alternative to using the dynamic value in the **viewUrl**.
-- **defaultChildNode** sets the child node that Luigi activates automatically if the current node has no **viewUrl** defined. Provide **pathSegment** of the child node you want to activate as a string.
-- **keepSelectedForChildren** focuses the navigation on its current hierarchy, omitting the display of children.
-- **icon** is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation.
-- **hideSideNav** if set to `true`, the left navigation disappears when you click the affected node. It is set to `false` by default.
-- **badgeCounter** adds a badge with a number and a label to a node. Nodes that are part of a category show a cumulated number of all badges in this category. **badgeCounter** is only available for top navigation items.
-  - **label** is the label of the badge.
-  - **count** is a function or asynchronous function that returns a number.
-  Gets updated when you click the navigation. Use `Luigi.navigation().updateTopNavigation()` in Luigi Core or trigger it in Luigi Client by using the custom message feature.
-- **category** defines a group of views separated with a headline and an icon. You should define at least one node in a group should as an Object with **label** and **icon** properties. For all other nodes, you can set **category** as a string with the `label` value. 
-   - **label** is a string that represents the title of the category
-   - **icon** is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. In case you accidentally define different icons in a category group, only the first one is used.
-   - **collapsible** if set to `true`, category items are hidden at first. To expand them, click the main category node.
-   - **testId** is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).
-- **openNodeInModal** configures the settings of the view which opens in a modal. You can specify the modal's title and size. If you don't specify the title, the node label is used. If there is no node label, the title remains empty. The default size of the modal is `l`, which means 80%. You can also use `m` (60%) and `s` (40%) to set the modal size.<br/> Optionally you can set the **openNodeInModal** property to `true` to use default title and size.
-  -   **title** modal title. By default, it is the node label. If there is no label, it is left empty
-  -   **size** **(`"l"` \| `"m"` \| `"s"`)** size of the modal (optional, default `"l"`)
-- **onNodeActivation** is an optional function executed when a request to navigate to the node occurs. As an input parameter, the function receives the node object as described in the configuration. This function can return results synchronously or asynchronously. If the function returns boolean `false`, the navigation is not triggered, otherwise, navigation renders as usual.
-- **clientPermissions.changeCurrentLocale** current locale can be changed from client using the corresponding API if this is set to `true`.
+| Field  |     Mandatory     |   Description |
+|----------|:-------------:|------|
+| **label** | YES | contains the display name of the navigation node.|
+| **testId**|   | is a string where you can define your own custom `testId`. If there is nothing specified, it is a combination of the node's pathsegment followed by a dash (if pathsegment exists) and the label written as one word and lower case (e.g. `pathsegment_label` or `label`).|
+| **hideFromNav** |  | shows or hides a navigation node. You can still navigate to the node but it does not show up in the top or left pane.|
+| **navigationContext** |    | contains a named node that is mainly for use in combination with a dynamic **pathSegment** to start navigation from a dynamic node using ` LuigiClient.linkManager().fromContext('contextname')`. | 
+| **context** |    |sends the specified object as context to the view. Use this parameter in combination with the dynamic **pathSegment** to receive the context through the context listeners of **Luigi Client**. This is an alternative to using the dynamic value in the **viewUrl**.|
+| **defaultChildNode** |    | sets the child node that Luigi activates automatically if the current node has no **viewUrl** defined. Provide **pathSegment** of the child node you want to activate as a string.|
+| **keepSelectedForChildren** |   | focuses the navigation on its current hierarchy, omitting the display of children.|
+| **icon** |   | is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. | 
+| **hideSideNav** |   | if set to `true`, the left navigation disappears when you click the affected node. It is set to `false` by default.|
+| **badgeCounter** |  | adds a badge with a number and a label to a node. Nodes that are part of a category show a cumulated number of all badges in this category. **badgeCounter** is only available for top navigation items.|
+  | **label** |Property of **badgeCounter**| is the label of the badge.|
+  | **count** |Property of **badgeCounter**|is a function or asynchronous function that returns a number.
+  Gets updated when you click the navigation. Use `Luigi.navigation().updateTopNavigation()` in Luigi Core or trigger it in Luigi Client by using the custom message feature.| 
+| **category** |   |defines a group of views separated with a headline and an icon. You should define at least one node in a group should as an Object with **label** and **icon** properties. For all other nodes, you can set **category** as a string with the `label` value.|
+|**label**| Property of **category**| is a string that represents the title of the category |
+|**icon** | Property of **category** |is the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed next to the node label in the side navigation or instead of the label in the top navigation. In case you accidentally define different icons in a category group, only the first one is used.|
+|**collapsible** | Property of **category** | if set to `true`, category items are hidden at first. To expand them, click the main category node.|
+|**testId** | Property of **category** |is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).|
+|**openNodeInModal** |  | configures the settings of the view which opens in a modal. You can specify the modal's title and size. If you don't specify the title, the node label is used. If there is no node label, the title remains empty. The default size of the modal is `l`, which means 80%. You can also use `m` (60%) and `s` (40%) to set the modal size.<br/> Optionally you can set the **openNodeInModal** property to `true` to use default title and size. | 
+|**title**| Property of **openNodeInModal** | modal title. By default, it is the node label. If there is no label, it is left empty|
+|**size** | Property of **openNodeInModal**| optional size of the modal. Possible values: **(`"l"` \| `"m"` \| `"s"`)** (default `"l"`) | 
+|**onNodeActivation**|   |an optional function executed when a request to navigate to the node occurs. As an input parameter, the function receives the node object as described in the configuration. This function can return results synchronously or asynchronously. If the function returns boolean `false`, the navigation is not triggered, otherwise, navigation renders as usual.|
+|**clientPermissions.changeCurrentLocale**|  |current locale can be changed from client using the corresponding API if this is set to `true`.|
 
 
 ### Path parameters 
