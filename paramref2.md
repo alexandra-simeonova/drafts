@@ -22,7 +22,7 @@ You can configure the way Luigi tackles routing in your application in the `rout
 - **description**: defines either hash-based (`url.com/#/yourpath`) or path-based (`url.com/yourpath`) routing.  
 
 ### nodeParamPrefix
-- **type**: ?
+- **type**: ? string 
 - **required**: ?
 - **description**: sets the prefix character when using the `LuigiClient.linkManager().withParam()` function, which provides a way to simply attach query parameters to the view URL for activities such as sorting and filtering. The URL contains the parameters to allow deep linking. If you want to use a different character prefix, define yours here. The default character is `~`.
 
@@ -34,7 +34,7 @@ You can configure the way Luigi tackles routing in your application in the `rout
 ### pageNotFoundHandler
 - **type**: function  
 - **required**: ?
-- **description**:defines custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. You can return an Object with `redirectTo` property if you want Luigi to redirect to a specific navigation path after execution.|
+- **description**: defines custom behavior when the 404 (page not found) error occurs.  Luigi handles it by default. Leave its body empty if you have an external 404 handling. You can return an Object with `redirectTo` property if you want Luigi to redirect to a specific navigation path after execution.|
 - **properties**:
   - **wrongPath** (string): the path that user tried navigating to
   - **wasAnyPathFitted** (bool): it is true if Luigi managed to fit a valid path which means **wrongPath** was only partially wrong. Otherwise it is false.
@@ -281,7 +281,7 @@ The profile section is a configurable drop-down list available in the top naviga
 - **type**: ? 
 - **required**: ?
 - **description**: an array of objects, each one being a link to a Luigi navigation node or an external URL. 
-- **properties**
+- **properties**: 
   - **label** defines the text for the link.
   - **testId** is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).
   - **icon** is the name of an icon from the [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image displayed next to the label or instead of it.
@@ -314,7 +314,7 @@ The product switcher is a pop-up window available in the top navigation bar. It 
 - **type**: array
 - **required**: ? 
 - **description**: is an array of objects, each one being a link to a Luigi navigation node or an external URL. An item can have several parameters.
-- **parameters**:
+- **properties**:
   - **label** defines the text for the link. 
   - **testId** is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).
   - **icon** is the name of an icon from the [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image displayed next to the label or instead of it.
