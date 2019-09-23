@@ -41,7 +41,7 @@ You can configure the way Luigi tackles routing in your application in the `rout
   
 
 ## Navigation parameters
-The node navigation parameters enable you to configure global navigation settings directly under the `navigation:` tag in the configuration file.
+The node navigation parameters enable you to configure global navigation settings under the `navigation:` section in the configuration file.
 
 ### nodeAccessibilityResolver
 - **type**: ? 
@@ -206,10 +206,11 @@ loadingIndicator: {
 - **type**: ? boolean
 - **required**: ?
 - **description**: current locale can be changed from client using the corresponding API if this is set to `true`
-- **example**: 
+- **example**: ?
 ```javascript
 {
-  ??
+  clientPermissions: {
+  changeCurrentLocale: true
 }
 ```
 
@@ -293,3 +294,49 @@ The profile section is a configurable drop-down list available in the top naviga
 ## Product switcher
 
 The product switcher is a pop-up window available in the top navigation bar. It allows you to switch between the navigation elements displayed in the pop-up. To do so, add the **productSwitcher** property to the **navigation** object using the following optional properties:
+
+### label 
+- **type**: string 
+- **required**: ?
+- **description**: defines the label of the product switcher. It is displayed as a title attribute on hover in the top navigation and as a headline in the mobile pop-up.
+
+### testId
+- **type**: string
+- **required**: ?
+- **description**: enables you to define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`). 
+
+### icon
+- **type**: string ?
+- **required**: ? 
+- **description**: the name of an icon, without the `sap-icon--` prefix. Its source may be [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image. The icon is displayed without label in the top navigation.
+
+### items 
+- **type**: array
+- **required**: ? 
+- **description**: is an array of objects, each one being a link to a Luigi navigation node or an external URL. An item can have several parameters.
+- **parameters**:
+  - **label** defines the text for the link. 
+  - **testId** is a string where you can define your own custom `testId`. If nothing is specified, it is the node's label written as one word and lower case (e.g. `label`).
+  - **icon** is the name of an icon from the [OpenUI](https://openui5.hana.ondemand.com/1.40.10/iconExplorer.html) or a custom link (relative or absolute) to an image displayed next to the label or instead of it.
+  - **link** defines an absolute link to a **node**.
+  - **externalLink** is an object which indicates that the node links to an external URL. If this parameter is defined, the **link** parameter is ignored. It has the following properties:
+    - **sameWindow** defines if the external URL is opened in the current tab or in a new one. The default value for this parameter is `false`.
+    - **url** is the external URL that the link leads to.
+
+## App switcher
+
+The app switcher is a drop-down list available in the top navigation bar. It allows you to switch between the navigation elements displayed in the drop-down. To do so, add the **appSwitcher** property to the **navigation** object using the following optional properties:
+
+### showMainAppEntry
+- **type**: array
+- **required**: ? 
+- **description**: includes the link to the root of the Luigi application in the drop-down using the **title** specified in the **settings/header** section of the configuration as a label.
+
+### items 
+- **type**: ?
+- **required**: ? 
+- **description**: defines the list of apps. App element properties are described below. 
+- **properties**: 
+  - **title** defines the app title. This is shown in the app switcher drop-down as well as the title in the header of the Luigi application if a user is in the context of the app. 
+  - **subTitle** defines the app sub-title. This is shown as the sub-title in the header of the Luigi application if a user is in the context of the app. 
+  - **link** is a link within the Luigi application that defines the root of the app. It is used to switch to the app if the drop-down entry is selected. It is also used to determine if a user is within the app's scope, so that the corresponding title and sub-title can be rendered in the header. 
