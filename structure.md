@@ -2,7 +2,10 @@
 
 # Architecture
 
-# Contribution guidelines
+# Contribution guidelines 
+- code
+- content
+- browser support
 
 ---------- Luigi Core ----------
 
