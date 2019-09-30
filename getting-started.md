@@ -17,6 +17,8 @@ Micro frontends are small frontend web applications that are implemented on one 
 * **make your website fast and resilient**: even if a micro frontend underperforms, the main user interface is not affected.
 * **be technology agnostic**: each micro frontend can be developed using a separate framework without having to synchronize everything with the main application. This enables you to quickly react to new trends and adopt new technologies.
 
+![Overview diagram](/assets/luigi-overview-diagram copy.png)
+
 ## Prerequisites 
 
 To get started with Luigi, you only need basic knowledge of HTML and JavaScript. 
