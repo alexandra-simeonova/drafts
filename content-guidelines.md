@@ -17,6 +17,7 @@ Give practical examples of features whenever possible. The users should be able 
 Documentation for Luigi is written in **Markdown**. 
 
 * Code snippets 
+
 must be surrounded with the Markdown code block tag and the programming language should be specified. For example: 
 ```javascript
 Luigi.setConfig({
@@ -26,13 +27,16 @@ Luigi.setConfig({
 ```
 
 * Parameters
-or properties of the Luigi configuration should be **bolded**. For example:
+
+parameters or properties of the Luigi configuration should be **bolded**. For example:
 **loadingIndicator.enabled** 
 
 * Filenames
-must also be written in code format. For example: `basicConfiguration.js`
+
+must be written in code format. For example: `basicConfiguration.js`
 
 * Folders and paths
+
 use code formatting for those. For example: `luigi/core/examples/luigi-sample-angular` folder
 
 ## Links
