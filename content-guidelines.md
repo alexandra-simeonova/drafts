@@ -16,7 +16,7 @@ Give practical examples of features whenever possible. The users should be able 
 
 Documentation for Luigi is written in **Markdown**. 
 
-Code snippets must be surrounded with this tag: ```{name-of-programming-language}```. For example: 
+Code snippets must be surrounded with this tag: ``````{name-of-programming-language}``````. For example: 
 ```javascript
 Luigi.setConfig({
   routing: {
