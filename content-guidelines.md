@@ -1,22 +1,23 @@
 # Content Guidelines
 
-These guidelines can be used to create Kyma documentation. 
+These guidelines can be used to create Luigi documentation. 
 
 ## Audience
 
-The audience of the Luigi docs are developers or managers interested in a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development.  
+The audience of the Luigi docs are developers or managers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development.  
 
 ## Strategy
 
-The purpose of documentation is to explain concepts and provide step-by-step instructions on using Luigi. 
+The purpose of documentation is to explain concepts and provide step-by-step instructions on how to use Luigi. 
 
-Give practical examples of features whenever possible. The users should be able to see clearly how to use certain features. Point to the [Luigi fiddle](https://fiddle.luigi-project.io/) as a tool where users can experiment with features. 
+Give practical examples of features whenever possible. The users should be able to see clearly how to use a given command/property. Point to the [Luigi fiddle](https://fiddle.luigi-project.io/) as a tool where users can experiment with features. 
 
 ## Formatting
 
 Documentation for Luigi is written in **Markdown**. 
 
-Code snippets must be surrounded with the Markdown code block tag and the programming language should be specified. For example: 
+* Code snippets 
+must be surrounded with the Markdown code block tag and the programming language should be specified. For example: 
 ```javascript
 Luigi.setConfig({
   routing: {
@@ -24,10 +25,15 @@ Luigi.setConfig({
   },
 ```
 
-Parameters or properties of the Luigi configuration should be **bolded**. For example:
+* Parameters
+or properties of the Luigi configuration should be **bolded**. For example:
 **loadingIndicator.enabled** 
 
-Filenames must also be written in code format. For example: `basicConfiguration.js`
+* Filenames
+must also be written in code format. For example: `basicConfiguration.js`
+
+* Folders and paths
+use code formatting for those. For example: `luigi/core/examples/luigi-sample-angular` folder
 
 ## Links
 
@@ -37,6 +43,10 @@ If the link is within the same folder on github, use only the relative path. For
 
 Use [draw.io](https://draw.io) to create diagrams. 
 
+## Screenshots
+
+Refrain from using screenshots if possible, and point users to the [Luigi fiddle](https://fiddle.luigi-project.io/) or otherwise describe the concept. 
+
 ## Terminology/glossary 
 
 * Luigi Core - the main application and the settings used to configure it 
@@ -44,3 +54,4 @@ Use [draw.io](https://draw.io) to create diagrams.
 * Parameters - the parameters that can be added to create a dynamic path.
 * Properties - the properties that can be used to configure Luigi in the `basicConfiguration.js` file. 
 * Attributes - the "sub properties" of properties. E.g. the **category** property can have **label**, **icon**, and **collapsible** as attributes. This term derives from the [definition](https://en.wikipedia.org/wiki/Attribute_%28computing%29) of "attribute" as "a property of a property". 
+luigi/core/examples/luigi-sample-angular 
