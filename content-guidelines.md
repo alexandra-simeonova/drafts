@@ -16,9 +16,23 @@ Give practical examples of features whenever possible. The users should be able 
 
 Documentation for Luigi is written in **Markdown**. 
 
-* Code snippets 
+### Headings
 
-must be surrounded with the Markdown code block tag and the programming language should be specified. For example: 
+Use H1 headings (preceded by # in Markdown) only at the start of the document to indicate the document name.
+
+Only use H2 and H3 headings for any subsequent categories. Do not use H4 (####) or anything smaller than that. 
+
+### Lists
+
+Use bulletpoints (written with a * or - in Markdown) to create lists.
+
+### Tables 
+
+Use a Markdown table generatior such as [this] to create tables. Although this is not the only way to create tables in Markdown, it is easier to edit even as a raw file. 
+
+### Code snippets 
+
+Must be surrounded with the Markdown code block tag and the programming language should be specified. For example: 
 ```javascript
 Luigi.setConfig({
   routing: {
@@ -26,18 +40,18 @@ Luigi.setConfig({
   },
 ```
 
-* Parameters
+### Parameters
 
-parameters or properties of the Luigi configuration should be **bolded**. For example:
+Parameters or properties of the Luigi configuration should be **bolded**. For example:
 **loadingIndicator.enabled** 
 
-* Filenames
+### Filenames
 
-must be written in code format. For example: `basicConfiguration.js`
+Must be written in code format. For example: `basicConfiguration.js`
 
-* Folders and paths
+### Folders and paths
 
-use code formatting for those. For example: `luigi/core/examples/luigi-sample-angular` folder
+Use code formatting for those. For example: `luigi/core/examples/luigi-sample-angular` folder
 
 ## Links
 
