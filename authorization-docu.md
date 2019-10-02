@@ -13,10 +13,11 @@ auth: {
 ```
 
 Learn how to configure authorization with:
-* [OpenID Connect]
-* [OAuth2 Implicit Grant]
-* [Another authorization provider]
-* [Creating your own authorization provider]
+* [OpenID Connect](#openid-connect-configuration)
+  * [Third-party cookies and silent token refresh](#third-party-cookies-and-silent-token-refresh)
+* [OAuth2 Implicit Grant](#oauth2-implicit-grant-configuration)
+* [Another authorization provider](#another-authorization-provider)
+* [Creating your own authorization provider](#implement-a-custom-authentication-provider)
 
 ## OpenID Connect configuration
 
@@ -48,6 +49,19 @@ auth: {
 - **accessTokenExpiringNotificationTime** is the number of seconds before an access token is to expire and triggers silent token refresh. The default value is `60` seconds.
 - **thirdPartyCookiesScriptLocation** is the URL to the page containing third-party cookies support check. For details, see [Third-party cookies and silent token refresh section](#Third-party-cookies-and-silent-token-refresh).
 - **userInfoFn** provides a function to get user information. It returns a promise of a **userinfo** object which can contain **name**, **email** and **picture** (value is a URL to the image). **Name** or **email** are displayed in the profile drop-down menu and the user’s profile picture is displayed in the top navigation.
+
+### Third-party cookies and silent token refresh
+
+The OpenID Connect configuration allows you to specify the **automaticSilentRenew** option. When set to `true`, Luigi attempts to automatically renew the token in the background before it expires. Be aware that this mechanism requires the browser to support [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies).
+It is possible to detect whether the user's browser supports the mechanism by using the script in the [`third-party-cookies`](https://github.com/SAP/luigi/tree/master/core/third-party-cookies) catalog. Deploy these files on a **different domain** than your main application and set **thirdPartyCookiesScriptLocation** to `init.html` file. During initialization, Luigi detects the cookies support and produces a warning in the console if cookies are disabled in the user's browser.                                   
+
+When Luigi fails to renew the token and then logs the user out, it adds the following query parameters to the logout page redirect URL: `?reason=tokenExpired&thirdPartyCookies=[VALUE]`. Luigi replaces the **VALUE**  with one of the following:
+- `disabled` means that third party cookies is disabled.
+- `enabled` means third party cookies are supported by the browser.
+- `not_checked` means that the script was not provided in **thirdPartyCookiesScriptLocation** or it could not be loaded.
+
+The application developer can read these parameters and set a logout page based on them.
+
 
 ## OAuth2 Implicit Grant configuration
 
@@ -91,7 +105,7 @@ auth: {
 - **expirationCheckInterval** the number of seconds to pass between each check if the token is about to expire. The default value is `5` seconds.
 
 
-### Another Authentication Provider
+## Another Authentication Provider
 
 If you are using another authentication provider, you can also implement the following functions for Luigi.
 
@@ -124,20 +138,7 @@ export class CustomAuthenticationProvider {
 }
 ```
 
-
-### Third-party cookies and silent token refresh
-
-The OpenID Connect configuration allows you to specify the **automaticSilentRenew** option. When set to `true`, Luigi attempts to automatically renew the token in the background before it expires. Be aware that this mechanism requires the browser to support [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies).
-It is possible to detect whether the user's browser supports the mechanism by using the script in the [`third-party-cookies`](https://github.com/SAP/luigi/tree/master/core/third-party-cookies) catalog. Deploy these files on a **different domain** than your main application and set **thirdPartyCookiesScriptLocation** to `init.html` file. During initialization, Luigi detects the cookies support and produces a warning in the console if cookies are disabled in the user's browser.                                   
-
-When Luigi fails to renew the token and then logs the user out, it adds the following query parameters to the logout page redirect URL: `?reason=tokenExpired&thirdPartyCookies=[VALUE]`. Luigi replaces the **VALUE**  with one of the following:
-- `disabled` means that third party cookies is disabled.
-- `enabled` means third party cookies are supported by the browser.
-- `not_checked` means that the script was not provided in **thirdPartyCookiesScriptLocation** or it could not be loaded.
-
-The application developer can read these parameters and set a logout page based on them.
-
-### Implement a Custom Authentication Provider
+## Implement a Custom Authentication Provider
 
 You can write your own authentication provider that meets your requirements. 
 
