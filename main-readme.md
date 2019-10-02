@@ -18,7 +18,7 @@ Follow the instructions in [this](getting-started.md) document to get started wi
 
 View the [application examples](core/examples) to explore Luigi's features. 
 
-Go to the [Luigi Fiddle](https://fiddle.luigi-pro) site to configure a mock Luigi application. 
+Go to the [Luigi Fiddle](https://fiddle.luigi-project.io) site to configure a mock Luigi application. 
 
 ### Documentation
 
