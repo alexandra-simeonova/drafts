@@ -1,6 +1,6 @@
 # Authorization configuration
 
-To configure authorization in Luigi, go to the `auth:` section of your project's `basicConfiguration.js` file. To see how authorization works, you can also go to the [Luigi Fiddle](fiddle.luigi-project.io) site and configure a sample application.
+To configure authorization in Luigi, go to the `auth:` section of your project's `basicConfiguration.js` file. To see how authorization works, you can also go to the [Luigi Fiddle](https://fiddle.luigi-project.io) site and configure a sample application.
 
 Luigi provides OpenID Connect and OAuth2 Implicit Grant authorization out of the box. The **use** key defines the active authorization provider and the **disableAutoLogin** key allows you to disable the automatic login flow that is provided by default.
 
