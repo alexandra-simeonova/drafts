@@ -8,20 +8,17 @@
 
 [Luigi](https://luigi-project.io/) is a micro frontend JavaScript framework that enables you to create an administrative user interface driven by local and distributed views. Luigi allows a web application to communicate with the micro frontends which the application contains. To make sure the communication runs smoothly, you can easily configure the settings such as routing, navigation, authorization, and user experience elements.
 
-Luigi consists of Luigi Core and Luigi Client libraries. They interact with each other to leverage communication between the core application and the micro frontend, without compromising the security principles behind the iframe pattern.
-
-Go to the [Luigi project website](https://luigi-project.io/) to learn more about the product.
-
 ## Installation
 
-Follow the instructions in [this](docs/application-setup.md) document to get started with Luigi. Read [this](client/README.md) document to install the Luigi Client.
-
+Follow the instructions in [this](getting-started.md) document to get started with Luigi.
 
 ## Usage
 
 ### Examples
 
-View the [application examples](core/examples) to explore Luigi's features.
+View the [application examples](core/examples) to explore Luigi's features. 
+
+Go to the [Luigi Fiddle](https://fiddle.luigi-pro) site to configure a mock Luigi application. 
 
 ### Documentation
 
@@ -55,7 +52,7 @@ import {
 // } from '@kyma-project/luigi-client';
 ``` 
 
->**NOTE**: The angular example application is not fully compatible with IE11.
+>**NOTE**: The Angular example application is not fully compatible with IE11.
 
 ## Development
 
@@ -70,7 +67,6 @@ For security reasons, follow these guidelines when developing a micro frontend:
 
 
 >**NOTE**: Luigi follows these [sandbox rules for iframes](https://github.com/SAP/luigi/blob/af1deebb392dcec6490f72576e32eb5853a894bc/core/src/utilities/helpers/iframe-helpers.js#L140).
-
 
 
 ### Code formatting for contributors
