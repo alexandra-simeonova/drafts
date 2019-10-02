@@ -5,13 +5,13 @@
 - Luigi additional features
 - it has ties to SAP so it's good for people who use SAP (???) 
 - tried and tested on real customers
+- very easy to implement because Luigi creates the whole UI and navigation automatically
 
 # Architecture
 - architecture diagrams 
 
-# Contribution guidelines 
-- code
-- content
+# Contribution  
+- Guidelines (content and code) 
 - browser support
 
 ---------- Luigi Core ----------
@@ -31,6 +31,8 @@
 ## General Settings
 
 ## Lifecycle hooks 
+
+- is this part of the API? 
 
 ## UI features
 
