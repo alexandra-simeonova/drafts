@@ -73,9 +73,13 @@ Use [draw.io](https://draw.io) to create diagrams. Export the diagram as a PNG f
 
 Refrain from using screenshots if possible, and point users to the [Luigi fiddle](https://fiddle.luigi-project.io/) or otherwise describe the concept. 
 
-## Templates
+## Examples
 
-To add an example to Luigi, use the [example template](). 
+To add an example to Luigi, use the same structure as the [existing examples]():
+- Provide an overview outlining the goal of the example
+- Include a **prerequisites** section only in case additional steps are needed to run the example 
+- Create a **development** section and explain how to install and run the example
+- End with a **tests** section explaining how to ensure the example was configured correctly 
 
 ## Terminology/glossary 
 
