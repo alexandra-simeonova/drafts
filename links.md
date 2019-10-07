@@ -2,7 +2,9 @@
 title: Links
 ---
 
-Linking is a great tool to use to incorporate a lot of content into your document with fewer words. That being said, overuse of linking can cause "link rot" when links break, and if a page has more links than content, it is not very pleasing to read. Choose carefully when and how to link by using these best practices.
+Linking is a great tool to use to incorporate a lot of content into your document with fewer words. That being said, overuse of linking can cause "link rot" when links break, and if a page has more links than content, it is not very pleasing to read. Make sure you use links correctly by adhering to the guidelines on this page. 
+
+## Best practices
 
 - Use absolute links to link to other repositories and external sources.
 - Use relative links to link to documents or files located in the same repository.
