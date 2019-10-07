@@ -1,34 +1,42 @@
 # Content Guidelines
 
-These guidelines can be used to create Luigi documentation. 
+This page contains instructions on how to create documentation for Luigi. It explains some of the basic rules about formatting, linking, diagrams, and more.  
 
 ## Audience
 
-The audience of the Luigi docs are developers or managers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development.  
+The audience of the Luigi docs are developers or managers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development. Do not explain general concepts, but only specific instructions for Luigi. (The only exception is the concept of micro frontends which is explained in the [getting started guide](docs/gettings-started.md).)
 
-## Strategy
+## Language
 
-The purpose of documentation is to explain concepts and provide step-by-step instructions on how to use Luigi. 
-
-Give practical examples of features whenever possible. The users should be able to see clearly how to use a given command/property. Point to the [Luigi fiddle](https://fiddle.luigi-project.io/) as a tool where users can experiment with features. 
+When writing documentation, you should adhere to a few basic rules:
+- Use the active voice. Instead of writing `Luigi Client should be installed in the main project folder...`, write `Install Luigi Client in your main project folder...`. 
+- Do not use slang or abbreviations. This also means you should not use contractions (don't instead of do not) or short forms (info instead of information).
+- Always use the present tense except if future is necessary to explain something that will happen in the future. 
+- Use concise language and avoid long blocks of text. 
+- Give practical examples of features instead of only using words to explain them. Additionally, link to the [Luigi fiddle](https://fiddle.luigi-project.io/) as a tool where users can experiment with features. 
 
 ## Formatting
 
-Documentation for Luigi is written in **Markdown**. 
+Documentation for Luigi is written in the form of Markdown files on GitHub. Find more about what GitHub-flavored Markdown is [here]. 
+
+Documentation is located in the luigi/docs folder in the [Luigi repository]. Search the already available documentation before adding new content to make sure there are no duplicates. 
 
 ### Headings
 
 Use H1 headings (preceded by # in Markdown) only at the start of the document to indicate the document name.
 
-Only use H2 and H3 headings for any subsequent categories. Do not use H4 (####) or anything smaller than that. 
+Only use H2 and H3 headings for any subsequent categories. Do not use H4 (####) or any smaller subheadings.
 
 ### Lists
 
-Use bulletpoints (written with a * or - in Markdown) to create lists.
+Lists are very useful for breaking up text and providing instructions.
 
+Use bullet points (created with * or -) for lists involving general explanations.
+Use numbered lists only for step-by-step instructions. 
+ 
 ### Tables 
 
-Use a Markdown table generatior such as [this] to create tables. Although this is not the only way to create tables in Markdown, it is easier to edit even as a raw file. 
+Use a Markdown table generator such as [this](https://www.tablesgenerator.com/markdown_tables) to create tables. Although this is not the only way to create tables in Markdown, it is easier to edit even as a raw file.
 
 ### Code snippets 
 
@@ -40,18 +48,18 @@ Luigi.setConfig({
   },
 ```
 
-### Parameters
+### Fonts
 
+Parameters
 Parameters or properties of the Luigi configuration should be **bolded**. For example:
 **loadingIndicator.enabled** 
 
-### Filenames
-
-Must be written in code format. For example: `basicConfiguration.js`
-
-### Folders and paths
-
-Use code formatting for those. For example: `luigi/core/examples/luigi-sample-angular` folder
+|     Type           |      Font          |    Example    |
+|--------------------|:------------------:|---------------|
+| Parameters         |      **bold **     | **viewGroup** |
+| Folders and paths  |      `code`        | the file `basicConfiguration.js` inside `assets/luigi-config`|
+| Code snippets      |      `code`        | ```javascript routing: { nodeParamPrefix: '~'},``` |
+| Functions          |      **bold **     | **showLoadingIndicator()** |
 
 ## Links
 
@@ -59,11 +67,15 @@ If the link is within the same folder on github, use only the relative path. For
 
 ## Diagrams 
 
-Use [draw.io](https://draw.io) to create diagrams. 
+Use [draw.io](https://draw.io) to create diagrams. Export the diagram as a PNG file and save it in the `docs/assets` folder.
 
 ## Screenshots
 
 Refrain from using screenshots if possible, and point users to the [Luigi fiddle](https://fiddle.luigi-project.io/) or otherwise describe the concept. 
+
+## Templates
+
+To add an example to Luigi, use the [example template](). 
 
 ## Terminology/glossary 
 
