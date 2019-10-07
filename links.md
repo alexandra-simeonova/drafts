@@ -91,9 +91,9 @@ Linking is a great tool to use to incorporate a lot of content into your documen
 - Every link has the potential to go bad over time and the more links you include, the higher the chance that one will break. If something is not central to the subject at hand, is well-known by your audience, or can be found with a simple search, there is no point in linking.
 - Choose the link text carefully. Do not link entire phrases which become overemphatic. Instead, choose the noun, such as an article or specification within the phrase that helps the reader understand where the navigation leads them. You can also use the title of the article or book as the link, but do not include the author and publisher.
 
->**NOTE:** Cross-reference linking works only on the [Kyma website](https://kyma-project.io/docs). Currently, linking between [GitHub documents](https://github.com/kyma-project/kyma/tree/master/docs) is not available.
+You can create cross-reference links between Kyma documentation by following the guidelines below. 
 
-To create cross-reference links between documents in the `kyma/docs` folder, use the following guidelines: 
+>**NOTE:** Cross-reference linking works only on the [Kyma website](https://kyma-project.io/docs). Currently, linking between [GitHub documents](https://github.com/kyma-project/kyma/tree/master/docs) is not available.
 
 **Links between documents in the same topic**
 
