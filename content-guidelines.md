@@ -4,12 +4,12 @@ This page contains instructions on how to create documentation for Luigi. It exp
 
 ## Audience
 
-The audience of the Luigi docs are developers or managers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development. Do not explain general concepts, but only specific instructions for Luigi. (The only exception is the concept of micro frontends which is explained in the [getting started guide](docs/gettings-started.md).)
+The audience of the Luigi docs are developers or managers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development. Do not explain general concepts, but only specific instructions for Luigi. 
 
 ## Language
 
 When writing documentation, you should adhere to a few basic rules:
-- Use the active voice. Instead of writing `Luigi Client should be installed in the main project folder...`, write `Install Luigi Client in your main project folder...`. 
+- Use the active voice. Instead of writing *Luigi Client should be installed in the main project folder...*, write *Install Luigi Client in your main project folder...*. 
 - Do not use slang or abbreviations. This also means you should not use contractions (don't instead of do not) or short forms (info instead of information).
 - Always use the present tense except if future is necessary to explain something that will happen in the future. 
 - Use concise language and avoid long blocks of text. 
