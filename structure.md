@@ -1,57 +1,56 @@
----------- Overview ---------
-# Getting started
-- what is luigi, what are micro frontends, what do you need to begin + links to documentation 
+# Basics
+-----
+### Getting started
+- what is Luigi, what are micro frontends, what do you need to begin 
 
-# Why Luigi? 
-- Luigi additional features
-- it has ties to SAP so it's good for people who use SAP (???) 
-- tried and tested on real customers
-- very easy to implement because Luigi creates the whole UI and navigation automatically
+### Why Luigi? 
+- Luigi "additional features" 
+- something about case studies and current customers?
 
-# Architecture
+### Architecture
 - architecture diagrams 
 
-# FAQ 
+### FAQ 
 - perhaps we can gather some questions 
 
-# Contribution  
-- Guidelines (content and code) 
-- browser support
+### Community 
+- Contribution guidelines (content and code) 
 
----------- Luigi Core ----------
+# Luigi Core
 
-## Installation
+### Installation
+-installation for different frameworks
 
-## Navigation
+### Configuration
+
+#### Navigation
 - basic setup
-- advanced 
+- advanced setup
 - full properties reference
 
-## Authorization
+#### Authorization
 - OpenID
 - OAuth
 - Custom
 
-## General Settings
+#### General Settings
 
-## Lifecycle hooks 
+#### Lifecycle hooks 
 
-- is this part of the API? 
+#### UI features
 
-## UI features
+### API 
 
-## API 
+# Luigi Client
 
---------- Luigi Client ---------
+### Installation
 
-## Installation
+### API 
 
-## API 
+## Examples
 
---------- Examples --------------
+### Angular
 
-## Angular
+### Vue 
 
-## Vue 
-
-## React (WIP)
+### React (WIP)
