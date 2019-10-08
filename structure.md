@@ -17,6 +17,7 @@
 - Contribution guidelines (content and code) 
 
 # Luigi Core
+------
 
 ### Installation
 -installation for different frameworks
@@ -35,22 +36,26 @@
 
 #### General Settings
 
-#### Lifecycle hooks 
+### Lifecycle hooks 
 
-#### UI features
+### UI features
 
 ### API 
 
 # Luigi Client
 
+-------
+
 ### Installation
 
 ### API 
 
-## Examples
+# Examples
+
+-------
 
 ### Angular
 
 ### Vue 
 
-### React (WIP)
+### React, etc
