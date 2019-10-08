@@ -4,7 +4,7 @@ This page contains instructions on how to create documentation for Luigi. It exp
 
 ## Audience
 
-The readers of Luigi documentation are mainly developers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development.
+The audience of Luigi documentation consists mainly of developers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development.
 
 ## Language
 
