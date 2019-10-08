@@ -71,7 +71,7 @@ Depending on the type of content, you should use different types of text, for ex
 | Properties         |      **bold **     | **viewGroup** |
 | Parameters         |      `code`        | `{userId}`    |
 | Folders and paths  |      `code`        | the file `basicConfiguration.js` inside `assets/luigi-config`|
-| Code snippets      |      `code`        | ```javascript routing: { nodeParamPrefix: '~'},``` |
+| Code snippets      |      `code`        | See [this section](#code-snippets) |
 | Functions          |      **bold **     | **showLoadingIndicator()** |
 
 ## Links
