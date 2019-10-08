@@ -4,7 +4,7 @@ This page contains instructions on how to create documentation for Luigi. It exp
 
 ## Audience
 
-The readers of Luigi documentation are mainly developers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development. Do not explain general concepts, but only specific instructions for Luigi. Of course, this rule can have exceptions, for example explaining what micro frontends are in the getting started guide, since they are a relatively new concept in the development world. 
+The readers of Luigi documentation are mainly developers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development.
 
 ## Language
 
@@ -36,7 +36,7 @@ Lists are very useful for breaking up text and providing instructions.
  
 ### Tables 
 
-Use tables when content needs comparison or to organize small bits of information. Keep in mind that in Markdown it is not possible to break up the content of a table cell into separate lines or bulletpoints, therefore tables are not useful when they contain long sentences or lists. 
+Use tables when content needs comparison or to organize small bits of information. Keep in mind that in Markdown it is not possible to break up the content of a table cell into separate lines or bullet points, therefore tables are not useful when they contain long sentences or lists. 
 
 You can find an example of a table in the [Styles](#styles) section of this document. 
 
