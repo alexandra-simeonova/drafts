@@ -9,7 +9,7 @@ The readers of Luigi documentation are mainly developers interested in implement
 ## Language
 
 When writing documentation, you should adhere to a few basic rules:
-- Use active voice. For example, instead of writing *Luigi Client should be installed...*, write *Install Luigi Client...*. 
+- Use active voice. For example, instead of writing "Luigi Client should be installed...", write "Install Luigi Client..."
 - Do not use slang or abbreviations. This also means you should not use contractions ("don't" instead of "do not") or short forms ("info" instead of "information").
 - Use the present tense. 
 - Use concise language and avoid long blocks of text. Lists, tables, or subheadings can help you with that.
