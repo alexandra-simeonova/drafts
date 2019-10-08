@@ -57,9 +57,9 @@ is better than:
 
 ```
 Luigi.setConfig({
-  routing: {
-    nodeParamPrefix: '~'
-  },
+    routing: {
+        nodeParamPrefix: '~'
+    },
 ```
 
 ### Styles
@@ -76,7 +76,17 @@ Depending on the type of content, you should use different types of text, for ex
 
 ## Links
 
-If the link is within the same folder on github, use only the relative path. For all other links, use the absolute path (the one starting with https://...)
+If the link is within the same folder on github, use only the relative path. For all other links, use the absolute path (the one starting with https://...).
+
+## Alert blocks
+
+To draw the reader's attention to something, you can use the quote block option in Markdown. Use one of these three options:
+
+>**NOTE:** Something the reader should take note of
+
+>**TIP:** Useful, but not necessary information 
+
+>**WARNING:** Very important information 
 
 ## Diagrams 
 
@@ -88,7 +98,8 @@ Refrain from using screenshots if possible, and point users to the [Luigi fiddle
 
 ## Examples
 
-To add an example to Luigi, use the same structure as the [existing examples]():
+To add an example to Luigi, use the same structure as the [existing examples](https://github.com/SAP/luigi/tree/master/core/examples):
+
 - Provide an overview outlining the goal of the example
 - Include a **prerequisites** section only in case additional steps are needed to run the example 
 - Create a **development** section and explain how to install and run the example
@@ -96,9 +107,8 @@ To add an example to Luigi, use the same structure as the [existing examples]():
 
 ## Terminology/glossary 
 
-* Luigi Core - the main application and the settings used to configure it 
-* Luigi Client - the micro frontend within Luigi Core and the API used to connect the two 
+* Luigi Core - the main application and the settings used to configure it. 
+* Luigi Client - the micro frontend within Luigi Core and the API used to connect the two. 
 * Parameters - the parameters that can be added to create a dynamic path.
 * Properties - the properties that can be used to configure Luigi in the `basicConfiguration.js` file. 
 * Attributes - the "sub properties" of properties. E.g. the **category** property can have **label**, **icon**, and **collapsible** as attributes. This term derives from the [definition](https://en.wikipedia.org/wiki/Attribute_%28computing%29) of "attribute" as "a property of a property". 
-luigi/core/examples/luigi-sample-angular 
