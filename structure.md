@@ -1,5 +1,4 @@
-#### this is a test to see if I connected my repository 
-
+---------- Overview ---------
 # Getting started
 - what is luigi, what are micro frontends, what do you need to begin + links to documentation 
 
@@ -11,6 +10,9 @@
 
 # Architecture
 - architecture diagrams 
+
+# FAQ 
+- perhaps we can gather some questions 
 
 # Contribution  
 - Guidelines (content and code) 
@@ -51,3 +53,5 @@
 ## Angular
 
 ## Vue 
+
+## React (WIP)

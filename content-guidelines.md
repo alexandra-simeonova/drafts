@@ -1,38 +1,51 @@
 # Content Guidelines
 
-These guidelines can be used to create Luigi documentation. 
+This page contains instructions on how to create documentation for Luigi. It explains some of the basic rules about formatting, links, terminology, and more.  
 
 ## Audience
 
-The audience of the Luigi docs are developers or managers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development.  
+The readers of Luigi documentation are mainly developers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development. Do not explain general concepts, but only specific instructions for Luigi. Of course, this rule can have exceptions, for example explaining what micro frontends are in the getting started guide, since they are a relatively new concept in the development world. 
 
-## Strategy
+## Language
 
-The purpose of documentation is to explain concepts and provide step-by-step instructions on how to use Luigi. 
-
-Give practical examples of features whenever possible. The users should be able to see clearly how to use a given command/property. Point to the [Luigi fiddle](https://fiddle.luigi-project.io/) as a tool where users can experiment with features. 
+When writing documentation, you should adhere to a few basic rules:
+- Use active voice. For example, instead of writing *Luigi Client should be installed...*, write *Install Luigi Client...*. 
+- Do not use slang or abbreviations. This also means you should not use contractions ("don't" instead of "do not") or short forms ("info" instead of "information").
+- Use the present tense. 
+- Use concise language and avoid long blocks of text. Lists, tables, or subheadings can help you with that.
+- Give practical examples of features instead of only using words to explain them. Additionally, link to the [Luigi fiddle](https://fiddle.luigi-project.io/) as a tool where users can experiment with features. 
 
 ## Formatting
 
-Documentation for Luigi is written in **Markdown**. 
+Documentation for Luigi is written in the form of Markdown files on GitHub. Find more about what GitHub-flavored Markdown is [here](https://github.github.com/gfm). 
+
+Documentation is located in the `luigi/docs` folder in the [Luigi repository](https://github.com/SAP/luigi). Search the already available documentation before adding new content to make sure there are no duplicates. 
 
 ### Headings
 
 Use H1 headings (preceded by # in Markdown) only at the start of the document to indicate the document name.
 
-Only use H2 and H3 headings for any subsequent categories. Do not use H4 (####) or anything smaller than that. 
+Only use H2 and H3 headings for any subsequent categories. Do not use H4 (####) headings or lower.
 
 ### Lists
 
-Use bulletpoints (written with a * or - in Markdown) to create lists.
+Lists are very useful for breaking up text and providing instructions. 
 
+- Use bullet points (created with * or -) for lists involving general explanations.
+- Use numbered lists only for step-by-step instructions. 
+ 
 ### Tables 
 
-Use a Markdown table generatior such as [this] to create tables. Although this is not the only way to create tables in Markdown, it is easier to edit even as a raw file. 
+Use tables when content needs comparison or to organize small bits of information. Keep in mind that in Markdown it is not possible to break up the content of a table cell into separate lines or bulletpoints, therefore tables are not useful when they contain long sentences or lists. 
+
+You can find an example of a table in the [Styles](#styles) section of this document. 
 
 ### Code snippets 
 
-Must be surrounded with the Markdown code block tag and the programming language should be specified. For example: 
+Code snippets must be surrounded with the Markdown code block tag and the programming language should be specified. Make sure to indent code correctly using your text editor (2 space indentation is the default). 
+
+For example:
+
 ```javascript
 Luigi.setConfig({
   routing: {
@@ -40,18 +53,26 @@ Luigi.setConfig({
   },
 ```
 
-### Parameters
+is better than:
 
-Parameters or properties of the Luigi configuration should be **bolded**. For example:
-**loadingIndicator.enabled** 
+```
+Luigi.setConfig({
+  routing: {
+    nodeParamPrefix: '~'
+  },
+```
 
-### Filenames
+### Styles
 
-Must be written in code format. For example: `basicConfiguration.js`
+Depending on the type of content, you should use different types of text, for example **bolded** or `code`. 
 
-### Folders and paths
-
-Use code formatting for those. For example: `luigi/core/examples/luigi-sample-angular` folder
+|     Type           |      Font          |    Example    |
+|--------------------|:------------------:|---------------|
+| Properties         |      **bold **     | **viewGroup** |
+| Parameters         |      `code`        | `{userId}`    |
+| Folders and paths  |      `code`        | the file `basicConfiguration.js` inside `assets/luigi-config`|
+| Code snippets      |      `code`        | ```javascript routing: { nodeParamPrefix: '~'},``` |
+| Functions          |      **bold **     | **showLoadingIndicator()** |
 
 ## Links
 
@@ -59,11 +80,19 @@ If the link is within the same folder on github, use only the relative path. For
 
 ## Diagrams 
 
-Use [draw.io](https://draw.io) to create diagrams. 
+Use [draw.io](https://draw.io) to create diagrams. Export the diagram as a PNG file and save it in the `docs/assets` folder.
 
 ## Screenshots
 
 Refrain from using screenshots if possible, and point users to the [Luigi fiddle](https://fiddle.luigi-project.io/) or otherwise describe the concept. 
+
+## Examples
+
+To add an example to Luigi, use the same structure as the [existing examples]():
+- Provide an overview outlining the goal of the example
+- Include a **prerequisites** section only in case additional steps are needed to run the example 
+- Create a **development** section and explain how to install and run the example
+- End with a **tests** section explaining how to ensure the example was configured correctly 
 
 ## Terminology/glossary 
 
