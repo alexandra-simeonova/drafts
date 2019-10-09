@@ -22,13 +22,13 @@
 ### Configuration
 
 #### Navigation 
-- basic setup
+- **basic setup**
     - top and side navigation
     - tab-style navigation
     - paths and links 
     - labels and icons 
     - categories 
-- advanced setup
+- **advanced setup**
     - creating a dynamic path
     - navigation node settings  (nodeAccessibility resolver??)
     - contexts (environments?)
