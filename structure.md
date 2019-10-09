@@ -3,19 +3,15 @@
 ### Getting started
 - what is Luigi, what are micro frontends, what do you need to begin 
 
-### Why Luigi? 
-- Luigi "additional features" 
-- something about case studies and current customers?
-
 ### Architecture
 - architecture diagrams 
 
 ### FAQ 
-- perhaps we can gather some questions 
+- perhaps we can gather some questions or add additional features of luigi there
 
 ### Community 
 - Contribution guidelines (content and code) 
-- Testing/browser support/etc.
+- Testing/browser support/etc. - link to github page and slack? 
 
 # Luigi Core
 ------
