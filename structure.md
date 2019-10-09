@@ -15,6 +15,7 @@
 
 ### Community 
 - Contribution guidelines (content and code) 
+- Testing/browser support/etc.
 
 # Luigi Core
 ------
@@ -24,17 +25,48 @@
 
 ### Configuration
 
-#### Navigation
+#### Navigation 
 - basic setup
+    - top and side navigation
+    - tab-style navigation
+    - paths and links 
+    - labels and icons 
+    - categories 
 - advanced setup
-- full properties reference
+    - creating a dynamic path
+    - navigation node settings  (nodeAccessibility resolver??)
+    - contexts (environments?)
+    - view settings (view groups, isolateView)
+    - hide navigation 
+    - badgeCounter
+    - modal??
+
+#### Routing
+- routing properties 
 
 #### Authorization
 - OpenID
 - OAuth
 - Custom
+- Authorization events 
 
-#### General Settings
+#### General settings
+- loading indicator 
+- disable backdrop
+- header
+- footer
+- translation 
+- iframe sandbox rules and allowRules
+
+#### Context switcher 
+
+#### Profile
+
+#### Product switcher 
+
+#### App switcher 
+
+#### Full reference 
 
 ### Lifecycle hooks 
 
