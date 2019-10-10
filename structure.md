@@ -35,8 +35,8 @@
  <details>
  <summary>Top and side navigation</summary>
 
-1. Open the `basicConfiguration.js` file in your `luigi-config` folder.
-2. Find `nodes:` inside the `navigation:` section. This is where you create navigation elements/nodes and add them to the top or side navigation.
+
+In the configuration file, go to `nodes:` inside the `navigation:` section. This is where you create navigation elements/nodes and add them to the top or side navigation.
 
 The first level of nodes represent the top navigation, while their children represent the side navigation. The children of the side navigation will take you to a new sub-level side navigation screen.
 
