@@ -22,12 +22,19 @@
 ### Configuration
 
 #### Navigation
+
 - **basic setup**
+    - top and side navigation
+    - tab-style navigation
+    - paths and links
+    - labels and icons
+    - categories
 
 <div tabs name="installation">
 
  <details>
  <summary>Top and side navigation</summary>
+
 
 In the configuration file, go to `nodes:` inside the `navigation:` section. This is where you create navigation elements/nodes and add them to the top or side navigation.
 
@@ -80,13 +87,9 @@ navigation: {
       Details on how to add it
 
 </details>
+
 </div>
 
-    - top and side navigation
-    - tab-style navigation
-    - paths and links
-    - labels and icons
-    - categories
 - **advanced setup**
     - creating a dynamic path
     - navigation node settings  (nodeAccessibility resolver??)
@@ -94,7 +97,7 @@ navigation: {
     - view settings (view groups, isolateView)
     - hide navigation
     - badgeCounter
-    - modal??
+    - modal?
 
 #### Routing
 - routing properties
