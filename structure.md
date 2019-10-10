@@ -1,17 +1,17 @@
 # Basics
 -----
 ### Getting started
-- what is Luigi, what are micro frontends, what do you need to begin 
+- what is Luigi, what are micro frontends, what do you need to begin
 
 ### Architecture
-- architecture diagrams 
+- architecture diagrams
 
-### FAQ 
+### FAQ
 - perhaps we can gather some questions or add additional features of luigi there
 
-### Community 
-- Contribution guidelines (content and code) 
-- Testing/browser support/etc. - link to github page and slack? 
+### Community
+- Contribution guidelines (content and code)
+- Testing/browser support/etc. - link to github page and slack?
 
 # Luigi Core
 ------
@@ -21,54 +21,113 @@
 
 ### Configuration
 
-#### Navigation 
+#### Navigation
 - **basic setup**
+
+<div tabs name="installation">
+
+      <details>
+      <summary>Top and side navigation</summary>
+In the configuration file, go to `nodes:` inside the `navigation:` section. This is where you create navigation elements/nodes and add them to the top or side navigation.
+
+The first level of nodes represent the top navigation, while their children represent the side navigation. The children of the side navigation will take you to a new sub-level side navigation screen.
+
+The example below illustrates this concept. Copy and paste it in your configuration file or the Luigi Fiddle [https://fiddle.luigi-project.io] and try adding additional top or side navigation elements.
+
+```javascript
+Luigi.setConfig({
+navigation: {
+  nodes: [
+    {
+      pathSegment: 'TopNav1',
+      label: 'Top Navigation Element One',
+      viewUrl: 'https://example.com',
+      children: [
+        {
+          pathSegment: 'SideNav1',
+          label: 'Side Navigation Element One',
+          viewUrl: 'https://example.com',
+          children: [
+            {
+              pathSegment: 'SubSideNav1',
+              label: 'Side Navigation Sub Element One',
+              viewUrl: 'https://example.com',
+            },
+            {
+              pathSegment: 'SubSideNav2',
+              label: 'Side Navigation Sub Element Two',
+              viewUrl: 'https://example.com',
+            },
+          ]
+        },
+      ]
+    },
+    {
+      pathSegment: 'TopNav2',
+      label: 'Top Navigation Element Two',
+      viewUrl: 'https://example.com',
+    }
+ ]
+}
+});
+```
+      </details>
+
+      <details>
+      <summary>Tab-style navigation</summary>
+
+        Details on how to add it
+
+      </details>
+
+    </div>
+
     - top and side navigation
     - tab-style navigation
-    - paths and links 
-    - labels and icons 
-    - categories 
+    - paths and links
+    - labels and icons
+    - categories
 - **advanced setup**
     - creating a dynamic path
     - navigation node settings  (nodeAccessibility resolver??)
     - contexts (environments?)
     - view settings (view groups, isolateView)
-    - hide navigation 
+    - hide navigation
     - badgeCounter
     - modal??
 
 #### Routing
-- routing properties 
+- routing properties
 
 #### Authorization
 - OpenID
 - OAuth
 - Custom
-- Authorization events 
+- Authorization events
 
 #### General settings
-- loading indicator 
+- loading indicator
 - disable backdrop
 - header
 - footer
-- translation 
+- translation
 - iframe sandbox rules and allowRules
 
-#### Context switcher 
+#### Context switcher
 
 #### Profile
 
-#### Product switcher 
+#### Product switcher
 
-#### App switcher 
+#### App switcher
 
-#### Full reference 
+#### Full reference
 
-### Lifecycle hooks 
+### Lifecycle hooks
 
 ### UI features
 
-### API 
+### API
 
 # Luigi Client
 
@@ -76,7 +135,7 @@
 
 ### Installation
 
-### API 
+### API
 
 # Examples
 
@@ -84,6 +143,6 @@
 
 ### Angular
 
-### Vue 
+### Vue
 
 ### React, etc
