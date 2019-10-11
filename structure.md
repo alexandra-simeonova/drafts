@@ -23,7 +23,7 @@
     - top and side navigation
     - tab-style navigation
     - paths and links
-    - labels and icons
+    - micro fronentd/view basic settings
     - categories
 
 <div tabs name="installation">
@@ -88,12 +88,12 @@ navigation: {
 
 - **advanced setup**
     - creating a dynamic path
-    - navigation node settings  (nodeAccessibility resolver??)
-    - contexts (environments?)
+    - global navigation settings  (nodeAccessibility resolver, etc)
+    - contexts
     - view settings (view groups, isolateView)
     - hide navigation
     - badgeCounter
-    - modal?
+    - modals
 
 #### Routing
 - routing properties
@@ -132,6 +132,8 @@ navigation: {
 
 ### Installation
 
+### Communication with Core
+
 ### API
 
 # Examples
@@ -142,4 +144,4 @@ navigation: {
 
 ### Vue
 
-### React, etc
+### Etc
