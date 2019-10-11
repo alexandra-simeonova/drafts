@@ -23,7 +23,7 @@
     - top and side navigation
     - tab-style navigation
     - paths and links
-    - micro fronentd/view basic settings
+    - micro frontend/view basic settings
     - categories
 
 <div tabs name="installation">
