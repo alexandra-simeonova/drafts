@@ -9,10 +9,6 @@
 ### FAQ
 - perhaps we can gather some questions or add additional features of luigi there
 
-### Community
-- Contribution guidelines (content and code)
-- Testing/browser support/etc. - link to github page and slack?
-
 # Luigi Core
 ------
 
@@ -123,8 +119,6 @@ navigation: {
 #### Product switcher
 
 #### App switcher
-
-#### Full reference
 
 ### Lifecycle hooks
 
