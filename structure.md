@@ -6,9 +6,6 @@ what is Luigi, what are micro frontends, what do you need to begin
 ## Architecture
 architecture diagrams
 
-## FAQ
-perhaps we can gather some questions or add additional features of luigi here
-
 # Luigi Core
 ------
 
