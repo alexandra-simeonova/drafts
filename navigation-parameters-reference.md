@@ -42,7 +42,7 @@ You can configure the way Luigi tackles routing in your application in the `rout
 ------
 ## Routing
 
-You can configure the way Luigi tackles routing in your application in the `routing:` section of the configuration file. For example, you can choose the routing strategy to apply in your application as either hash or path location routing.
+You can configure the way Luigi tackles routing in your application in the `routing:` section of the configuration file. For example, you can choose the routing strategy to apply in your application as either hash or path location routing. 
 
 ### useHashRouting
 * **type**: boolean 
