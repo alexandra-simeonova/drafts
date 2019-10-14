@@ -27,7 +27,7 @@ Once you have setup your Luigi application, you can configure it by opening the 
     1. Open the `basicConfiguration.js` file in your `luigi-config` folder.
     2. Find `nodes:` inside the `navigation:` section. This is where you create navigation elements/nodes and add them to the top or side navigation.
 
-The first level of nodes represent the top navigation, while their children represent the side navigation. The children of the side navigation will take you to a new sub-level side navigation screen.
+The first level of nodes represent the top navigation, while their children represent the side navigation. The children of the side navigation will take you to a new sub-level side navigation screen. closed eyes and white skin, and lo
 
 The example below illustrates this concept. Copy and paste it in your configuration file or the Luigi Fiddle [https://fiddle.luigi-project.io] and try adding additional top or side navigation elements.
 
@@ -73,7 +73,7 @@ navigation: {
 <details>
 <summary>Tab-style navigation</summary>
 
-      Details on how to add it
+      Details on how to add the tab style navigation
 
 </details>
 
@@ -84,15 +84,33 @@ Once you have created your navigation, you can add parameters/properties to your
 
 There are three types of links you can create:
 
-1. pathSegement - this is a string that defines the path which will be displayed when you click the node.
+1. pathSegement - the path of the current navigation node
 2. link - an internal link, but to a different already existing page on the application
 3. externalLink - a link to another website outside of your application
 
 </details>
 
-    - paths and links
-    - micro frontend/view basic settings
-    - categories
+<details>
+<summary>Micro frontend basic view settings</summary>
+
+ Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node. For example:
+
+ ```javascript
+
+ ```
+
+ The micro frontend will be displayed in the main content area of your application.
+
+ To see additional advanced micro frontend options, take a look at the [advanced navigation](#advanced) section.
+
+</details>
+
+<details>
+<summary>Categories</summary>
+
+
+
+</details>
 
 </div>
 
@@ -104,6 +122,7 @@ There are three types of links you can create:
     - hide navigation
     - badgeCounter
     - modals
+    - loading indicator
 
 ### Routing
 - routing properties
