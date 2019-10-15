@@ -30,7 +30,7 @@ Once you have setup your Luigi application, you can configure it by opening the 
     1. Open the `basicConfiguration.js` file in your `luigi-config` folder.
     2. Find `nodes:` inside the `navigation:` section. This is where you create navigation elements/nodes and add them to the top or side navigation.
 
-The first level of nodes represent the top navigation, while their children represent the side navigation. The children of the side navigation will take you to a new sub-level side navigation screen. closed eyes and white skin, and lo
+The first level of nodes represent the top navigation, while their children represent the side navigation. The children of the side navigation will take you to a new sub-level side navigation screen.
 
 The example below illustrates this concept. Copy and paste it in your configuration file or the Luigi Fiddle [https://fiddle.luigi-project.io] and try adding additional top or side navigation elements.
 
@@ -114,7 +114,7 @@ Once you have created your navigation, you can add one of these properties to yo
 ### externalLink
 - a link to another website outside of your application
 
->NOTE: These parameters are mutually exclusive, so you can only include one of them at the same time.
+>**NOTE:** These parameters are mutually exclusive, so you can only include one of them at the same time.
 
 This is an example of how you can configure URL paths in your navigation nodes:
 
@@ -152,7 +152,7 @@ navigation: {
 
  Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node and specify the link to your micro frontend.
 
- >**NOTE:** The viewUrl can be either an internal link, external link, or pathSegment.
+ >**NOTE:** The viewUrl can be either an internal link, external link, or pathSegment. The first two options have to be surrounded by single quotes, while pathSegment does not. 
 
  This example shows two navigation nodes with different viewUrl values.
 
