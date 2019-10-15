@@ -10,7 +10,10 @@ architecture diagrams
 ------
 
 ## Installation
-set up for different frameworks
+
+Basic setup
+
+Angular 6
 
 ## Configuration
 Once you have setup your Luigi application, you can configure it by opening the `basicConfiguration.js` file in your `luigi-config` folder, and altering its contents.
@@ -71,32 +74,110 @@ navigation: {
 </details>
 
 <details>
-<summary>Tab-style navigation</summary>
+<summary>Horizontal tab-style navigation</summary>
 
-      Details on how to add the tab style navigation
+To add tab-style navigation to your Luigi page, you need to add the **tabNav** parameter to your navigation node. All the children of this node will be displayed in a horizontal tab. If you add a **category** to these nodes, the categorized nodes will be rendered as a drop-down in the horizontal tab navigation.
+
+This example shows how you can configure tab-style navigation:
+
+```javascript
+Luigi.setConfig({
+navigation: {
+  nodes: [
+    {
+      pathSegment: 'Tab1',
+      tabNav: true,
+      label: 'Tab Navigation Node One',
+      viewUrl: 'https://example.com',
+    },
+    {
+      pathSegment: 'Tab2',
+      label: 'Tab Navigation Node Two',
+      viewUrl: 'https://example.com',
+    },
+ ]
+}
+});
+```
 
 </details>
 
 <details>
-<summary>Paths an links </summary>
+<summary>Paths and links </summary>
 
-Once you have created your navigation, you can add parameters/properties to your navigation nodes to specify the links they should point to.
+Once you have created your navigation, you can add one of these properties to your navigation nodes to specify the links they should point to:
 
-There are three types of links you can create:
+### pathSegement
+- the path of the current navigation node
+### link
+- an internal link, but to a different already existing page on the application
+### externalLink
+- a link to another website outside of your application
 
-1. pathSegement - the path of the current navigation node
-2. link - an internal link, but to a different already existing page on the application
-3. externalLink - a link to another website outside of your application
+>NOTE: These parameters are mutually exclusive, so you can only include one of them at the same time.
+
+This is an example of how you can configure URL paths in your navigation nodes:
+
+```javascript
+Luigi.setConfig({
+navigation: {
+  nodes: [
+    {
+      pathSegment: 'TopNav1',
+      label: 'Top Navigation Element One',
+      viewUrl: 'https://example.com',
+      children: [
+        {
+          link: '/TopNav1/internalLink',
+          label: 'This takes you to [YOUR.WEBSITE]/TopNav1/internalLink',
+        },
+        {
+          externalLink: {
+            url: 'http://www.luigi-project.io',
+            sameWindow: false
+          },
+          label: 'This takes you to an external page',
+        }
+      ]
+    }
+  ]
+}
+});
+```
 
 </details>
 
 <details>
 <summary>Micro frontend basic view settings</summary>
 
- Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node. For example:
+ Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node and specify the link to your micro frontend.
+
+ >**NOTE:** The viewUrl can be either an internal link, external link, or pathSegment.
+
+ This example shows two navigation nodes with different viewUrl values.
 
  ```javascript
-
+Luigi.setConfig({
+navigation: {
+  nodes: [
+    {
+      pathSegment: 'Node1',
+      label: 'Navigation Node One',
+      viewUrl: /home,
+    },
+    {
+      pathSegment: 'Node1',
+      label: 'Navigation Node Two',
+      viewUrl: '/index.html',
+    },
+    {
+      pathSegment: 'Node2',
+      label: 'Navigation Node Three',
+      viewUrl: 'https://luigi-project.io',
+    },
+ ]
+}
+});
  ```
 
  The micro frontend will be displayed in the main content area of your application.
@@ -108,7 +189,26 @@ There are three types of links you can create:
 <details>
 <summary>Categories</summary>
 
+To group your navigation nodes into a category, add the **category** property to the navigation node.
 
+The **category** property has these attributes:
+1. **label** - the name of the category which will be displayed on your page
+2. **icon** - an icon that will be displayed next to the label
+3. **collapsible** - if you set this to `true`, the category renders as a drop-down. If `false`, the category name will be displayed as a greyed out box.
+
+Example:
+
+```javascript
+{
+  category: { label: 'Links', icon: 'myIcon', collapsible: true },
+  externalLink: {
+    url: 'http://www.luigi-project.io',
+    sameWindow: false
+  },
+  label: 'Click here to visit the Luigi homepage',
+},
+...
+```
 
 </details>
 

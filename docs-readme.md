@@ -18,7 +18,7 @@ Set up and configure your main Luigi application by following these guides.
 * [General settings](general-settings.md) provides you with additional configuration parameters for Luigi.
 * [Luigi lifecycle hooks](lifecycle-hooks.md) allows you to execute custom logic on any of the Luigi lifecycle steps.
 * [Core API](luigi-core-api.md) provides you with API features that help you enrich and use Luigi Core.
-* [Luigi UX features](luigi-ux-features.md) provides information on UX options such as rendering Luigi in a specific HTML container, making the Luigi app responsive, and more.
+* [Luigi UX features](luigi-ux-features.md) provides information on further UX options such as rendering Luigi in a specific HTML container, making the Luigi app responsive, and more.
 
 ## Luigi Client
 
