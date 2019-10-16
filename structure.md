@@ -20,6 +20,11 @@ Once you have setup your Luigi application, you can configure it by opening the 
 
 ### Navigation
 
+To configure navigation in Luigi:
+
+1. Open the `basicConfiguration.js` file in your `luigi-config` folder.
+2. Find `nodes:` inside the `navigation:` section. This is where you create navigation nodes and add them to the top or side navigation.
+
 #### Basic setup
 
  <div tabs name="navigation">
@@ -27,10 +32,7 @@ Once you have setup your Luigi application, you can configure it by opening the 
  <details>
  <summary>Top and side navigation</summary>
 
-    1. Open the `basicConfiguration.js` file in your `luigi-config` folder.
-    2. Find `nodes:` inside the `navigation:` section. This is where you create navigation elements/nodes and add them to the top or side navigation.
-
-The first level of nodes represent the top navigation, while their children represent the side navigation. The children of the side navigation will take you to a new sub-level side navigation screen.
+The first level of nodes represent the top navigation, while their children represent the side navigation. The grandchildren will take you to a new side navigation screen.
 
 The example below illustrates this concept. Copy and paste it in your configuration file or the Luigi Fiddle [https://fiddle.luigi-project.io] and try adding additional top or side navigation elements.
 
@@ -76,9 +78,9 @@ navigation: {
 <details>
 <summary>Horizontal tab-style navigation</summary>
 
-To add tab-style navigation to your Luigi page, you need to add the **tabNav** parameter to your navigation node. All the children of this node will be displayed in a horizontal tab. If you add a **category** to these nodes, the categorized nodes will be rendered as a drop-down in the horizontal tab navigation.
+To add tab-style navigation to your Luigi page, you need to add the **tabNav** parameter to your navigation node. All the children of this node will be displayed in a horizontal tab. If you add a **category** to these nodes, the categorized nodes will be rendered as a drop-down in the horizontal tab navigation. Navigation can be added by editing the Luigi configuration file. To enable additional settings, find the `extendedConfiguration.js` file in your Luigi folder.
 
-This example shows how you can configure tab-style navigation:
+This example which you can paste in the [Luigi Fiddle](fiddle.luigi-project.io) shows how you can configure tab-style navigation:
 
 ```javascript
 Luigi.setConfig({
@@ -108,11 +110,17 @@ navigation: {
 Once you have created your navigation, you can add one of these properties to your navigation nodes to specify the links they should point to:
 
 ### pathSegement
-- the path of the current navigation node
+Specifies the partial URL of the currently selected node. For example, if the **pathSegment** value is `'home'`, the URL when this node is selected will be `[YOUR.WEBSITE]/home`. Additionally, you can include dynamic values in the pathSegment. That means they will change depending on the specifics you provide, for example `[YOUR.WEBSITE]/:userID`.
+
+>**NOTE:** **pathSegement** must not contain slashes. If you want your node to be a sub-element of another node, create it as a child node in your navigation configuration file. The **pathSegment** will then be automatically appended to the parent node with a slash.
+
 ### link
-- an internal link, but to a different already existing page on the application
+Specifies an internal link to a different, already existing page on your application. It must be written as an absolute path starting from the **root node**. For example, if your root node is called `home`: `home/projects/project2` will be correct, but `projects/project2` will return an error.
+
 ### externalLink
-- a link to another website outside of your application
+Specifies a link to another website outside of your application. **externalLink** has these additional attributes:
+- **url** - the complete URL of the website, including `https://`.
+- **sameWindow** - specifies whether the link will be opened in the same window if set to `true`, or a new window if set to `false`.
 
 >**NOTE:** These parameters are mutually exclusive, so you can only include one of them at the same time.
 
@@ -152,9 +160,9 @@ navigation: {
 
  Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node and specify the link to your micro frontend.
 
- >**NOTE:** The viewUrl can be either an internal link, external link, or pathSegment. The first two options have to be surrounded by single quotes, while pathSegment does not. 
+ >**NOTE:** The viewUrl can be either an internal link, external link, or pathSegment. The first two options have to be surrounded by single quotes, while pathSegment does not.
 
- This example shows two navigation nodes with different viewUrl values.
+ This example shows three navigation nodes with different viewUrl values.
 
  ```javascript
 Luigi.setConfig({
@@ -180,16 +188,16 @@ navigation: {
 });
  ```
 
- The micro frontend will be displayed in the main content area of your application.
+The micro frontend will be displayed in the main content area of your application.
 
- To see additional advanced micro frontend options, take a look at the [advanced navigation](#advanced) section.
+To explore additional advanced micro frontend options, take a look at the [advanced navigation](#advanced) section.
 
 </details>
 
 <details>
 <summary>Categories</summary>
 
-To group your navigation nodes into a category, add the **category** property to the navigation node.
+To group your navigation nodes into a category, add the **category** property to the navigation node. The categories can be displayed in different ways.
 
 The **category** property has these attributes:
 1. **label** - the name of the category which will be displayed on your page
@@ -216,6 +224,15 @@ Example:
 
 #### Advanced setup
     - creating a dynamic path
+
+<div tabs name="navigation">
+
+ <details>
+ <summary>Creating a dynamic path</summary>
+
+
+</details>
+
     - navigation settings  (nodeAccessibility resolver, etc)
     - contexts
     - advanced view settings (view groups, isolateView)
@@ -225,15 +242,24 @@ Example:
     - loading indicator
 
 ### Routing
+
+Routing can be configured by altering the contents of the `routing:` section of your Luigi configuration file.
+
 - routing properties
 
+
 ### Authorization
+
+Authorization can be configured by altering the contents of the `auth:` section of your Luigi configuration file.
+
 - OpenID
 - OAuth
 - Custom
 - Authorization events
 
 ### General settings
+
+This section contains additional settings related to the look
 - loading indicator
 - disable backdrop
 - header
