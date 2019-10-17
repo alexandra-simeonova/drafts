@@ -158,9 +158,9 @@ navigation: {
 <details>
 <summary>Micro frontend basic view settings</summary>
 
- Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node and specify the link to your micro frontend. To create a view, you need to use the Luigi Client. Find the documentation and instructions [here](luigi-client.md).
+ Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node and specify the link to your micro frontend. To connect a micro frontend to your page, you also need to use the [Luigi Client](luigi-client.md).
 
- >**NOTE:** The viewUrl can be either an internal link, external link, or pathSegment. The first two options have to be surrounded by single quotes, while pathSegment does not.
+ >**NOTE:** The value of **viewUrl** can be either a **link**, **externaLink**, or **pathSegment**. The first two options have to be surrounded by single quotes, while pathSegment does not.
 
  This example shows three navigation nodes with different viewUrl values.
 
@@ -245,7 +245,20 @@ Example:
  <details>
  <summary>Advanced view settings</summary>
 
-defaults.isolateView renders all views in new frames. This setting overrides the same-domain frame reuse. The defaults.isolateView is disabled by default, and you can overwrite it using the isolateView value on a single node level.
+This section covers more advanced options for views (micro frontends).
+
+- **viewGroups**
+Imagine your application hosts two micro frontend views: `http://mysite.com/a#e` and  `http://mysite.com/b#f`. Due to hash routing and a different path up to `#`, they are, by default, rendered in different iframes. However, as they both have the **same origin**, such as`mysite.com`, and belong to the **same micro frontend** you want to render them in the same iframe. To achieve that, use the view groups feature. Define the **viewGroup** parameter for top navigation nodes. The children nodes will automatically be considered as part of the same view group.
+
+Nodes belonging to the same view group are always rendered in their own view group iframe. Nodes not belonging to any view group follow the same-origin iframe rendering policy.
+
+The view groups feature also offers out-of-the-box caching. Each time you navigate to another view group, either a new iframe is created or it is reused if already exists. In both cases, the iframe you are navigating from becomes hidden and is available for you to use again. If you navigate back to the first iframe and it should be updated with new data, such when a new entry was added in the second iframe and you want to display it in a table in the first iframe, you must define a **preloadUrl** parameter for a given view in the view group to ensure that the view is refreshed when you navigate back to it.
+
+You can also preload view groups. You just need to define which URL you want to preload, and Luigi will preload the view after some user interactions when the browser is most likely to be idle. This option is active by default, but you can deactivate it with a [configuration flag](navigation-parameters-reference.md#node-parameters).
+
+If you are using
+
+  - **defaults.isolateView** renders all views in new frames. This setting overrides the same-domain frame reuse. The defaults.isolateView is disabled by default, and you can overwrite it using the isolateView value on a single node level.
 
 preloadViewGroups(bool) allows deactivating the default preloading of view groups iframes.
 
@@ -258,8 +271,49 @@ Find more information on adding options to iframes [here]().
 
 </details>
 
-    - contexts
-    - advanced view settings (view groups, isolateView)
+<div tabs name="navigation">
+
+ <details>
+ <summary>Environments</summary>
+
+Environments are navigation structures that can be navigated to via a dropdown in the top navigation bar. They can be used as an additional menu structure for your website.
+
+(screenshot?)
+
+</details>
+
+<div tabs name="navigation">
+
+ <details>
+ <summary>Context switcher</summary>
+
+The context switcher is a drop-down list available in the top navigation bar. It allows you to switch between a curated list of navigation elements such as [Environments](#environments). To do so, add the contextSwitcher property to the navigation object using the following optional properties:
+
+</details>
+
+</details>
+
+<div tabs name="navigation">
+
+ <details>
+ <summary>Hide navigation </summary>
+
+In Luigi, you have the option to hide all navigation so you can configure your own:
+
+- **hideNav**
+
+You may also choose to hide only the left navigation:
+
+- **hideSideNav**
+
+If you want to hide only a specific navigation node, use:
+
+-**hideFromNav**
+
+>**NOTE:** You can still navigate to the node but it does not show up in the top or left pane.
+
+
+
     - hide navigation
     - badgeCounter
     - modals
