@@ -3,6 +3,23 @@
 ## Getting started
 what is Luigi, what are micro frontends, what do you need to begin
 
+test:
+
+<button class="accordion">Section 1</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+
+<button class="accordion">Section 2</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+
 ## Architecture
 architecture diagrams
 
@@ -256,11 +273,9 @@ The view groups feature also offers out-of-the-box caching. Each time you naviga
 
 You can also preload view groups. You just need to define which URL you want to preload, and Luigi will preload the view after some user interactions when the browser is most likely to be idle. This option is active by default, but you can deactivate it with a [configuration flag](navigation-parameters-reference.md#node-parameters).
 
-If you are using
-
   - **defaults.isolateView** renders all views in new frames. This setting overrides the same-domain frame reuse. The defaults.isolateView is disabled by default, and you can overwrite it using the isolateView value on a single node level.
 
-preloadViewGroups(bool) allows deactivating the default preloading of view groups iframes.
+**preloadViewGroups** is a boolean that allows deactivating the default preloading of view groups iframes.
 
 viewGroupsSettings is an object containing key-object pairs, where the key is the view group name as specified in the node parameters, and the object contains key-value pairs. In each key-value pair, the key is the feature name and the value is the actual setting. The following options are supported:
 
@@ -278,7 +293,7 @@ Find more information on adding options to iframes [here]().
 
 Environments are navigation structures that can be navigated to via a dropdown in the top navigation bar. They can be used as an additional menu structure for your website.
 
-(screenshot?)
+(screenshot)
 
 </details>
 
@@ -288,8 +303,6 @@ Environments are navigation structures that can be navigated to via a dropdown i
  <summary>Context switcher</summary>
 
 The context switcher is a drop-down list available in the top navigation bar. It allows you to switch between a curated list of navigation elements such as [Environments](#environments). To do so, add the contextSwitcher property to the navigation object using the following optional properties:
-
-</details>
 
 </details>
 
@@ -312,10 +325,25 @@ If you want to hide only a specific navigation node, use:
 
 >**NOTE:** You can still navigate to the node but it does not show up in the top or left pane.
 
+</details>
+
+<div tabs name="navigation">
+
+ <details>
+ <summary>Modals</summary>
 
 
-    - hide navigation
-    - badgeCounter
+
+</details>
+
+<div tabs name="navigation">
+
+ <details>
+ <summary>Badge counter</summary>
+
+
+</details>
+
     - modals
     - loading indicator
 
