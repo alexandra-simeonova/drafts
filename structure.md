@@ -110,7 +110,7 @@ navigation: {
 Once you have created your navigation, you can add one of these properties to your navigation nodes to specify the links they should point to:
 
 ### pathSegement
-Specifies the partial URL of the currently selected node. For example, if the **pathSegment** value is `'home'`, the URL when this node is selected will be `[YOUR.WEBSITE]/home`. Additionally, you can include dynamic values in the pathSegment. That means they will change depending on the specifics you provide, for example `[YOUR.WEBSITE]/:userID`.
+Specifies the partial URL of the currently selected node. For example, if the **pathSegment** value is `'home'`, the URL when this node is selected will be `[YOUR.WEBSITE]/home`. Additionally, you can include dynamic values in the pathSegment. That means they will change depending on the value you provide, for example in `[YOUR.WEBSITE]/:userID` will become `[YOUR.WEBSITE]/JohnSmith`. Learn more about dynamic paths [here](#dynamic-path)
 
 >**NOTE:** **pathSegement** must not contain slashes. If you want your node to be a sub-element of another node, create it as a child node in your navigation configuration file. The **pathSegment** will then be automatically appended to the parent node with a slash.
 
@@ -158,7 +158,7 @@ navigation: {
 <details>
 <summary>Micro frontend basic view settings</summary>
 
- Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node and specify the link to your micro frontend.
+ Micro frontends, also referred to as views, are an essential part of the Luigi application. To configure a micro frontend which should be displayed on a given navigation node, simply add the **viewUrl** property to the node and specify the link to your micro frontend. To create a view, you need to use the Luigi Client. Find the documentation and instructions [here](luigi-client.md).
 
  >**NOTE:** The viewUrl can be either an internal link, external link, or pathSegment. The first two options have to be surrounded by single quotes, while pathSegment does not.
 
@@ -223,6 +223,7 @@ Example:
 </div>
 
 #### Advanced setup
+
     - creating a dynamic path
 
 <div tabs name="navigation">
@@ -234,6 +235,29 @@ Example:
 </details>
 
     - navigation settings  (nodeAccessibility resolver, etc)
+
+    nodeAccessibilityResolver receives all values defined in the node configuration. It allows you to define a permission checker function that gets executed on every node. If it returns false, Luigi removes the node and its children from the navigation structure. See angular navigation.js for an example.
+
+
+
+<div tabs name="navigation">
+
+ <details>
+ <summary>Advanced view settings</summary>
+
+defaults.isolateView renders all views in new frames. This setting overrides the same-domain frame reuse. The defaults.isolateView is disabled by default, and you can overwrite it using the isolateView value on a single node level.
+
+preloadViewGroups(bool) allows deactivating the default preloading of view groups iframes.
+
+viewGroupsSettings is an object containing key-object pairs, where the key is the view group name as specified in the node parameters, and the object contains key-value pairs. In each key-value pair, the key is the feature name and the value is the actual setting. The following options are supported:
+
+preloadUrl(string): needs to be an absolute URL for a node from the view group. It is recommended that you use a dedicated small, visually empty view, which imports Luigi Client and is fine with getting an empty context, for example, without an access token. The preloadUrl parameter is also required for view group caching in case you need a view group iframe to refresh whenever you navigate back to it.
+
+Find more information on adding options to iframes [here]().
+
+
+</details>
+
     - contexts
     - advanced view settings (view groups, isolateView)
     - hide navigation
