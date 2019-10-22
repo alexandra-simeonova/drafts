@@ -5,20 +5,11 @@ what is Luigi, what are micro frontends, what do you need to begin
 
 test:
 
-<button class="accordion">Section 1</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
-</div>
+<details>
+    <summary>Details</summary>
+    Something small enough to escape casual notice.
+</details>
 
-<button class="accordion">Section 2</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
-</div>
-
-<button class="accordion">Section 3</button>
-<div class="panel">
-  <p>Lorem ipsum...</p>
-</div>
 
 ## Architecture
 architecture diagrams
@@ -127,10 +118,9 @@ navigation: {
 Once you have created your navigation, you can add one of these properties to your navigation nodes to specify the links they should point to:
 
 ### pathSegement
-Specifies the partial URL of the currently selected node. For example, if the **pathSegment** value is `'home'`, the URL when this node is selected will be `[YOUR.WEBSITE]/home`. Additionally, you can include dynamic values in the pathSegment. That means they will change depending on the value you provide, for example in `[YOUR.WEBSITE]/:userID` will become `[YOUR.WEBSITE]/JohnSmith`. Learn more about dynamic paths [here](#dynamic-path)
+Specifies the partial URL of the currently selected node. For example, if the **pathSegment** value is `'home'`, the URL when this node is selected will be `[YOUR.WEBSITE]/home`. Additionally, you can include dynamic values in the pathSegment. That means they will change depending on the value you provide, for example in `[YOUR.WEBSITE]/:userID` will become `[YOUR.WEBSITE]/JohnSmith`. Learn more about dynamic paths [here](#dynamic-path).
 
 >**NOTE:** **pathSegement** must not contain slashes. If you want your node to be a sub-element of another node, create it as a child node in your navigation configuration file. The **pathSegment** will then be automatically appended to the parent node with a slash.
-
 ### link
 Specifies an internal link to a different, already existing page on your application. It must be written as an absolute path starting from the **root node**. For example, if your root node is called `home`: `home/projects/project2` will be correct, but `projects/project2` will return an error.
 
@@ -332,7 +322,7 @@ If you want to hide only a specific navigation node, use:
  <details>
  <summary>Modals</summary>
 
-
+Modals are a navigation element you can use to make your Luigi page more interactive.
 
 </details>
 

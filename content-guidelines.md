@@ -6,6 +6,15 @@ This page contains instructions on how to create documentation for Luigi. It exp
 
 The audience of Luigi documentation consists mainly of developers interested in implementing a micro frontend UI solution. It is assumed the reader already has basic knowledge of web development. Do not explain general concepts unrelated to Luigi except if they are instrumental for working with the feature you're describing.
 
+## Structure
+
+An instructional document will have the following basic structure:
+- Introduction - one or two sentences introducing the topic in your heading
+- Parameters - create a list of the parameters that the user needs to configure. Include their type and function.
+- Example - include a short code snippet showing how to use the configuration
+
+An example document will have the following structure: 
+
 ## Language
 
 When writing documentation, you should adhere to a few basic rules:
@@ -20,6 +29,7 @@ When writing documentation, you should adhere to a few basic rules:
 Documentation for Luigi is written in the form of Markdown files on GitHub. Find more about what GitHub-flavored Markdown is [here](https://github.github.com/gfm).
 
 Documentation is located in the `luigi/docs` folder in the [Luigi repository](https://github.com/SAP/luigi). Search the already available documentation before adding new content to make sure there are no duplicates.
+
 
 ### Headings
 
