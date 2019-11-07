@@ -232,7 +232,7 @@ The profile is a drop down-list in the top navigation tat allows you to override
 
 You can configure a profile element in the top navigation by adding the `profile` property to the navigation object in the configuration file. Find all the parameters which can be used to configure a profile [here](navigation-parameters-reference.md#profile).
 
-Example:
+**Example:**
 
 ```javascript
   profile: {
@@ -250,7 +250,7 @@ Example:
 
 The context switcher is a drop-down element in the top navigation. It allows you to switch between a curated list of navigation elements such as Environments. To do so, add the contextSwitcher property to the navigation object. Find all the parameters you can use to configure it [here](navigation-parameters-reference.md#context-switcher).
 
- Example:
+ **Example:**
 
 ```javascript
 contextSwitcher: {
@@ -270,7 +270,7 @@ contextSwitcher: {
 
 The product switcher is window in top the navigation which allows you to switch between navigation elements displayed there. To add it to your application, include the **productSwitcher** property in your **navigation** object. You may also add any of the parameters listed [here](navigation-parameters-reference.md#product-switcher).
 
-Example:
+**Example:**
 ```javascript
 productSwitcher: {
       label: 'My Products',
@@ -302,7 +302,7 @@ productSwitcher: {
 
 The app switcher is a drop-down in top the navigation which allows you to switch between applications. To use it, add the **addSwitcher** property in your **navigation** object. You may also add any of the parameters listed [here](navigation-parameters-reference.md#product-switcher).
 
-Example:
+**Example:**
 
 ```javascript
 appSwitcher = {
@@ -321,6 +321,37 @@ appSwitcher = {
     ]
   };
 ```
+## Loading indicator
+
+Luigi shows a loading indicator before your micro frontend or any other element is fully loaded.
+
+* Disabling loading indicator for an individual node
+To disable the loading indicator for micro frontends, add the **loadingIndicator.enabled** parameter to the corresponding navigation node.
+
+**Example:**
+
+```javascript
+{
+    pathSegment: 'node',
+    label: 'Navigation node',
+    viewUrl: '/NavNode',
+    loadingIndicator {
+        enabled: true
+    }
+}
+```
+* Disabling automatic hiding of the loading indicator
+To disable the automatic hiding of the loading indicator once the micro frontend is loaded, use the **loadingIndicator.hideAutomatically** parameter:
+
+**loadingIndicator.hideAutomatically** disables the automatic hiding of the loading indicator once the micro frontend is loaded. It is only considered if the loading indicator is enabled. It does not apply if the loading indicator is activated manually with the `LuigiClient.uxManager().showLoadingIndicator()` function. If the loading indicator is enabled and automatic hiding is disabled, use `LuigiClient.uxManager().hideLoadingIndicator()` to hide it manually in your micro frontend during the startup. This parameter is enabled by default.
+
+You have the option to configure the loading indicator directly from the DOM as well. See [UI Options](docs/ui-options) for more information.
+
+**Example:**
+
+* Configuring loading indicator in the Luigi Client
+
+Use the `LuigiClient.uxManager().showLoadingIndicator` or `LuigiClient.uxManager().hideLoadingIndicator()` functions to configure the loading indicator in Luigi Client.
 
 ## Additional options
 

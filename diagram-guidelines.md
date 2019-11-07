@@ -19,7 +19,7 @@ Use [draw.io](https://www.draw.io) as a recommended tool. Export the diagram as 
 
 Keep your diagram reasonable in size. Preview the image at full size to see how it fits into the whole document. The diagram should be large enough to be legible and convey the intended message, but should not dominate the whole document. To demonstrate large concepts, simplify the diagram or divide it into a few smaller ones.
 
->**NOTE:** The diagrams keep their original aspect ratio on both the Console UI and the `kyma-project.io` website. However, the maximum width on the website is 860px. Any diagram that exceeds that limit is resized to the maximum width. 
+>**NOTE:** The diagrams keep their original aspect ratio on both the Console UI and the `kyma-project.io` website. However, the maximum width on the website is 860px. Any diagram that exceeds that limit is resized to the maximum width.
 
 ## Background
 
@@ -33,7 +33,7 @@ Do not use fill that is other than **white** in boxes or similar shapes unless y
 
 ## Outlines
 
-Use **grey** (HEX: #D2D5D9) for the shape outlines. Set the outlines of the main shapes to 2pt and the outlines of the secondary shapes to 1pt.  
+Use **grey** (HEX: #D2D5D9) for the shape outlines. Set the outlines of the main shapes to 2pt and the outlines of the secondary shapes to 1pt.
 
 If you need color differentiation for shape outlines, use **turquoise** (HEX: #24CACC) or **green** (HEX: #ACD62F).
 
