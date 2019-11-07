@@ -1,3 +1,5 @@
+![ImageTest](assets/small.png)
+
 Collect questions for Luigi faq. Brainstorm with team.
 
 1. *I have a problem with Luigi and I cannot find an answer in the documentation. What do I do?*
