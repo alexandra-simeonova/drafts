@@ -1,6 +1,7 @@
 This documentation provides how-to guides, references, and instructions on how to work with Luigi.
 
 ## Basics
+
 * [Getting started guide](getting-started.md)
 
 ## Luigi Core
@@ -9,7 +10,7 @@ Luigi Core enables you to create web applications with a consistent user interfa
 
 ### Installation
 
-[Installation](application-setup.md) shows you how to set up a Luigi application on different frameworks.
+* [Installation](application-setup.md) shows you how to set up a Luigi application on different frameworks.
 
 ### Configuration
 
@@ -21,8 +22,8 @@ Luigi Core enables you to create web applications with a consistent user interfa
 * [General settings](general-settings.md) - fully customize a micro frontend, define a header, make your application responsive, and more.
 * [Lifecycle hooks](lifecycle-hooks.md) - execute custom logic on any of the Luigi lifecycle steps.
 
-*[UI features](ui-features.md) shows you how to
-*[Luigi Core API]()
+* [UI features](ui-features.md) shows you how to
+* [Luigi Core API]()
 
 ## Luigi Client
 
@@ -37,6 +38,10 @@ Luigi Core
 *[Custom messages]()
 
 ## Examples
+
+* Angular
+* Vue
+* React
 
 
 

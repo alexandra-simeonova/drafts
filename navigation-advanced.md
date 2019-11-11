@@ -152,6 +152,7 @@ Build the **viewUrl** by placing parameters anywhere in the **viewUrl** value us
 
 ### Dynamic viewUrl
 
+
 You can use both dynamic node parameters and path parameters to build a **viewUrl**.
 
 For example, if the web application URL is `https://[YOUR.WEBSITE]/something/sample_1/products?~sort=asc`, the micro frontend loads using a different URL, such as `https://example.com/project/sample_1/products?sort=asc`.
