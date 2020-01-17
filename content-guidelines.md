@@ -20,7 +20,7 @@ An example document will have the following structure:
 When writing documentation, you should adhere to a few basic rules:
 - Use active voice. For example, instead of writing "Luigi Client should be installed...", write "Install Luigi Client..."
 - Do not use slang or abbreviations. This also means you should not use contractions ("don't" instead of "do not") or short forms ("info" instead of "information").
-- Use the present tense.
+- Use the present tense. 
 - Use concise language and avoid long blocks of text. Lists, tables, or subheadings can help you with that.
 - Give practical examples of features instead of only using words to explain them. Additionally, link to the [Luigi fiddle](https://fiddle.luigi-project.io/) as a tool where users can experiment with features.
 
@@ -52,11 +52,11 @@ You can find an example of a table in the [Styles](#styles) section of this docu
 
 ### Code snippets
 
-Code snippets must be surrounded with the Markdown code block tag and the programming language should be specified. Make sure to indent code correctly using your text editor (2 space indentation is the default).
+Code snippets must be surrounded with the Markdown code block tag and the programming language should be specified. Make sure to indent code correctly using your text editor (2 space indentation is the default). 
 
 For example:
 
-```javascript
+```javascript 
 Luigi.setConfig({
   routing: {
     nodeParamPrefix: '~'

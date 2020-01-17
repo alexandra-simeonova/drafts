@@ -23,11 +23,11 @@ Keep your diagram reasonable in size. Preview the image at full size to see how 
 
 ## Background
 
-Keep the background of the diagram **white** as it renders well both on Github and in the UI. 
+Keep the background of the diagram **white** as it renders well both on Github and in the UI.
 
 ## Shapes
 
-Do not use fill that is other than **white** in boxes or similar shapes unless you add an actor to the diagram. Apply **blue** (HEX: #0A6ED1) fill for the shape that refers to a given actor. 
+Do not use fill that is other than **white** in boxes or similar shapes unless you add an actor to the diagram. Apply **blue** (HEX: #0A6ED1) fill for the shape that refers to a given actor.
 
 > **NOTE:** Same as in the Unified Modeling Language (UML), the term **actor** refers to a role played by a human user, external hardware, or any other entity.
 

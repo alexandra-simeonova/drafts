@@ -1,21 +1,30 @@
-## navigation nodes
+# Luigi Configuration
 
-Description: 
+(proposal for a new document)
 
-Example: 
+- how to configure luigi
+- links to other topics
+- different strategies depending on whether you are building a new app or migrating to Luigi ?
 
-paths 
+How to do upgrades?
 
-## paths  
+--
 
-description
+Steps:
 
-parameters 
+- getting started = overview?
+- build a quick app and configure it - e2e examples
 
-example
+Core
+- installation
+- configuration
+- auth
+- ui options
 
-## top navigation
+Client
+- install
+- API reference
 
-## side navigation 
-
-## grouping nodes
+- Make the steps shorter and integrate examples earlier
+- have some kind of quick start guide
+- explain the SAP connection?

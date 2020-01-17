@@ -2,7 +2,7 @@
 
 To configure authorization in Luigi, go to the `auth:` section of your project's `basicConfiguration.js` file. To see how authorization works, you can also go to the [Luigi Fiddle](https://fiddle.luigi-project.io) site and configure a sample application.
 
-Luigi provides OpenID Connect and OAuth2 Implicit Grant authorization out of the box. The **use** key defines the active authorization provider and the **disableAutoLogin** key allows you to disable the automatic login flow that is provided by default.
+Luigi provides OpenID Connect and OAuth2 Implicit Grant authorization out of the box. The **use** key defines the active authorization provider and the **disableAutoLogin** key allows you to disable the automatic login flow that is provided by default. 
 
 ```javascript
 auth: {
@@ -23,7 +23,7 @@ You have the following authorization options:
 
 ## OpenID Connect configuration
 
-The following code snippet demonstrates how to configure authorization using OpenID Connect in Luigi. 
+The following code snippet demonstrates how to configure authorization using OpenID Connect in Luigi.
 
 ```javascript
 auth: {
@@ -50,13 +50,13 @@ auth: {
 - **automaticSilentRenew** enables the automatic silent renewal of the token if it is supported by the server. The default value is `false`. For this mechanism to work, the browser must have third-party cookies support enabled.
 - **accessTokenExpiringNotificationTime** is the number of seconds before an access token expires and triggers silent token refresh. The default value is `60` seconds.
 - **thirdPartyCookiesScriptLocation** is the URL to the page containing third-party cookies support check. For details, see [Third-party cookies and silent token refresh section](#Third-party-cookies-and-silent-token-refresh).
-- **userInfoFn** provides a function to get user information. It returns a promise of a **userinfo** object which can contain **name**, **email** and **picture** (value is a URL to the image). **Name** or **email** are displayed in the profile drop-down menu and the user’s profile picture is displayed in the top navigation.
+- **userInfoFn** provides a function to get user information. It returns a promise of a **userinfo** object which can contain **name**, **email** and **picture** (value is a URL to the image). **Name** or **email** are displayed in the profile drop-down menu and the user’s profile picture is displayed in the top navigation. 
 
 ### Third-party cookies and silent token refresh
 
 The OpenID Connect configuration allows you to specify the **automaticSilentRenew** option. When set to `true`, Luigi attempts to automatically renew the token in the background before it expires. Be aware that this mechanism requires the browser to support [third-party cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Third-party_cookies).
 
-It is possible to detect whether the user's browser supports the mechanism by using the script in [`third-party-cookies`](https://github.com/SAP/luigi/tree/master/core/third-party-cookies) catalog. Deploy these files on a **different domain** than your main application and set **thirdPartyCookiesScriptLocation** to `init.html` file. During initialization, Luigi detects the cookies support and produces a warning in the console if cookies are disabled in the user's browser.                                      
+It is possible to detect whether the user's browser supports the mechanism by using the script in [`third-party-cookies`](https://github.com/SAP/luigi/tree/master/core/third-party-cookies) catalog. Deploy these files on a **different domain** than your main application and set **thirdPartyCookiesScriptLocation** to `init.html` file. During initialization, Luigi detects the cookies support and produces a warning in the console if cookies are disabled in the user's browser.
 
 When Luigi fails to renew the token and then logs the user out, it adds the following query parameters to the logout page redirect URL: `?reason=tokenExpired&thirdPartyCookies=[VALUE]`. Luigi replaces the **VALUE**  with one of the following:
 - `disabled` means that third party cookies are disabled.
@@ -67,7 +67,7 @@ The application developer can read these parameters and set a logout page based 
 
 ## OAuth2 Implicit Grant configuration
 
-The following code snippet demonstrates how to configure authorization using OAuth2 Implicit Grant in Luigi. 
+The following code snippet demonstrates how to configure authorization using OAuth2 Implicit Grant in Luigi.
 
 ```javascript
 auth: {
@@ -142,11 +142,11 @@ export class CustomAuthenticationProvider {
 
 ## Implement a custom authorization provider
 
-You can write your own authorization provider that meets your requirements. 
+You can write your own authorization provider that meets your requirements.
 
 [oAuth2ImplicitGrant.js](../core/src/providers/auth/oAuth2ImplicitGrant.js) is a good starting point if you don't use an external authentication library.
 
-After authorization is successful on the auth provider's side, it redirects back to `Luigi callback.html` **redirect_uri**. The auth provider verifies the authentication data, saves it in  **localStorage** for Luigi, and redirects to the Luigi main page. 
+After authorization is successful on the auth provider's side, it redirects back to `Luigi callback.html` **redirect_uri**. The auth provider verifies the authentication data, saves it in  **localStorage** for Luigi, and redirects to the Luigi main page.
 
 [openIdConnect.js](../core/src/providers/auth/openIdConnect.js) lazy loads the official `oidc-client` library and is a good starting point if you also depend on external authentication libraries.
 
