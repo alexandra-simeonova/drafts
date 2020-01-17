@@ -2,7 +2,6 @@
 
 <p align="center">
 <a href="https://youtu.be/kP7mSELIxXw">
-<img src="./docs/kyma/assets/withoutprov4.gif" style="max-width:100%;">
 </a>
 </p>
 
