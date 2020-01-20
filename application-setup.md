@@ -1,6 +1,6 @@
 # Luigi Core Installation
 
-[![Luigi Installation](http://img.youtube.com/vi/kEzTZ2U9KMM/0.jpg)](http://www.youtube.com/watch?v=kEzTZ2U9KMM "Luigi Project - Installation")
+[![Luigi Installation](video1.png)](http://www.youtube.com/watch?v=kEzTZ2U9KMM "Luigi Project - Installation")
 
 
 This document shows you how to set up a web application using the Luigi micro frontend framework. This involves a few basic steps:
