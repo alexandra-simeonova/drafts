@@ -1,22 +1,15 @@
-productSwitcher: {
-  label: 'My Products',
-  testId: 'myTestId',
-  icon: 'grid',
+appSwitcher = {
+  showMainAppEntry: true,
   items: [
     {
-      icon: '',
-      label: 'Luigi in Github',
-      testId: 'myTestId',
-      externalLink: {
-        url: 'https://luigi-project.io/',
-        sameWindow: false
-      }
+      title: 'Application One',
+      subTitle: 'the first app',
+      link: '/projects/pr1'
     },
     {
-      icon: '',
-      label: 'Project 1',
-      testId: 'myTestId',
-      link: '/projects/pr1'
-    }
+      title: 'Application Two',
+      link: '/projects/pr2',
+      subTitle: 'the second app'
+    },
   ]
-},
+};
