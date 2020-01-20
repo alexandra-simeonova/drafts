@@ -1,7 +1,5 @@
 # Luigi Core Installation
 
-<object width="425" height="344"><param name="movie" value="https://www.youtube.com/v/kEzTZ2U9KMM&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/kEzTZ2U9KMM&hl=en&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
-
 This document shows you how to set up a web application using the Luigi micro frontend framework. This involves a few basic steps:
 * Adding Luigi's `npm` packages to your project dependencies.
 * Giving Luigi exclusive control over your entry `index.html` file.
@@ -16,6 +14,10 @@ Choose the framework to build your application:
 * [SAPUI5/OpenUI5](#application-setup-for-sapui5openui5)
 * [VUE.JS](#application-setup-for-vuejs)
 * [React](#application-setup-for-react)
+
+Watch this short video on how to install Luigi:
+
+<object width="425" height="344"><param name="movie" value="https://www.youtube.com/v/kEzTZ2U9KMM&hl=en&fs=1"></param><param name="allowFullScreen" value="true"></param><embed src="https://www.youtube.com/v/kEzTZ2U9KMM&hl=en&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" width="425" height="344"></embed></object>
 
 ## Application setup without a framework
 
