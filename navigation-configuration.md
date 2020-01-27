@@ -162,13 +162,13 @@ To define all subsequent nodes, use the category label:
 
 ### Dynamic navigation
 
-You know how to set up a static navigation and how to create navigation nodes. But if you want to create a navigation which changes dynamically, you need to use the [Luigi Core API](luigi-core-api.md).
+Now you know the basics of setting up a a static navigation. But what if you want to create navigation that changes dynamically? In that case, you need to use the [Luigi Core API](luigi-core-api.md). You can update the navigation tree, control UI features, add authorization and localization, and much more.
 
-If you also want to configure and communicate with Luigi through your micro frontend, read the [Client API documentation](luigi-client-api.md) as well.
+If you also want to configure settings on the micro frontend side, read the [Client API documentation](luigi-client-api.md).
 
 ### Best practices for navigation structuring
 <!-- add-attribute:class:warning -->
->**NOTE:** Do not use the [Core API](https://docs.luigi-project.io/docs/luigi-core-api?section=luigi-config)`getConfig` and `setConfig` methods to extend `navigation.nodes` configuration. Unwanted side effects might occur.
+>**NOTE:** Do not use the [Core API](https://docs.luigi-project.io/docs/luigi-core-api?section=luigi-config)`getConfig` and `setConfig` methods to extend the `navigation.nodes` configuration. Unwanted side effects might occur.
 We encourage you to use functions or [async functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to build the node tree, since there are limitations if you try to update the `navigation.nodes` with `setConfig` and `configChanged('navigation')`. Each `node.children` which is of type function gets executed every time its parent node is routed to.
 In the following example, the `settings.children` function will be executed whenever the user navigates to `/settings` or one of its nested routes such as `/settings/general`. In case you are fetching them from, for example, a RESTful API, you need to take care of caching by yourself, if necessary.
 ```javascript
