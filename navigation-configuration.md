@@ -166,6 +166,7 @@ Now you know the basics of setting up a a static navigation. But what if you wan
 
 If you also want to configure settings on the micro frontend side, read the [Client API documentation](luigi-client-api.md).
 
+<!-- accordion: start -->
 ### Best practices for navigation structuring
 <!-- add-attribute:class:warning -->
 >**NOTE:** Do not use the [Core API](https://docs.luigi-project.io/docs/luigi-core-api?section=luigi-config)`getConfig` and `setConfig` methods to extend the `navigation.nodes` configuration. Unwanted side effects might occur.
@@ -195,3 +196,4 @@ In the following example, the `settings.children` function will be executed when
   }
 }
 ```
+<!-- accordion: end -->
