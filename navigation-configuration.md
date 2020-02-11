@@ -41,7 +41,7 @@ To configure navigation, edit the JavaScript configuration file of your project,
 
 >**TIP:** You can use [Luigi Fiddle](https://fiddle.luigi-project.io) to experiment with configuration.
 
-The configuration file contains a tree-like structure of **navigation nodes**. The first level nodes represent the top navigation, while their children represent the side navigation. The nodes have some basic properties, such as labels, links, views, and (optionally) children. These properties are called **navigation parameters**.
+The configuration file contains a tree-like structure of **navigation nodes**. These represent all the elements you can click on in the left navigation. Individual settings applied to these nodes. The first level nodes represent the top navigation, while their children represent the side navigation. The nodes have some basic properties, such as labels, links, views, and (optionally) children. These properties are called **navigation parameters**.
 
 Here is an example of a simple navigation structure:
 
