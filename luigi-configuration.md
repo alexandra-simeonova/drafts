@@ -58,10 +58,10 @@ How to configure luigi:
 What do you want to configure?
 
 | Navigation  |  Routing | Authorization  | Settings |
-|---|---|---|---|---|
-| - navigation for individual nodes  | Routing params  |  params |
-| - global nav settings |  . | .  |  third-party cookies |
-| - elements in the top nav|   |   |   |   |
+|---|---|---|---|
+| - navigation for individual nodes  | Routing params  |  events | params |
+| - global nav settings |  . | third party cookies  |  |
+| - elements in the top nav|   |   |   |
 | - ??|   |   |   |   |
 
 
