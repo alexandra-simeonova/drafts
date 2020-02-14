@@ -1,6 +1,6 @@
 # Configuration
 
-![Video](assets/video1.png)
+![Video](assets/video1.jpg)
 
 To configure Luigi:
 - open the `luigi-config.js` file of your project
@@ -16,7 +16,7 @@ What do you want to configure?
 |---|---|---|---|
 | Navigation for individual nodes  | Routing parameters  |  Authorization | Settings |
 | Global navigation settings |  | Third-party cookies  |  |
-| Elements in the top navigation: profile, switchers, tabs|  Authorization events |   |   |
+| Top navigation switchers, tabs, etc.|  |   Authorization events |   |
 
 
 ## Luigi API functions and additional options
