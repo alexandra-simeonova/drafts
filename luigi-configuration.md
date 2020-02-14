@@ -14,7 +14,7 @@ What do you want to configure?
 
 | Navigation  |  Routing | Authorization  | Settings |
 |---|---|---|---|
-| Navigation for individual nodes  | Routing parameters  |  Authorization | Settings |
+| Settings for individual nodes  | Routing parameters  |  Authorization | Settings |
 | Global navigation settings |  | Third-party cookies  |  |
 | Top navigation switchers, tabs, etc.|  |   Authorization events |   |
 
@@ -23,7 +23,7 @@ What do you want to configure?
 
 If you want to create a more dynamic application, the simple static configuration in the initial `luigi-config.js` will not be enough. You can create a dynamic app by using the Luigi API functions.
 
-## Luigi Core
+#### Luigi Core
 
 Luigi Core refers to the main application.
 
@@ -41,13 +41,13 @@ Luigi Core refers to the main application.
     - [Loading indicator](luigi-ux-features.md#app-loading-indicator)
 
 
-## Luigi Client
+#### Luigi Client
 
 Luigi Client refers to options specific to the micro frontend.
 
 - [Luigi Client API](luigi-client-api.md)
-    -   [Lifecycle](luigi-client-api.md#lifecycle) - functions that define the lifecycle of different Luigi elements
-    -   [Callbacks](luigi-client-api.md#lifecycle˜initlistenercallback) - callback functions for initListener and customMessageListener
-    -   [Link manager](luigi-client-api.md#linkmanager) - you can use the linkManager instead of an internal router
-    -   [Split view](luigi-client-api.md#splitview) - allows you to open a micro frontend in the lower part of the content area in a "split screen" view
-    -   [uxManager](luigi-client-api.md#uxmanager) - functions related to user interface
+    -   [Lifecycle](luigi-client-api.md#lifecycle)
+    -   [Callbacks](luigi-client-api.md#lifecycle˜initlistenercallback)
+    -   [Link manager](luigi-client-api.md#linkmanager)
+    -   [Split view](luigi-client-api.md#splitview)
+    -   [uxManager](luigi-client-api.md#uxmanager)
