@@ -1,3 +1,14 @@
+Luigi docs side nav:
+
+Basics - getting started, architecture, faq, tutorials (+examples) -> examples include the simple "hello world" ones on GitHub, the e2e test one, and the advanced examples of Markus
+
+Core - installation, configuration (nav param ref, authorization, general settings, lifecycle, Ui features), api
+*Instead of basic/advanced navigation - only one navigation file with accordions OR a collapsible "navigation" node. The explanations/examples go under each parameter they're meant for. There can be only one "navigation basics" file, where it's explained what is top and side nav, what is tab nav and context switcher, etc.
+
+Client - installation, api, custom messages between core and client
+
+
+
 # Configuration
 
 ![Video](assets/video1.jpg)
@@ -15,13 +26,12 @@ What do you want to configure?
 | Navigation  |  Routing | Authorization  | Settings |
 |---|---|---|---|
 | Settings for individual nodes  | Routing parameters  |  Authorization | Settings |
-| Global navigation settings |                |                       |  Third-party cookies check |
-| Top navigation switchers, tabs, etc.|              |   Authorization events |     |
-
+| Global navigation settings |                |   Authorization events    |  Third-party cookies check |
+| Top navigation switchers, tabs, etc.|              |    |     |
 
 ## Luigi API functions and additional options
 
-If you want to create a more dynamic application, the simple static configuration in the initial `luigi-config.js` will not be enough. You can create a dynamic app by using the Luigi API functions.
+If you want to create a dynamic application, the simple static configuration in the initial `luigi-config.js` and the Luigi parameters will not be enough. You can create a dynamic app by using the Luigi API functions.
 
 ### Luigi Core
 
