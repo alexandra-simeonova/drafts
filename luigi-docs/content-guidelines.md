@@ -1,5 +1,7 @@
 # Content Guidelines
 
+NOTE: Add more info about how to open a PR 
+
 This page contains instructions on how to create documentation for Luigi. It explains some of the basic rules about formatting, links, terminology, and more.
 
 ## Audience
