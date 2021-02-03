@@ -1,6 +1,6 @@
 # Navigation parameters reference
 
-> NOTE: To see the navigation parameters in use, check out the [navigation configuration example](https://). 
+> NOTE: To see the navigation parameters in use, check out the [navigation configuration example](https://luigi-project.io). 
 
 You can use parameters and functions listed below to configure your Luigi navigation structure:
 
