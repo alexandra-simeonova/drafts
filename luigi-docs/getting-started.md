@@ -1,5 +1,6 @@
 # Getting started 
 
+
 ## What is Luigi?
 
 Luigi is an open source JavaScript framework for micro frontends. It enables you to:
@@ -27,6 +28,8 @@ You can build an application in Luigi without a framework, or use different fram
 * Angular 6
 * SAPI5/OpenUI5
 * VUE.JS 
+
+## Examples 
 
 ## Next steps
 
