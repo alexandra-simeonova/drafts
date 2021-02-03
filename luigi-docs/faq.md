@@ -10,3 +10,5 @@ Collect questions for Luigi faq. Brainstorm with team.
 
 3. *Are the commands in the documentation applicable to Mac and Windows?*
 Yes?
+
+NOTE: Collect questions from Slack as well. Add them to FAQ and home page.
