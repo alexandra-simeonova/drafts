@@ -1,4 +1,4 @@
-Luigi docs side nav:
+## Luigi docs side nav:
 
 Basics - getting started, architecture, faq, tutorials (+examples) -> examples include the simple "hello world" ones on GitHub, the e2e test one, and the advanced examples of Markus
 
