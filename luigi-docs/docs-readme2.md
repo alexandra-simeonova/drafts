@@ -42,7 +42,7 @@ Read the Luigi Client API documentation to learn more about the functions and pa
 * [UX Manager](luigi-client-api.md#uxmanager) - manage appearance options such as the behavior of backdrop or loading indicators.
 
 ## Advanced
-* [Communication](communication.md) describes how to send custom messages between Luigi Core and Client.
+* [Communication](communication.md) describes how to send custom messages between Luigi Core and Luigi Client.
 
 ## Examples
 
