@@ -1,6 +1,6 @@
 Luigi docs side nav:
 
-Basics - getting started, architecture, faq, tutorials (+examples) -> examples include the simple "hello world" ones on GitHub, the e2e test one, and the advanced examples of Markus. Maybe we can gather more examples/scenarios - e.g. from Slack discussions
+Basics - getting started, architecture, faq, tutorials (+examples) -> examples include the simple "hello world" ones on GitHub, the e2e test one, and the advanced examples of Markus
 
 Core - installation, configuration (nav param ref, authorization, general settings, lifecycle, Ui features), api
 *Instead of basic/advanced navigation - only one navigation file with accordions OR a collapsible "navigation" node. The explanations/examples go under each parameter they're meant for. There can be only one "navigation basics" file, where it's explained what is top and side nav, what is tab nav and context switcher, etc.
@@ -13,9 +13,11 @@ Client - installation, api, custom messages between core and client
 
 ![Video](assets/video1.jpg)
 
-Luigi is configured using a **JavaScript configuration file** in your project. Normally it is called `luigi-config.js`, but you can name it something else or create more than one configuration file.
+To configure Luigi:
+- open the `luigi-config.js` file of your project
+- add any Luigi parameters or functions you need
 
-There are four main categories of **Luigi parameters** inside the configuration file: `navigation:`, `routing:`, `auth:`, and `settings:`. There are also Luigi **API functions** which help you create dynamic apps.
+The small example file in your initial installation has four different sections: `navigation:`, `routing:`, `auth:`, and `settings:`, which correspond to the main parts of your app which can be configured using our Luigi **parameters**.
 
 What do you want to configure?
 
@@ -23,7 +25,7 @@ What do you want to configure?
 
 | Navigation  |  Routing | Authorization  | Settings |
 |---|---|---|---|
-| Settings for individual nav. nodes  | Routing parameters  |  Authorization | Settings |
+| Settings for individual nodes  | Routing parameters  |  Authorization | Settings |
 | Global navigation settings |                |   Authorization events    |  Third-party cookies check |
 | Top navigation switchers, tabs, etc.|              |    |     |
 
