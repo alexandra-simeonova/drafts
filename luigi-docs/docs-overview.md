@@ -6,7 +6,7 @@ This documentation provides how-to guides, references, and instructions on how t
 
 ## Luigi Core
 
-Luigi Core enables you to create web applications with a consistent user interface
+Luigi Core enables you to create web applications with a consistent user interface.
 
 ### Installation
 
