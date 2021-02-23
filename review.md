@@ -1,20 +1,169 @@
-# Easier start with Kyma runtime
+<!-- meta
+{
+  "node": {
+    "label": "Web Component",
+    "category": {
+      "label": "Luigi Core"
+    },
+    "metaData": {
+      "categoryPosition": 2,
+      "position": 12
+    }
+  }
+}
+meta -->
 
-With the past Kyma open-source releases, the team made an effort to reduce the initial footprint of Kyma components inside your cluster. This means we can now reduce the initial size of the Kyma runtime down to 2 virtual machines (each comprised of 8 virtual CPUs and 32 GB of RAM). This reduction lowers the initial consumption of Capacity Units from 2141 to 1449.
+# Web Component
 
-The cluster still scales up to 10 virtual machines, thus providing enough space for your workload.
+<!-- add-attribute:class:success -->
+>**TIP:** You can find some examples of Web Components in our test application [Luigi Fiddle](https://fiddle.luigi-project.io) in the last navigation entry on the left.
 
-# Simplifying your Kyma sizing efforts
+### Overview
 
-Based on user feedback, we are also launching a new version of the [Kyma estimator tool](https://www.sap.com/products/cloud-platform/pricing/estimator-tool.html). When you select the Kyma runtime, you can now find the new version behind the calculator icon:
+Luigi offers the possibility to open a micro frontend as a Web Component. For more information, please have a look at the page: [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
 
-![Kyma Estimator](https://github.tools.sap/D043982/2-node-update-blog/blob/master/kyma_estimator.png)
+Web Components can provide a fast-loading alternative for non-complex micro frontends, as the whole frontend will be loaded in a single Javascript file.
 
-The new layout makes it clear what the initial size of a Kyma runtime consists of. In the "Details" tab, you can see that a fresh Kyma runtime reserves around 50% of that capacity. This means it leaves enough space for your workload to get started. How much capacity is used by Kyma later on depends on many factors, for example the number of deployments. The important message is: when you get started with Kyma runtime, it won't directly scale up with the first deployment of a Function!
+In this page you wil find:
+-   [Navigation Configuration](#navigation-configuration) - how to configure web component in Luigi Core navigation
+-   [Write a Web Component](#write-a-web-component) - quick description of how to write a Web Component compatible with Luigi Framework
+-   [Luigi Client for web component](#luigi-client-for-web-component) - javascript object injected in a Web Component to leverage Luigi Core features
+-   [Tip: how to inject HTML Template code in Web Component](#tip-how-to-inject-html-template-code-in-web-component) - recommendation for how to inject HTML in a Web Component
 
-In the lower section of the calculator, you can now select the number of virtual machines you expect to require on top of the initial size. At this point in time, each virtual machine is made of 8vCPUs and 32 GB RAM. This then translates into a commercial unit which is called "Nodes", not to be confused with a Kubernetes Node. Our "Node" refers to a size of 2vCPUs and 8 GB RAM. That enables us to stay flexible, and in the future maybe even enable you to alter the Kyma VM size according your needs.
+## Navigation Configuration
 
-With the reduced Kyma size and updated estimator tool, it should now be easier to comprehend and plan ahead. If you have any questions or want to provide feedback, please comment on this blog post or use [private messages](https://messages.sap.com).
+If you want to declare a menu item to be open as Web Component, you need to specify this configuration in the Luigi configuration:
+```javascript
+Luigi.setConfig({
+    navigation: {
+   		// To enable CORS Web Component Loading: you need to add external domains where the Web Components are hosted;
+   		// in this example, we sepcify that we can load Web Components from everyhere
+	    validWebcomponentUrls:['.*?'],
+	    nodes: [
+		...
+		{
+		    pathSegment: 'wc',
+		    ………
+		    viewUrl: '/wc/luigiExampleWC.js',
+		    webcomponent: true,
+		    ………
+		}
+		...
+		]
+	}
+	.......
+})
+```
+
+### Write a Web Component
+
+There are a couple of differences between Luigi Web Components and standard ones:
+- You don’t need to declare any special tag definition inside the Component such as `customElements.define(….., ….)`
+- Inside the Component, Luigi Core will inject an object in your class called `LuigiClient`
+
+Below is a simple Hello World Web Component example:
+```javascript
+export default class ExampleWC extends HTMLElement {
+  constructor() {
+    super();
+    const template = document.createElement('template');
+    template.innerHTML = `<section><p>Hello World!</p></section>`;
+
+    const templateBtn = document.createElement('template');
+    templateBtn.innerHTML = '<button>Click me!</button>';
+
+    this._shadowRoot = this.attachShadow({
+      mode: 'open',
+      delegatesFocus: false
+    });
+    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._shadowRoot.appendChild(templateBtn.content.cloneNode(true));
+
+    this.$paragraph = this._shadowRoot.querySelector('p');
+    this.$button = this._shadowRoot.querySelector('button');
+    this.$button.addEventListener('click', () => {
+      if (this.LuigiClient) {
+        this.LuigiClient.uxManager().showAlert({
+          text: 'Hello from uxManager in Web Component',
+          type: 'info'
+        });
+      }
+    });
+  }
+
+  set context(ctx) {
+    this.$paragraph.innerHTML = ctx.title;
+  }
+}
+```
+
+As shown in the example, you can use a LuigiClient instance inside your Web Component class.
+It is really important to note that this LuigiClient instance is different from the one than you can find in our [Client library](https://docs.luigi-project.io/docs/luigi-client-setup).
+
+Normal micro frontends are embedded inside iframe: Luigi offers a library to allow the frontend to communicate with Luigi Core.
+In a Web Component the situation is quite different: they are not encapsulated into an iframe, they are just loaded inside a shadow element. When Luigi Core loads a Web Component, it injects a LuigiClient instance.
+
+### Luigi Client for Web Components
+
+In this Javascript object, you can find two elements:
+- `this.LuigiClient.uxManager()` : you can use all methods described in [Luigi Core UX](https://docs.luigi-project.io/docs/luigi-core-api?section=ux)
+- `this.LuigiClient.linkManager()` : you can use all methods described in [Luigi Navigation](https://docs.luigi-project.io/docs/luigi-core-api?section=luiginavigation)
+
+Below you have a simple Hello World Web Component example which shows an alert:
+```javascript
+export default class ExampleWC extends HTMLElement {
+  constructor() {
+    ........
+    this.LuigiClient.uxManager().showAlert({
+      text: 'Hello from uxManager in Web Component',
+      type: 'info'
+    });
+    ........
+  }
+}
+```
+
+This example opens a drawer:
+```javascript
+export default class ExampleWC extends HTMLElement {
+  constructor() {
+    ........
+     this.LuigiClient.linkManager().openAsDrawer('Your Drawer Url', {header:true, backdrop:true, size:'s'});
+    ........
+  }
+}
+```
 
 
+## Tip: how to inject HTML Template code in web component
 
+Sometimes your Web Component has an HTML template that you would like to use instead of creating DOM elements one by one.
+We suggest putting your HTML template inside a variable at the beginning of the Javascript file, and appending it to the Web Component root in the constructor. An example is given below:
+```javascript
+const template = document.createElement('template');
+template.innerHTML = `
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="//unpkg.com/fundamental-styles@latest/dist/fundamental-styles.css" rel="stylesheet">
+    <style>     </style>
+    <script></script>
+</head>
+<body>
+      ......
+      <main class="fd-page">.....</main>
+      ......
+</body>
+`;
+
+export default class ExampleWC extends HTMLElement {
+  constructor() {
+     super();
+     this.attachShadow({ mode: 'open' });
+     this.shadowRoot.appendChild(template.content.cloneNode(true));
+     ..........
+  }
+}
+```
