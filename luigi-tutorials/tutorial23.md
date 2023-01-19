@@ -11,10 +11,11 @@ Steps:
 1. - create folder - ok
 2. - create react app - ok
 
-3. ??? :question: - npm eject - there is a problem here unless you set up a GitHub repository. React asks you to commit files to Git. How is this avoided in our [create React app script](https://github.com/SAP/luigi/blob/master/scripts/setup/react.sh)? 
-https://stackoverflow.com/questions/65008696/how-to-create-react-app-without-git-skipping-git 
-I tried npx create-react-app react-core-mf --skip-git && cd react-core-mf - it didn't work  
-Should the user be instructed to create a new github repo just for this example? Is there an easier way? 
+3. > ? :question: - npm eject - there is a problem here unless you set up a GitHub repository. React asks you to commit files to Git. 
+- How is this avoided in our [create React app script](https://github.com/SAP/luigi/blob/master/scripts/setup/react.sh)? 
+- https://stackoverflow.com/questions/65008696/how-to-create-react-app-without-git-skipping-git 
+- I tried npx create-react-app react-core-mf --skip-git && cd react-core-mf - it didn't work  
+- Should the user be instructed to create a new github repo just for this example? Is there an easier way? 
 
 4. - dependencies - are they outdated? - e.g. copy-webpack-plugin@5
 
@@ -33,8 +34,9 @@ Should the user be instructed to create a new github repo just for this example?
 1. Navigate to folder - ok
 2. Create new folder - ok
 3. UI5 generator npm install - it seems to run
-4. ??? :question: Running `yo easy-ui5` throws an error: 
+4. > ? :question: Running `yo easy-ui5` throws an error: 
 
+```bash
 /usr/local/lib/node_modules/yo/node_modules/macos-release/index.js:27
 	const [name, version] = nameMap.get(release);
 	                        ^
@@ -50,6 +52,7 @@ TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterato
     at Function.Module._load (node:internal/modules/cjs/loader:868:12)
     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
     at node:internal/main/run_main_module:22:47
+```
 
 
 The issue seems to be this one: https://github.com/yeoman/yo/issues/753 
@@ -57,8 +60,10 @@ After adding  [22, ["Ventura", "13"]], it works.
 
 Is there a way to avoid this issue? Another way to generate UI5 app? 
 
-5. ??? :question: The UI5 generator has changed. It has different questions now. This is what it looked like [before](https://developers.sap.com/tutorials/luigi-app-basic-setup/jcr:content.github-proxy.1644267916.file/ui5-yo.png). I just guessed and entered these answers, but I don't know if it's correct: 
+5. > ? :question: The UI5 generator has changed. It has different questions now. 
+- This is what it looked like [before](https://developers.sap.com/tutorials/luigi-app-basic-setup/jcr:content.github-proxy.1644267916.file/ui5-yo.png). 
+- I just guessed and entered these answers for the new questions, but I don't know if it's correct: 
 
 ![ui5 screenshot](ui5.png)
 
-6. Maybe 1 more step is needed - verify if ui5 app installed correctly? 
+6. > ? :question: Maybe 1 more step is needed - verify if ui5 app installed correctly? How can this be done? 
