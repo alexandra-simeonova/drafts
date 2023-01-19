@@ -62,18 +62,19 @@ TypeError: undefined is not iterable (cannot read property Symbol(Symbol.iterato
 ```
 
 
-The issue seems to be this one: https://github.com/yeoman/yo/issues/753 
-After adding  [22, ["Ventura", "13"]], it works. 
+    - The issue seems to be this one: https://github.com/yeoman/yo/issues/753 
+    - After adding  [22, ["Ventura", "13"]], it works. 
 
 Is there a way to avoid this issue? Another way to generate UI5 app? 
 
-5. > ? :question: The UI5 generator has changed. It has different questions now. 
+5. The UI5 generator has changed. It has different questions now. 
 - This is what it looked like [before](https://developers.sap.com/tutorials/luigi-app-basic-setup/jcr:content.github-proxy.1644267916.file/ui5-yo.png). 
-- I just guessed and entered these answers for the new questions, but I don't know if it's correct: 
+- I used [this example](https://blogs.sap.com/2022/03/10/easy-ui5-getting-started-even-easier/) to enter the following answers for the new questions: 
 
 ![ui5 screenshot](ui5.png)
 
-6. > ? :question: Maybe 1 more step is needed - verify if ui5 app installed correctly? How can this be done? 
+
+6. Maybe 1 more step is needed - verify if ui5 app installed correctly. I tried this with `npm start` and it seems to work 
 
 ## Build Luigi app with React 
 
@@ -81,4 +82,18 @@ Link: https://developers.sap.com/tutorials/luigi-app-react.html
 
 Steps: 
 
-1. 
+1. Create `products.json` - ok 
+2. Add Luigi to `index.html` - ok 
+3. Create template - ok
+4. > ? :question: Configure webpack - there is no 2nd occurrence of the line (around line 348) anymore. Is this correct, did something change in React? 
+
+5. Substep 2. -> There is no `react-core-mf/public/luigi-config.js` anymore? Should we ask the user to create it? 
+
+6. Copy/paste files - ok 
+
+7. - 9.  > ? :question: I did the steps (copy/pasting imports and configuration.) But in the end I get this error: 
+
+![react screenshot](react.png)
+
+- Seems like another change in React where it doesn't accept the imports anymore. 
+- I can't figure out the `handleChildClick` error 
