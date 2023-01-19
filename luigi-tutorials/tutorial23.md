@@ -1,10 +1,13 @@
 # Luigi SAP Developer Tutorial update
 
 Tutorial parts:
-1. [Create React app](#create-skeleton-react-app) - tutorial link https://developers.sap.com/tutorials/luigi-app-basic-setup.html
-2. [Create UI5 micro frontend](#create-skeleton-ui5-app) - tutorial link https://developers.sap.com/tutorials/luigi-app-basic-setup.html 
+1. [Create React app](#create-skeleton-react-app)  
+2. [Create UI5 micro frontend](#create-skeleton-ui5-app) 
+3. [Build Luigi app with React](#build-luigi-app-with-react)
 
 ## Create skeleton React app 
+
+Link: https://developers.sap.com/tutorials/luigi-app-basic-setup.html
 
 Steps: 
 
@@ -12,12 +15,12 @@ Steps:
 2. - create react app - ok
 
 3. > ? :question: - npm eject - there is a problem here unless you set up a GitHub repository. React asks you to commit files to Git. 
-- How is this avoided in our [create React app script](https://github.com/SAP/luigi/blob/master/scripts/setup/react.sh)? 
-- https://stackoverflow.com/questions/65008696/how-to-create-react-app-without-git-skipping-git 
-- I tried npx create-react-app react-core-mf --skip-git && cd react-core-mf - it didn't work  
-- Should the user be instructed to create a new github repo just for this example? Is there an easier way? 
+    - How is this avoided in our [create React app script](https://github.com/SAP/luigi/blob/master/scripts/setup/react.sh)? 
+    - https://stackoverflow.com/questions/65008696/how-to-create-react-app-without-git-skipping-git 
+    - I tried `npx create-react-app react-core-mf --skip-git && cd react-core-mf` - it didn't work  
+    - Should the user be instructed to create a new github repo just for this example? Is there an easier way? 
 
-4. - dependencies - are they outdated? - e.g. copy-webpack-plugin@5
+4. - dependencies - are they outdated? - e.g. `copy-webpack-plugin@5`
 
 5. - replace strings - maybe it needs to be updated - it seems to still work 
 
@@ -30,6 +33,10 @@ Steps:
 8. Go back to root folder - ok 
 
 ## Create skeleton UI5 app 
+
+Link: https://developers.sap.com/tutorials/luigi-app-basic-setup.html
+
+Steps: 
 
 1. Navigate to folder - ok
 2. Create new folder - ok
@@ -67,3 +74,11 @@ Is there a way to avoid this issue? Another way to generate UI5 app?
 ![ui5 screenshot](ui5.png)
 
 6. > ? :question: Maybe 1 more step is needed - verify if ui5 app installed correctly? How can this be done? 
+
+## Build Luigi app with React 
+
+Link: https://developers.sap.com/tutorials/luigi-app-react.html 
+
+Steps: 
+
+1. 
