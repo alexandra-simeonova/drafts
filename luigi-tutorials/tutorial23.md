@@ -17,7 +17,7 @@ Steps:
 3. > ? :question: - npm eject - there is a problem here unless you set up a GitHub repository. React asks you to commit files to Git. 
     - How is this avoided in our [create React app script](https://github.com/SAP/luigi/blob/master/scripts/setup/react.sh)? 
     - https://stackoverflow.com/questions/65008696/how-to-create-react-app-without-git-skipping-git 
-    - I tried `npx create-react-app react-core-mf --skip-git && cd react-core-mf` - it didn't work  
+    - I tried `npx create-react-app react-core-mf --skip-git` and `rm -rf .git` - it didn't work  
     - Should the user be instructed to create a new github repo just for this example? Is there an easier way? 
 
 4. - dependencies - are they outdated? - e.g. `copy-webpack-plugin@5`
