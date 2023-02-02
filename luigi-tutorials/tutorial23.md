@@ -97,3 +97,8 @@ Steps:
 
 - Seems like another change in React where it doesn't accept the imports anymore. 
 - I can't figure out the `handleChildClick` error 
+
+
+**NOTE:** Currently trying to find out how to publish the tutorials on SAP website (they changed the process and added new requirements)
+
+- The issue with `npm eject` seems to be on my computer only so it should be fine 
