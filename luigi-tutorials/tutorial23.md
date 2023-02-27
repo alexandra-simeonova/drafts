@@ -86,6 +86,7 @@ Steps:
 2. Add Luigi to `index.html` - ok 
 3. Create template - ok
 4. > ? :question: Configure webpack - there is no 2nd occurrence of the line (around line 348) anymore. Is this correct, did something change in React? 
+- React 18 is the new version, which may cause the changes 
 
 5. Substep 2. -> There is no `react-core-mf/public/luigi-config.js` anymore? Should we ask the user to create it? 
 
