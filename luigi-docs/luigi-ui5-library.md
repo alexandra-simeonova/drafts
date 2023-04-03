@@ -1,7 +1,5 @@
 # Luigi Client UI5 Support Library
 
-## Overview
-
 The Luigi Client UI5 Support Library offers a set [features](#features) which make it easier to use the [Luigi micro frontend framework](https://luigi-project.io/) with UI5 applications. 
 
 ## How to use the library 
@@ -34,8 +32,8 @@ sap.ui.define([
 The main features offered by the Luigi Client UI5 support library are:
 - [Context](#context) - allows you to receive a context object from Luigi
 - [Auto routing](#auto-routing) - provides an easier way to keep your UI5 app and Luigi routing in sync
-- [Auto routing for modals](#auto-routing) - enables synchronization of routing between Luigi and a UI5 modal
-- [Preload](#auto-routing) - special view that can help you reuse micro frontends with Luigi's [viewGroups](https://docs.luigi-project.io/docs/navigation-advanced?section=view-groups) feature
+- [Auto routing for modals](#auto-routing-for-modals) - enables synchronization of routing between Luigi and a UI5 modal
+- [Preload](#preload) - special view that can help you when using Luigi's [viewGroups](https://docs.luigi-project.io/docs/navigation-advanced?section=view-groups) feature
 
 ### Context
 
@@ -105,13 +103,13 @@ with `data: { fromVirtualTreeRoot: true }`, Luigi Client API can be used in this
 Additionally, it is possible to truncate the URL. Everything before and including the specified value is truncated from the URL.
 For example, all but `/{sitesId}` are removed from the URL with the above configuration.
 
-More information about linkManager can be found [here](https://docs.luigi-project.io/docs/luigi-client-api/?section=linkmanager).
+More information about Luigi's linkManager can be found [here](https://docs.luigi-project.io/docs/luigi-client-api/?section=linkmanager).
 
 
 
 ### Auto routing for modals
 
-Similarly to other views, modals which have a [modalPathParam](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=modalpathparam) can trigger a change in the URL when navigation occurs. In the UI5 router of your Luigi app, you can enable auto-routing for modals using these parameters: 
+Similarly to other views, modals which have a [modalPathParam](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=modalpathparam) which can trigger a change in the URL when navigation occurs. In the UI5 router of your Luigi app, you can enable auto-routing for modals using these parameters: 
 - `updateModalDataPath` - if set to `true`, the URL will be updated automatically every time the user navigates within a modal. 
 - `addHistoryEntry` - if set to `true`, changes in the modal will also add a history element in the history of the tab.
 
