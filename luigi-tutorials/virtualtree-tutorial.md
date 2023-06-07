@@ -6,7 +6,7 @@ tags: [ tutorial>beginner, programming-tool>javascript]
 primary_tag: topic>user-interface
 ---
 
-# Build a Luigi App With Micro Frontend Routing
+# Build a Luigi React App With Micro Frontend Routing
 <!-- description --> Use the Luigi framework to enable micro frontend routing inside a simple React project.
 
 ## Prerequisites
@@ -144,4 +144,11 @@ class Sample1 extends Component {
 export default withRouter(Sample1);
 ```
 
-4. I also wish there was a pill that could just make me normal, but there isn't. I feel like my IQ has dropped 20 points and it's embarrassing. 
+4. 
+
+### Framework Support Libraries
+
+If your application is using Angular or UI5 instead of React, you can make use of the Luigi Framework Support Libraries to make routing configuration even easier. Simply follow the steps outlined here: 
+
+- [Angular Support Library](https://docs.luigi-project.io/docs/framework-support-libraries/?section=angular-support-library)
+- [UI5 Support Library](https://docs.luigi-project.io/docs/framework-support-libraries)
