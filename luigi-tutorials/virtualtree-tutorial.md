@@ -28,27 +28,16 @@ primary_tag: topic>user-interface
 
 ### Download Luigi example
 
-//TODO - Is there a better way to do this? The [React script](https://docs.luigi-project.io/docs/application-setup?section=application-setup-for-react) is [not always working](https://github.com/SAP/luigi/issues/3071), at least not for Node version 16+ 
 
-1. Download the Luigi [React example](https://github.com/SAP/luigi/tree/main/core/examples/luigi-example-react) folder from Luigi's GitHub repository: 
-
-```Shell
-mkdir my-react-app
-cd  my-react-app
-git init
-git remote add origin https://github.com/SAP/luigi.git
-git config core.sparseCheckout true
-echo "core/examples/luigi-example-react" > .git/info/sparse-checkout 
-git pull origin master
-```
-
-2. Run the application: 
+1. Create a Luigi application using the [React example](https://github.com/SAP/luigi/tree/main/core/examples/luigi-example-react) from Luigi's GitHub repository: 
 
 ```Shell
-cd core/examples/luigi-example-react
-npm i
-npm run start
+bash <(curl -s https://raw.githubusercontent.com/SAP/luigi/main/scripts/setup/react.sh)
 ```
+
+2. The application should open on your browser at `localhost:4200`.  
+
+
 
 ### Adjust Luigi Core configuration 
 
@@ -107,7 +96,7 @@ This will allow you to use the [Luigi Client API](https://docs.luigi-project.io/
 
 In this case, the Luigi [linkManager](https://docs.luigi-project.io/docs/luigi-client-api?section=linkmanager) will be what allows you to navigate to the correct routes.  
 
-3. Add the following content below your imports: 
+3. Paste the following content below the imports you just added. Notice the use of the `linkManager().withoutSync().navigate` function: 
 
 ```js
 class Sample1 extends Component {
@@ -128,8 +117,8 @@ class Sample1 extends Component {
   }
 
   handleClick = e => {
-    this.props.history.push("/haushalt/50158/test/2/test/3/4/5/6/7/8/9/10/11/12/13");
-    linkManager().withoutSync().navigate('haushalt/50158/test/2/test/3/4/5/6/7/8/9/10/11/12/13');
+    this.props.history.push("/home/50158/test/2/test/3/4/5/6/7/8/9/10/11/12/13");
+    linkManager().withoutSync().navigate('home/50158/test/2/test/3/4/5/6/7/8/9/10/11/12/13');
     console.log('params', this.props.match)
   };
 
@@ -155,6 +144,4 @@ class Sample1 extends Component {
 export default withRouter(Sample1);
 ```
 
-
-
-//TODO
+4. I also wish there was a pill that could just make me normal, but there isn't. I feel like my IQ has dropped 20 points and it's embarrassing. 
