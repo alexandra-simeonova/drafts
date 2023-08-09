@@ -20,7 +20,12 @@ primary_tag: topic>user-interface
   - How to use Luigi Client features to reflect routing changes 
 
 ## Intro
-[Project "Luigi"](luigi-project.io) is an open-source micro frontend framework suited for SAP environments which provides a Fiori-compliant navigation out-of-the-box. Luigi is technology-agnostic, which means you can create your app using any technology such as React, Angular, or UI5. 
+[Project "Luigi"](luigi-project.io) is an open-source micro frontend framework suited for SAP environments which provides a Fiori-compliant navigation out-of-the-box. Luigi is technology-agnostic, which means you can create your app using any given frontend toolkit. 
+
+This tutorial will show you how to enable micro fronted routing inside a [React](https://react.dev/) application. If your app is using [Angular](https://angular.io/) or [UI5]() instead, you can make use of the **Luigi Framework Support Libraries** to make routing configuration even easier. Simply follow the steps outlined here: 
+
+- [Angular Support Library](https://docs.luigi-project.io/docs/framework-support-libraries/?section=angular-support-library)
+- [UI5 Support Library](https://docs.luigi-project.io/docs/framework-support-libraries)
 
 ---
 
@@ -28,20 +33,19 @@ primary_tag: topic>user-interface
 
 ### Download Luigi example
 
-
 1. Create a Luigi application using the [React example](https://github.com/SAP/luigi/tree/main/core/examples/luigi-example-react) from Luigi's GitHub repository: 
 
 ```Shell
 bash <(curl -s https://raw.githubusercontent.com/SAP/luigi/main/scripts/setup/react.sh)
 ```
 
-2. The application should open on your browser at `localhost:4200`.  
+2. The application should open in your browser at the address `localhost:4200`.  
 
 
 
 ### Adjust Luigi Core configuration 
 
-**Luigi Core** refers to the main app which will host your micro frontends. In contrast, functions pertaining to the micro frontend are known as **Luigi Client**. 
+**Luigi Core** refers to the main app which will host your micro frontends. In contrast, functions pertaining to the micro frontend are part of the **Luigi Client**. 
 
 For this example, we will only need one Luigi Core navigation node ("Home") because the rest of the navigation will happen through the micro frontend. 
 
@@ -81,9 +85,11 @@ Luigi.setConfig({
 
 In this step, you will make changes to the micro frontends (a.k.a. views) in your application. 
 
-1. Go to `luigi-example-react/src/views/sample1.js`. This is the micro frontend file which will handle its own internal routing. Open the `sample1.js` file in a code editor and delete the existing content. 
+1. Go to `luigi-example-react/src/views/sample1.js`. This is the micro frontend file which will handle its own internal routing. 
 
-2. Copy and paste these imports into the file: 
+2. Open the `sample1.js` file in a code editor and delete all existing content. 
+
+3. Copy and paste these imports into the file: 
 
 ```js 
 import React, { Component } from 'react';
@@ -96,7 +102,7 @@ This will allow you to use the [Luigi Client API](https://docs.luigi-project.io/
 
 In this case, the Luigi [linkManager](https://docs.luigi-project.io/docs/luigi-client-api?section=linkmanager) will be what allows you to navigate to the correct routes.  
 
-3. Paste the following content below the imports you just added. Notice the use of the `linkManager().withoutSync().navigate` function: 
+4. Paste the following content below the imports you just added. Notice the use of the `linkManager().withoutSync().navigate` function: 
 
 ```js
 class Sample1 extends Component {
@@ -144,11 +150,3 @@ class Sample1 extends Component {
 export default withRouter(Sample1);
 ```
 
-4. 
-
-### Framework Support Libraries
-
-If your application is using Angular or UI5 instead of React, you can make use of the Luigi Framework Support Libraries to make routing configuration even easier. Simply follow the steps outlined here: 
-
-- [Angular Support Library](https://docs.luigi-project.io/docs/framework-support-libraries/?section=angular-support-library)
-- [UI5 Support Library](https://docs.luigi-project.io/docs/framework-support-libraries)
