@@ -316,7 +316,7 @@ npm start
 
 4. Open `http://localhost:8080/` in your browser. You should see the sample shopping app on your page: 
 
-![Shopping micro frontend](shopping.png)
+    <!-- border -->![Shopping micro frontend](shopping.png)
 
 5. Now that your application is using Luigi Container, you can easily exchange micro frontends in order to create a modular, scalable app. To insert a different micro frontend, simply go back to `webapp/view/Main.view.xml` and change the Luigi [viewURL](https://docs.luigi-project.io/docs/navigation-parameters-reference/?section=viewurl) property like so:  
 
@@ -330,4 +330,4 @@ npm start
 
 6. Open `http://localhost:8080/` in your browser. You should see the new micro frontend on your page: 
 
-![Table micro frontend](table.png)
+    <!-- border -->![Table micro frontend](table.png)
