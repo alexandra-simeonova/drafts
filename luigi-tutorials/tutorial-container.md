@@ -52,9 +52,9 @@ Make sure the easy-ui5 generator is listed.
 
 `yo easy-ui5`
 
-2. Answer the prompts to create your new project: 
+2. Answer the prompts in this way to create your new project: 
 
-![UI5 Generator](ui5.png)
+    <!-- border -->![UI5 Generator](ui5.png)
 
 3. Run the app locally:
 
