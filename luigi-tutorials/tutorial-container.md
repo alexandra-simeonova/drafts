@@ -85,11 +85,10 @@ metadata:
 type: application
 framework:
   name: OpenUI5
-  version: "1.116.0"
+  version: "1.118.0"
   libraries:
     - name: sap.m
     - name: sap.ui.core
-    - name: sap.ui.webc.common
     - name: themelib_sap_fiori_3
     - name: themelib_sap_horizon
 builder:
@@ -110,7 +109,7 @@ server:
 HTMLElement.prototype.attachInvalidate = function() {};
 
 sap.ui.define([
-    "sap/ui/webc/common/WebComponent",
+    "sap/ui/core/webc/WebComponent",
     "@luigi-project/container"
 ], function(WebComponent) {
     "use strict";
@@ -121,7 +120,7 @@ sap.ui.define([
      * @param {string} [sId] ID for the new control, generated automatically if no ID is given
      * @param {object} [mSettings] Initial settings for the new control
      *
-     * @extends sap.ui.webc.common.WebComponent
+     * @extends sap.ui.core.webc.WebComponent
      * @class
      *
      * The <code>sap.me.shared.LuigiContainer</code> is a component to render a Luigi micro frontend (iframe or web component based) without the need of being a Luigi Core application.
@@ -238,24 +237,13 @@ sap.ui.define([
 });
 ```
 
-4. Go to `manifest.json` and add the following dependency:
-
-
-Around line 33: 
-```shell
-"dependencies": {
-[...]
-				"sap.m": {},
-				"sap.ui.webc.common": {}
-```
-
-5. In command prompt/Terminal, download the Luigi Container npm package: 
+4. In command prompt/Terminal, download the Luigi Container npm package: 
 
 ```shell
 npm i @luigi-project/container
 ```
 
-6. Go to the `package-lock.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added:
+5. Go to the `package-lock.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added:
 
 ```json
 [...]
@@ -264,12 +252,12 @@ npm i @luigi-project/container
 "license": "Apache-2.0",
   "dependencies": {
 // Around line 11: 
-    "@luigi-project/container": "^1.0.0-rc6"
+    "@luigi-project/container": "^1.0.0-rc7"
   },
 "devDependencies": {
 [...]
 // Around line 23: 
-"ui5-tooling-modules": "^3.0.7"
+"ui5-tooling-modules": "^3.0.8"
 }
 ```
 
