@@ -123,13 +123,13 @@ sap.ui.define([
      * @extends sap.ui.core.webc.WebComponent
      * @class
      *
-     * The <code>sap.me.shared.LuigiContainer</code> is a component to render a Luigi micro frontend (iframe or web component based) without the need of being a Luigi Core application.
+     * The <code>luigi.ui5app.control.LuigiContainer</code> is a component to render a Luigi micro frontend (iframe or web component based) without the need of being a Luigi Core application.
      *
      * @author SAP SE
      *
      * @constructor
      * @public
-     * @alias sap.me.shared.LuigiContainer
+     * @alias luigi.ui5app.control.LuigiContainer
      */
     var LuigiContainer = WebComponent.extend("luigi.ui5app.control.LuigiContainer", {
         metadata: {
@@ -204,34 +204,8 @@ sap.ui.define([
     };
 
     /**
-     * Updates the context of the Luigi component by sending a message to the iFrame / Web Component that sets the context
-     *
-     * @public
-     * @name sap.me.shared.LuigiContainer#updateContext
-     * @param contextObj the context data
-     * @param internal internal luigi legacy data
-     * @function
+     * Any additional functions can be commented in the methods array above
     */
-
-    /**
-     * Send a custom message to the referenced iFrame or web component
-     *
-     * @public
-     * @name sap.me.shared.LuigiContainer#sendCustomMessage
-     * @param id the id of the event
-     * @param data data to be sent alongside the custom message
-     * @function
-     */
-
-    /**
-     * Send a message to the Luigi component notifying the alert has been closed
-     *
-     * @public
-     * @name sap.me.shared.LuigiContainer#closeAlert
-     * @param id the id of the alert being closed
-     * @param dismissKey the dismiss key being sent if any
-     * @function
-     */
 
     return LuigiContainer;
 });
@@ -257,7 +231,7 @@ npm i @luigi-project/container
 "devDependencies": {
 [...]
 // Around line 23: 
-"ui5-tooling-modules": "^3.0.8"
+"ui5-tooling-modules": "^3.2.0"
 }
 ```
 
@@ -276,7 +250,6 @@ Go to the `webapp/view/Main.view.xml` file of your UI5 application. Replace the 
 	xmlns:core="sap.ui.core"
 	xmlns:luigi="luigi.ui5app.control"
 	core:require="{
-		formatter: 'luigi/ui5app/model/formatter',
 		core: 'sap/ui/core/Core'
 	}">
 
@@ -287,14 +260,14 @@ Go to the `webapp/view/Main.view.xml` file of your UI5 application. Replace the 
 		id="page"
 		description="{i18n>appDescription}">
 		<content>
-			<luigi:LuigiContainer viewURL="https://sapui5.netweaver.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html " theme="{= core.getConfiguration().getTheme() }"/>
+			<luigi:LuigiContainer viewURL="https://sdk.openui5.org/test-resources/sap/m/demokit/cart/webapp/index.html" theme="{= core.getConfiguration().getTheme() }"/>
 		</content>
 	</Page>
 
 </mvc:View>
 ```
 
-The Luigi micro frontend has the URL `https://sapui5.netweaver.ondemand.com/test-resources/sap/m/demokit/cart/webapp/index.html ` which is a sample shopping application. 
+The Luigi micro frontend has the URL `https://sdk.openui5.org/test-resources/sap/m/demokit/cart/webapp/index.html` which is a sample shopping application. 
 
 3. Run your application:
 
