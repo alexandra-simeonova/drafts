@@ -106,8 +106,6 @@ server:
 3. Create a new folder called `control` in `luigi.ui5app/webapp`. In it, create a file called `LuigiContainer.js` and paste the following content into it: 
 
 ```javascript
-HTMLElement.prototype.attachInvalidate = function() {};
-
 sap.ui.define([
     "sap/ui/core/webc/WebComponent",
     "@luigi-project/container"
@@ -115,21 +113,7 @@ sap.ui.define([
     "use strict";
 
     /**
-     * Constructor for a new <code>LuigiContainer</code>.
-     *
-     * @param {string} [sId] ID for the new control, generated automatically if no ID is given
-     * @param {object} [mSettings] Initial settings for the new control
-     *
-     * @extends sap.ui.core.webc.WebComponent
-     * @class
-     *
-     * The <code>luigi.ui5app.control.LuigiContainer</code> is a component to render a Luigi micro frontend (iframe or web component based) without the need of being a Luigi Core application.
-     *
-     * @author SAP SE
-     *
-     * @constructor
-     * @public
-     * @alias luigi.ui5app.control.LuigiContainer
+     * The luigi.ui5app.control.LuigiContainer is a component to render a Luigi micro frontend (iframe or web component based) without the need of being a Luigi Core application.
      */
     var LuigiContainer = WebComponent.extend("luigi.ui5app.control.LuigiContainer", {
         metadata: {
@@ -150,7 +134,7 @@ sap.ui.define([
                  * Defines whether to load the Luigi component as web component
                  */
                 webComponent: {
-                    type: "any", // boolean, but WebComponentRenderer renders out boolean values as empty attributes, which we have to fix in our attribute formatter
+                    type: "any",
                     defaultValue: false,
                     mapping: {
                         to: "webcomponent",
@@ -195,17 +179,17 @@ sap.ui.define([
                     defaultValue: ""
                 }
             },
-            methods: ["updateContext", "sendCustomMessage", "closeAlert"]
+            methods: [
+                "updateContext", /** Updates the context of the Luigi component */ 
+                "sendCustomMessage", /** Sends a custom message to the referenced iFrame or web component */
+                "closeAlert" /** Sends a message to the Luigi component notifying that the alert has been closed */
+            ] 
         }
     });
 
     LuigiContainer.prototype._mapIsWebComponent = function(vIsWebComponent) {
         return vIsWebComponent !== "false" && vIsWebComponent ? "true" : undefined;
     };
-
-    /**
-     * Any additional functions can be commented in the methods array above
-    */
 
     return LuigiContainer;
 });
