@@ -113,7 +113,7 @@ sap.ui.define([
     "use strict";
 
     /**
-     * The luigi.ui5app.control.LuigiContainer is a component to render a Luigi micro frontend (iframe or web component based) without the need of being a Luigi Core application.
+     * The luigi.ui5app.control.LuigiContainer is a component to render a Luigi micro frontend (iframe or web component based) without the need of it being a Luigi Core application.
      */
     var LuigiContainer = WebComponent.extend("luigi.ui5app.control.LuigiContainer", {
         metadata: {
