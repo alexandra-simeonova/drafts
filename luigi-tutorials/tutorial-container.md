@@ -26,7 +26,7 @@ Normally, Luigi consists of two main parts: **Luigi Core** and **Luigi Client**.
 
 However, a third feature called **Luigi Container** allows you to easily insert Luigi micro frontends anywhere without the need for a Luigi Core application. This feature simplifies the use of Luigi for developers, eliminating the need for significant changes in their applications.
 
-This tutorial will show you how to incorporate micro frontends inside a [UI5](https://sapui5.hana.ondemand.com/sdk/#/) application. Nevertheless, a similar process will also apply to other frontend frameworks such as [Angular](https://angular.io/) or [React](https://react.dev/).
+This tutorial will show you how to incorporate micro frontends inside a [UI5](https://sdk.openui5.org) application. Nevertheless, a similar process will also apply to other frontend frameworks such as [Angular](https://angular.io/) or [React](https://react.dev/).
 
 > **NOTE:** In addition to this tutorial, you can also experiment with the Luigi Container test app on [GitHub](https://github.com/SAP/luigi/tree/main/container/test-app).
 
@@ -36,7 +36,7 @@ This tutorial will show you how to incorporate micro frontends inside a [UI5](ht
 
 ### Install UI5 generator 
 
-1. Open a new command prompt/Terminal window and install the UI5 generator: 
+1. Open a new command prompt/terminal window and install the UI5 generator: 
 
 `npm install -g yo generator-easy-ui5`
 
@@ -44,7 +44,7 @@ This tutorial will show you how to incorporate micro frontends inside a [UI5](ht
 
 `yo`
 
-Make sure the easy-ui5 generator is listed.
+Make sure the `easy-ui5` generator is listed.
 
 ### Create UI5 application 
 
@@ -67,12 +67,12 @@ npm start # or "yarn start"
 
 Luigi Container can be installed via a [npm](https://www.npmjs.com/) package.
 
-To use npm packages in UI5, you need to first install the UI5 Tooling.
+To use npm packages in UI5, you need to first install the tooling extension `ui5-tooling-modules`.
 
 1. In your project directory, run: 
 
 ```shell
-npm i ui5-tooling-modules -D
+npm install ui5-tooling-modules -D
 ```
 
 
@@ -211,27 +211,23 @@ sap.ui.define([
 });
 ```
 
-4. In command prompt/Terminal, download the Luigi Container npm package: 
+4. In command prompt/terminal, download the Luigi Container npm package: 
 
 ```shell
-npm i @luigi-project/container
+npm install @luigi-project/container
 ```
 
-5. Go to the `package-lock.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added:
+5. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added:
 
 ```json
 [...]
-"name": "luigi.ui5app",
-"version": "1.0.0",
-"license": "Apache-2.0",
-  "dependencies": {
-// Around line 11: 
-    "@luigi-project/container": "^1.0.0-rc7"
-  },
 "devDependencies": {
 [...]
-// Around line 23: 
-"ui5-tooling-modules": "^3.2.0"
+//Around line 30
+    "ui5-tooling-modules": "^3.2.0"
+},
+"dependencies": {
+    "@luigi-project/container": "^1.0.0-rc7"
 }
 ```
 
