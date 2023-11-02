@@ -36,7 +36,7 @@ This tutorial will show you how to incorporate micro frontends inside a [UI5](ht
 
 ### Install UI5 generator 
 
-1. Open a new command prompt/terminal window and install the UI5 generator: 
+1. Open a new Command Prompt/Terminal window and install the UI5 generator: 
 
 `npm install -g yo generator-easy-ui5`
 
@@ -76,7 +76,9 @@ npm install ui5-tooling-modules -D
 ```
 
 
-2. In this step, you will add the UI5 tooling task and middleware declaration. Open your application's `ui5.yaml` file. Replace the content with: 
+2. In this step, you will add the UI5 tooling task and middleware declaration. Open your application's `ui5.yaml` file. Replace the content with the one below. 
+
+> **NOTE:** Keep in mind that the OpenUI5 version might be newer in your case.
 
 ```yaml
 specVersion: "3.0"
@@ -85,7 +87,7 @@ metadata:
 type: application
 framework:
   name: OpenUI5
-  version: "1.118.0"
+  version: "1.120.0"
   libraries:
     - name: sap.m
     - name: sap.ui.core
@@ -195,23 +197,25 @@ sap.ui.define([
 });
 ```
 
-4. In command prompt/terminal, download the Luigi Container npm package: 
+4. In Command Prompt/Terminal, download the Luigi Container npm package: 
 
 ```shell
 npm install @luigi-project/container
 ```
 
-5. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added:
+5. Go to the `package.json` file and ensure that the ` @luigi-project/container` and `ui5-tooling-modules` dependencies are added.
+
+> **NOTE:** Keep in mind that the version numbers might be newer in your case.
 
 ```json
 [...]
 "devDependencies": {
 [...]
 //Around line 30
-    "ui5-tooling-modules": "^3.2.0"
+    "ui5-tooling-modules": "^3.2.4"
 },
 "dependencies": {
-    "@luigi-project/container": "^1.0.0-rc7"
+    "@luigi-project/container": "^1.0.0"
 }
 ```
 
